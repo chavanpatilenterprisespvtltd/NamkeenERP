@@ -1,0 +1,14 @@
+V90.fd — Reliability Audit & Compliance
+
+Verification date: 2026-09-09
+Focused/cumulative reliability tests: PASS — 57 passed (tests/test_v90e*.py), including V90.fa/fb/fc/fd coverage.
+Python compilation: PASS.
+CI repository gate: PASS.
+Migration continuity through schema 230: PASS.
+Checksum generation: PASS — 939 files.
+Checksum verification: PASS — 939 files.
+PostgreSQL migration smoke: NOT RUN successfully; no DATABASE_URL/live PostgreSQL instance available. Script reported: DATABASE_URL is required for migration smoke test.
+Full pytest suite: NOT claimed; V90.e-series cumulative suite was run successfully.
+GitHub remote CI/push: NOT performed.
+Vercel production deployment: NOT performed.
+Unauthorized-change detection is workflow-integrity checking, not a database write interceptor.

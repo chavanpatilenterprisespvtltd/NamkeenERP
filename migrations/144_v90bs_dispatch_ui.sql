@@ -1,0 +1,2 @@
+-- V90.bs: dispatch operational UI support schema.
+-- Runtime helper creates the SQLite/PostgreSQL-compatible preference table idempotently.

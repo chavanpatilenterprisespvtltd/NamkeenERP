@@ -1,0 +1,7 @@
+V90.gs build verification
+Focused tests: 2 passed
+Compileall: PASS
+Checksum verification: PASS
+CI repository gate: PASS
+PostgreSQL smoke test: NOT RUN — no live DATABASE_URL/PostgreSQL instance available.
+Known pre-existing OEE defect remains unchanged and unsuppressed.

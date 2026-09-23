@@ -1,0 +1,235 @@
+{
+  "uom": [
+    "kg",
+    "g",
+    "piece",
+    "pack",
+    "carton"
+  ],
+  "products": [
+    {
+      "name": "Special Farsan",
+      "variants": [
+        {
+          "name": "Default",
+          "pack_sizes_g": [
+            500,
+            1000
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Simple / Regular Farsan",
+      "variants": [
+        {
+          "name": "Default",
+          "pack_sizes_g": [
+            500,
+            1000
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Zero Shev – Small Size",
+      "variants": [
+        {
+          "name": "Default",
+          "pack_sizes_g": [
+            500,
+            1000
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Chana Dal",
+      "variants": [
+        {
+          "name": "Default",
+          "pack_sizes_g": [
+            500,
+            1000
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Makka Chivda",
+      "variants": [
+        {
+          "name": "Default",
+          "pack_sizes_g": [
+            500,
+            1000
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Lasoon Shev",
+      "variants": [
+        {
+          "name": "Default",
+          "pack_sizes_g": [
+            500,
+            1000
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Medium Shev",
+      "variants": [
+        {
+          "name": "Default",
+          "pack_sizes_g": [
+            500,
+            1000
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Motichur Boondi",
+      "variants": [
+        {
+          "name": "Default",
+          "pack_sizes_g": [
+            500,
+            1000
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Masala Shenga",
+      "variants": [
+        {
+          "name": "Default",
+          "pack_sizes_g": [
+            500,
+            1000
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Khari Boondi",
+      "variants": [
+        {
+          "name": "Default",
+          "pack_sizes_g": [
+            500,
+            1000
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Papdi",
+      "variants": [
+        {
+          "name": "Default",
+          "pack_sizes_g": [
+            500,
+            1000
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Chilli Milli",
+      "variants": [
+        {
+          "name": "Default",
+          "pack_sizes_g": [
+            500,
+            1000
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sabu Chivda",
+      "variants": [
+        {
+          "name": "Default",
+          "pack_sizes_g": [
+            500,
+            1000
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Batata Chivda",
+      "variants": [
+        {
+          "name": "Default",
+          "pack_sizes_g": [
+            500,
+            1000
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Shev Chivda",
+      "variants": [
+        {
+          "name": "Default",
+          "pack_sizes_g": [
+            500,
+            1000
+          ]
+        }
+      ]
+    }
+  ],
+  "payment_modes": [
+    "UPI",
+    "CASH",
+    "CHEQUE"
+  ],
+  "tax_status": [
+    "CONFIGURE_BEFORE_GO_LIVE"
+  ],
+  "warehouses": [
+    {
+      "code": "RM",
+      "name": "Raw Material"
+    },
+    {
+      "code": "PKG",
+      "name": "Packaging"
+    },
+    {
+      "code": "WIP",
+      "name": "Work In Progress"
+    },
+    {
+      "code": "FG",
+      "name": "Finished Goods"
+    },
+    {
+      "code": "QC",
+      "name": "QC / Quarantine"
+    },
+    {
+      "code": "DISP",
+      "name": "Dispatch"
+    }
+  ],
+  "roles": [
+    "ADMIN",
+    "MANAGEMENT",
+    "MANAGER",
+    "SALES",
+    "FACTORY",
+    "QC",
+    "ACCOUNTS"
+  ],
+  "note": "Pack-size and carton conversions remain configuration-driven; GST/HSN values must be customer-approved before go-live."
+}

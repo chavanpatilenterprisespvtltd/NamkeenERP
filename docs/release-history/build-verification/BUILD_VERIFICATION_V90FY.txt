@@ -1,0 +1,40 @@
+V90.fy BUILD VERIFICATION
+==========================
+Release: v90.fy
+Schema target: 250
+Migration: 250_v90fy_performance_scalability.sql
+
+Focused tests:
+  tests/test_v90fy_performance_scalability.py — 2 passed
+
+Cumulative tests:
+  493 passed, 1 failed, 28 warnings
+  Known pre-existing failure:
+    tests/test_v90db_machine_oee.py::test_machine_oee_calculation
+    expected availability_pct 75.0, actual 0.0
+
+Python compilation:
+  python -m compileall -q app scripts — PASS
+
+Repository CI gate:
+  python scripts/ci_gate.py — PASS
+
+Artifact checksums:
+  python scripts/generate_checksums.py — 1040 files
+  python scripts/verify_checksums.py — PASS
+
+Migration smoke:
+  PYTHONPATH=. python scripts/migration_smoke.py — BLOCKED
+  Reason: DATABASE_URL is required for migration smoke test; no live PostgreSQL instance is configured in this environment.
+
+Packaging:
+  ZIP integrity test — PASS
+
+Remote GitHub CI:
+  Not executed from this environment.
+
+Production deployment/cutover:
+  Not executed from this environment.
+
+External performance infrastructure:
+  No real external load generator, APM/database profiler, or production capacity test was executed. V90.fy records evidence from such runs rather than claiming they occurred.

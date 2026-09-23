@@ -1,0 +1,1 @@
+V90.fh verification record — generated after automated checks. PostgreSQL smoke requires a live DATABASE_URL and is reported separately if unavailable.

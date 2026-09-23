@@ -1,0 +1,21 @@
+Namkeen ERP V90.l Build Verification
+
+Release: v90.l
+Schema target: 85
+Migration range: 061..085 (contiguous)
+
+Cumulative pytest result: 75 passed, 0 failed
+
+Scope implemented:
+- Procurement permissions
+- Purchase requisition creation and submission
+- Supplier quotation/rate capture
+- Purchase order creation
+- Maker/checker PO approval with self-approval block
+- GRN preparation from approved PO
+- Entity/location/warehouse scope enforcement
+- Supplier/product reference validation
+- Planned receipt cannot exceed ordered quantity
+- Default lot-capture flag in GRN preparation
+
+Baseline preserved: V80-V90 and V90.a-V90.k

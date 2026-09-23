@@ -1,0 +1,2 @@
+49169438af11527989a5754d10f4e6aeb84798334248ca90caf6af903c6ab9c1  migrations/066_v77_persistent_master_api.sql
+cac03e2bca93151b12da39486a628b3da9138b156b4926723b800db9cbe34f5e  app/v77/persistent_master.py

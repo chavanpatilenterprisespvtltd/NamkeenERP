@@ -1,0 +1,7 @@
+V90.bn — GRN/QC + Inventory UI
+
+- Full cumulative pytest: 249 passed, 18 pre-existing warnings, 0 failed
+- CI repository gate: passed
+- Migration sequence: 61-139 contiguous and checksums validated
+- Python compilation: passed
+- Artifact checksum verification: passed

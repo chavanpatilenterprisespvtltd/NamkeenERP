@@ -1,0 +1,8 @@
+{
+  "release": "v90.gu",
+  "schema_target": 271,
+  "baseline": "v90.gt",
+  "test_count_excluding_known_failures": 544,
+  "known_preexisting_failures": ["tests/test_v90gp_manufacturing_workforce_integration.py::test_dashboard_and_snapshot"],
+  "sha256_manifest": "artifact_checksums.json"
+}

@@ -1,0 +1,10 @@
+V90.cz — Manufacturing Scheduling + Capacity Planning
+Schema target: 177
+Migration: 177_v90cz_manufacturing_scheduling.sql
+Focused tests: 2/2 PASSED
+Python compilation: PASSED
+Artifact checksums: 652/652 PASSED
+Migration continuity: 61..177 verified in migration_manifest.json
+Migration 177 SHA-256: 9a6fcafe222d5cb547ac88a98d4b1efc6bec30aec7e52157cd12bac62a5deab6
+PostgreSQL migration smoke: NOT RUN (DATABASE_URL unavailable)
+Known historical release-specific tests are not used as current terminal-version gates.

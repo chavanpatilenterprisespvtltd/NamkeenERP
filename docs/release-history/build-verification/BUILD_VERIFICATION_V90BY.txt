@@ -1,0 +1,9 @@
+V90.by verification
+Focused tests: 5/5 PASSED
+CI repository/migration gate: PASSED
+Python compileall: PASSED
+Artifact checksums: 511 VERIFIED
+Full cumulative pytest: started, local 120s window exceeded; NOT CLAIMED PASSED
+Legacy recursive release-integrity test: excluded due known hang
+PostgreSQL migration smoke: not run locally; DATABASE_URL unavailable
+Schema target: 150

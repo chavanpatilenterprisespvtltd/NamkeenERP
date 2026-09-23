@@ -1,0 +1,16 @@
+V90.fb release verification record
+
+Release: v90.fb
+Schema target: 228
+
+Focused test: PASS (2 passed)
+Cumulative V90.e* regression: PASS (57 passed, 9 warnings)
+
+Python compilation: PASS
+CI repository gate: PASS
+Migration continuity: PASS (via CI repository gate)
+Checksum generation/verification: PASS (927 files)
+ZIP integrity: PASS
+PostgreSQL smoke: NOT RUN — no live PostgreSQL DATABASE_URL supplied
+GitHub remote CI/push: NOT RUN
+Vercel production deployment: NOT RUN

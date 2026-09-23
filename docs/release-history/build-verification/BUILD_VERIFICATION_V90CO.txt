@@ -1,0 +1,12 @@
+V90.co — Tally Production Synchronization & Error Reconciliation
+Release: v90.co
+Schema target: 166
+
+Focused tests: 4/4 passed
+Python compilation: passed
+CI repository gate: passed
+Migration continuity: 61-166 contiguous
+Migration checksums: verified
+Artifact checksums: 592 files verified
+PostgreSQL migration smoke: NOT RUN (DATABASE_URL unavailable)
+Known legacy recursive test_v90_release_integrity.py: excluded because it can hang

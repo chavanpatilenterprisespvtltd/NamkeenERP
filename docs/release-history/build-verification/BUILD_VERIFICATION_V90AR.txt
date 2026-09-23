@@ -1,0 +1,7 @@
+V90.ar BUILD VERIFICATION
+=========================
+Full cumulative pytest: 176 passed, 0 failed
+Migration sequence: 61-117 contiguous
+Migration checksums: PASS
+Python compilation: PASS
+Generated pyc/cache artifacts removed: PASS

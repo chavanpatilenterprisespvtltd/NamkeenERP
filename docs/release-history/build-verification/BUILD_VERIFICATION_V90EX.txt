@@ -1,0 +1,22 @@
+V90.ex BUILD VERIFICATION
+
+Release: V90.ex
+Schema: 224
+
+Focused V90.ex test: PASS (2 passed)
+V90.ew regression: PASS (2 passed)
+V90.ev regression: PASS (2 passed)
+V90.es regression: PASS (2 passed)
+V90.er regression: PASS (2 passed)
+V90.eu regression: attempted but did not complete within the available build timeout.
+V90.et regression: not completed after the timeout.
+V90.eq regression: attempted but did not complete within the available build timeout.
+V90.ep regression: not completed after the timeout.
+Python compilation: PASS
+CI repository gate: PASS
+Checksum generation: PASS
+Checksum verification: PASS
+ZIP integrity: PASS after packaging
+PostgreSQL smoke: NOT RUN — no live PostgreSQL DATABASE_URL available.
+GitHub remote CI / push: NOT performed by this build.
+Production deployment: NOT performed by this build.

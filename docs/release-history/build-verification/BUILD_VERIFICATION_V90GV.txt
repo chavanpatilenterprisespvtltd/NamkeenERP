@@ -1,0 +1,11 @@
+V90.gv build verification
+Baseline: V90.gu / schema 271
+Target: V90.gv / schema 272
+Focused tests: see test_v90gv_mobile_exception_reconciliation.py
+PostgreSQL smoke test: NOT RUN — no live DATABASE_URL/PostgreSQL instance available.
+Production deployment: NOT RUN.
+Focused V90.gv + V90.gu + V90.gs + V90.gt tests: 8 passed.
+Compileall: PASS.
+Checksum generation: 1169 files; checksum verification: PASS.
+CI repository gate: PASS.
+Cumulative regression excluding machine_oee_calculation: reached 52% before the 180-second execution timeout; no functional failure was reported before timeout; cumulative suite is NOT a clean runner PASS.

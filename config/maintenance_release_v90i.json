@@ -1,0 +1,8 @@
+{
+  "release": "v90.i",
+  "baseline": "v90.h",
+  "change": "master_data_crud_api_integration",
+  "schema_target": 82,
+  "historical_versions_preserved": true,
+  "test_count": 69
+}

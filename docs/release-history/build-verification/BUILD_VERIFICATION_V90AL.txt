@@ -1,0 +1,19 @@
+Namkeen ERP V90.al — Build Verification
+
+Version: v90.al
+Scope: Receivables & Aging Engine
+Cumulative tests: 158 passed, 0 failed
+Python compileall: PASS
+Migration sequence/checksums: PASS (61..111)
+ZIP integrity: to be verified after packaging
+
+Implemented:
+- Invoice due date support with customer credit-day fallback
+- Customer-wise receivables aging buckets
+- Outstanding reconciliation from posted payment allocations
+- Posted return credit-note reduction at invoice level
+- Overdue receivables endpoint
+- Credit-limit utilization endpoint
+- Collection follow-up recording and visibility
+- Scoped receivables permissions
+- Migration 111

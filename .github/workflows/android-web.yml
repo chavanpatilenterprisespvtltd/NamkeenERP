@@ -1,0 +1,44 @@
+name: Android + Web Build
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  android:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: android-actions/setup-android@v3
+      - run: sdkmanager "platforms;android-35" "build-tools;35.0.0"
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.10'
+      - run: cd android && gradle assembleDebug
+      - uses: actions/upload-artifact@v4
+        with:
+          name: namkeen-erp-android-debug
+          path: android/app/build/outputs/apk/debug/app-debug.apk
+  web:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m compileall -q app web scripts tests
+      - run: python - <<'PY'
+          from pathlib import Path
+          assert Path('web/index.html').is_file()
+          assert Path('web/assets/app.css').is_file()
+          assert Path('android/settings.gradle.kts').is_file()
+          assert Path('android/app/build.gradle.kts').is_file()
+          print('web/android integration assets present')
+        PY

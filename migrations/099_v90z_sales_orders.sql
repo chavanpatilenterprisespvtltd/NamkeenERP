@@ -1,0 +1,1 @@
+-- V90.z sales order foundation; runtime module creates compatible tables for SQLite/PostgreSQL.

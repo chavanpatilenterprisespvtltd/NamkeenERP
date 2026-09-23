@@ -1,0 +1,11 @@
+V90.aw BUILD VERIFICATION
+
+Release: V90.aw
+Schema target: 122
+Migration: 122_v90aw_returns_analytics_rework.sql
+Migration SHA-256: 9754cd8ebab3269a7e70cb27aec3dc6ac58f3663bb48d0cbf15abf8962e7aad4
+Migration range: 61-122 contiguous
+Cumulative tests: 189 passed, 18 warnings, 0 failed
+Python compileall: PASS
+Release ZIP excludes __pycache__, *.pyc, and local database files.
+Feature scope: return analytics; damage/expiry analytics; return analytics snapshots; repack/rework cost-accounting jobs.

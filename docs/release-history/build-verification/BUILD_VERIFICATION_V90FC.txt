@@ -1,0 +1,14 @@
+V90.fc BUILD VERIFICATION
+==========================
+Release: v90.fc
+Schema target: 229
+
+Focused tests: PASS — 4 passed (V90.fb + V90.fc)
+Python compileall: PASS
+CI repository gate: PASS
+Checksum generation: PASS — 931 files
+Checksum verification: PASS — 931 files
+PostgreSQL migration smoke: NOT RUN SUCCESSFULLY — live DATABASE_URL/PostgreSQL unavailable
+Full pytest suite: NOT CLAIMED COMPLETE
+Remote GitHub CI/push: NOT PERFORMED
+Vercel production deployment: NOT PERFORMED

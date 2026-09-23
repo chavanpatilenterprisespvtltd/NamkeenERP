@@ -1,0 +1,2 @@
+action,master_type,master_id,entity_id,effective_from,effective_to,base_version_no,data_json
+CREATE,PRODUCT,,,,,,"{""code"":""P001"",""name"":""Example Product""}"

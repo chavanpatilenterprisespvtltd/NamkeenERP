@@ -1,0 +1,9 @@
+V90.ca Accounting Posting + Tally Adapter
+Focused tests: 5 passed (V90.ca + V90.bz accounting compatibility)
+Python compilation: passed
+CI repository gate: passed
+Artifact checksums: 523 verified
+Migration target: 152
+Migration smoke: not run; DATABASE_URL unavailable
+Known legacy recursive release-integrity test: excluded because it can hang
+Full cumulative suite: not claimed; local run exceeded timeout and surfaced legacy compatibility failures outside V90.ca scope

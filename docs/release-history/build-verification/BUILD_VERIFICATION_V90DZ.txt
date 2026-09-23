@@ -1,0 +1,25 @@
+V90.dz local build verification
+
+Release: V90.dz
+Schema target: 201
+Migration: 201_v90dz_workforce_overtime_standards.sql
+
+Focused feature/regression tests:
+  pytest -q tests/test_v90dz_workforce_overtime_standards.py tests/test_v90dy_workforce_productivity_kpi.py tests/test_v90dx_workforce_cost_reconciliation.py tests/test_v90dw_workforce_training_compliance.py tests/test_v90dv_workforce_budgeting.py tests/test_v90du_workforce_benchmarking.py tests/test_v90ds_training_optimization.py tests/test_v90dr_capacity_skills.py tests/test_v90dq_workforce_planning.py tests/test_v90dt_workforce_forecasting.py --disable-warnings
+
+Python compilation:
+  python -m compileall -q app scripts tests
+
+CI repository gate:
+  python scripts/ci_gate.py
+
+Artifact checksums:
+  python scripts/generate_checksums.py
+  python scripts/verify_checksums.py
+
+Migration smoke:
+  PYTHONPATH=. python scripts/migration_smoke.py
+  Result: not run against PostgreSQL because no live DATABASE_URL/PostgreSQL instance is available; script exited with: DATABASE_URL is required for migration smoke test
+
+Full pytest suite / GitHub Actions / production deployment:
+  Reported only if actually completed.

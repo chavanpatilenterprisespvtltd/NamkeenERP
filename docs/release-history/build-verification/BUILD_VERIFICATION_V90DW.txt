@@ -1,0 +1,37 @@
+V90.dw local build verification
+
+Release: V90.dw
+Schema target: 198
+Migration: 198_v90dw_workforce_training_compliance.sql
+
+Focused regression/feature tests:
+  pytest -q tests/test_v90dw_workforce_training_compliance.py tests/test_v90dv_workforce_budgeting.py tests/test_v90du_workforce_benchmarking.py tests/test_v90ds_training_optimization.py tests/test_v90dr_capacity_skills.py tests/test_v90dq_workforce_planning.py tests/test_v90dt_workforce_forecasting.py --disable-warnings
+  Result: 10 passed
+
+Python compilation:
+  python -m compileall -q app scripts tests
+  Result: passed
+
+CI repository gate:
+  python scripts/ci_gate.py
+  Result: passed
+
+Artifact checksums:
+  python scripts/generate_checksums.py
+  Result: 763 files
+  python scripts/verify_checksums.py
+  Result: passed, 763 files
+
+Full pytest suite:
+  pytest -q --disable-warnings
+  Result: not completed; process exceeded the 300-second execution limit. No full-suite pass is claimed.
+
+PostgreSQL migration smoke test:
+  Not run because no live DATABASE_URL/PostgreSQL instance is available.
+  The migration smoke script was additionally checked with PYTHONPATH=. and correctly stopped with DATABASE_URL is required.
+
+GitHub Actions / remote CI:
+  Not run or claimed.
+
+Git commit / deployment:
+  Not claimed.

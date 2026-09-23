@@ -1,0 +1,15 @@
+V90.ed — Factory Bottleneck Scenario Simulation + Capacity Optimization
+Schema target: 205
+Focused cumulative regression: PASS — 34 passed
+Full pytest suite: PASS — 381 passed, 18 warnings, 0 failures
+Python compilation: PASS
+CI repository gate: PASS
+Migration continuity: PASS through 205
+Migration 205 SQLite DDL execution: PASS — 3 tables created
+V90.ed API scenario simulation with SQLite engine: PASS
+Checksum generation: PASS — 805 files
+Checksum verification: PASS — 805 files
+PostgreSQL migration smoke test: NOT RUN — no live DATABASE_URL/PostgreSQL instance available
+GitHub Actions remote CI: not run/claimed
+Git commit: not claimed
+Production deployment: not claimed

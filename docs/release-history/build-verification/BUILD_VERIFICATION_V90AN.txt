@@ -1,0 +1,8 @@
+V90.an BUILD VERIFICATION
+=========================
+Cumulative pytest: 162 passed, 0 failed
+Python compileall: PASS
+Migration manifest: versions 61-113 contiguous; checksum for migration 113 verified
+Release manifest: v90.an / schema target 113
+SQLite/local database artifacts removed from release package
+ZIP integrity: verified after packaging

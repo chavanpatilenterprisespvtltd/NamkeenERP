@@ -1,0 +1,6 @@
+-- V90.gr: Mobile/offline operational execution command layer.
+-- Transactional tables are created by ensure_v90gr_schema for SQLite/PostgreSQL compatibility.
+-- This migration records the ordered schema milestone for deployment tooling.
+CREATE TABLE IF NOT EXISTS mobile_execution_sessions (session_id TEXT PRIMARY KEY, organization_id TEXT NOT NULL, entity_id TEXT NOT NULL, location_id TEXT NULL, device_id TEXT NOT NULL, worker_user_id TEXT NOT NULL, status TEXT NOT NULL DEFAULT 'OPEN', started_at TEXT NOT NULL, ended_at TEXT NULL, last_sequence INTEGER NOT NULL DEFAULT 0);
+CREATE TABLE IF NOT EXISTS mobile_execution_events (event_id TEXT PRIMARY KEY, session_id TEXT NOT NULL, organization_id TEXT NOT NULL, entity_id TEXT NOT NULL, location_id TEXT NULL, device_id TEXT NOT NULL, sequence_no INTEGER NOT NULL, event_type TEXT NOT NULL, reference_type TEXT NULL, reference_id TEXT NULL, payload_json TEXT NOT NULL, client_event_id TEXT NOT NULL, received_at TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS mobile_execution_exceptions (exception_id TEXT PRIMARY KEY, event_id TEXT NOT NULL, organization_id TEXT NOT NULL, entity_id TEXT NOT NULL, location_id TEXT NULL, exception_code TEXT NOT NULL, message TEXT NOT NULL, status TEXT NOT NULL DEFAULT 'OPEN', created_at TEXT NOT NULL, resolved_at TEXT NULL, resolved_by TEXT NULL);

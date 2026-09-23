@@ -1,0 +1,9 @@
+{
+  "approval_required": true,
+  "self_approval_allowed": false,
+  "effective_dating_required_for": ["TAX_PROFILE", "HSN", "PRICE_LIST", "UOM_CONVERSION", "ACCOUNTING_LEDGER_MAPPING"],
+  "historical_snapshot_required": true,
+  "organization_scoped": true,
+  "entity_scoped_optional": true,
+  "deactivate_requires_reason": true
+}

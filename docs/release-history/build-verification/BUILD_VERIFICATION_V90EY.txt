@@ -1,0 +1,14 @@
+V90.ey BUILD VERIFICATION
+Release: v90.ey
+Schema: 225
+
+Focused cumulative regression: 8 passed
+Python compileall: PASS
+CI repository gate: PASS
+Migration continuity: PASS through 225
+Checksum generation: 909 files
+Checksum verification: PASS 909 files
+PostgreSQL smoke: NOT RUN (no live PostgreSQL/DATABASE_URL available)
+Full pytest: NOT CLAIMED; focused cumulative regression completed
+GitHub remote CI/push: NOT PERFORMED
+Vercel production deployment: NOT PERFORMED

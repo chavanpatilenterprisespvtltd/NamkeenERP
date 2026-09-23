@@ -1,0 +1,8 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Namkeen ERP v81</title><link rel="stylesheet" href="/v81/static/styles.css"></head>
+<body><div class="shell"><header><h1>Namkeen ERP</h1><span>v81 Structured Master Administration</span></header>
+<section class="toolbar"><label>Organization ID<input id="org" placeholder="UUID"></label><label>Master Type<select id="type"></select></label><label>Search<input id="q" placeholder="code / name / SKU"></label><button id="load">Load</button><button id="new">New</button></section>
+<main><section class="card"><h2>Masters</h2><table id="table"><thead><tr><th>Key</th><th>ID</th><th>Version</th><th>Active</th><th>Effective</th><th>Action</th></tr></thead><tbody></tbody></table></section>
+<section class="card"><h2>Change Queue</h2><div id="queue"><span class="muted">Load organization.</span></div></section>
+<section class="card"><h2>History</h2><pre id="history">Select History.</pre></section></main>
+<dialog id="dlg"><form method="dialog" id="form"><h3 id="form-title">Master Change</h3><div id="fields"></div><label>Requester UUID<input id="requester" required></label><label>Entity UUID<input id="entity"></label><label>Effective From<input id="efffrom" type="datetime-local"></label><label>Effective To<input id="effto" type="datetime-local"></label><label>Base Version<input id="basever" type="number"></label><input type="hidden" id="mid"><input type="hidden" id="action"><div class="actions"><button value="cancel">Cancel</button><button id="submit">Submit for approval</button></div></form></dialog>
+</div><script src="/v81/static/app.js"></script></body></html>

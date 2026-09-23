@@ -1,0 +1,14 @@
+{
+  "release": "v90.h",
+  "schema_target": 81,
+  "tests_passed": 67,
+  "stage": "master_data_scoping",
+  "cumulative_baseline": "V80-V90 + V90.a-V90.h",
+  "new_files": [
+    "migrations/081_v90h_master_scope.sql",
+    "app/master_scope.py",
+    "app/v90h.py",
+    "tests/test_v90h_master_scope.py",
+    "docs/V90_H_MASTER_SCOPE.md"
+  ]
+}

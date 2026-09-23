@@ -1,0 +1,3 @@
+-- v78 historical compatibility migration placeholder.
+-- The v78 package recorded this schema point externally; this no-op file preserves
+-- contiguous migration numbering for consolidated deployments built from v79+.

@@ -1,0 +1,6 @@
+{
+  "release": "v90.k",
+  "schema_target": "84",
+  "maintenance_stage": "v90.k",
+  "feature": "supplier_customer_warehouse_bin_workflows"
+}

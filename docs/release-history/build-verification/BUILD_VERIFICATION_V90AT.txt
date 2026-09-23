@@ -1,0 +1,8 @@
+V90.at — Sales MIS + Distributor/Dealer/Territory Reporting
+
+Full regression: 180 passed, 0 failed.
+Migration target: 119.
+Migration chain: 61 through 119 contiguous.
+Python compile: PASS.
+Release metadata: PASS (v90.at / schema 119).
+Package excludes __pycache__, .pyc, local SQLite/database artifacts.

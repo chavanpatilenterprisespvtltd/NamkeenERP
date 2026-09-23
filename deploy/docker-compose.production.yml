@@ -1,0 +1,74 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:?POSTGRES_DB is required}
+      POSTGRES_USER_FILE: ${POSTGRES_USER_FILE:?POSTGRES_USER_FILE is required}
+      POSTGRES_PASSWORD_FILE: ${POSTGRES_PASSWORD_FILE:?POSTGRES_PASSWORD_FILE is required}
+    secrets:
+      - postgres_user
+      - postgres_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$(cat $$POSTGRES_USER_FILE) -d $${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+
+  api:
+    build:
+      context: ..
+      dockerfile: docker/api.Dockerfile
+    restart: unless-stopped
+    env_file:
+      - ../config/.env.production.example
+    environment:
+      APP_ENV: ${APP_ENV:-production}
+      APP_VERSION: ${APP_VERSION:-v90.gw}
+    secrets:
+      - database_url
+      - jwt_secret
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test: ["CMD-SHELL", "python -c \"import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=3)\"\"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+
+  worker:
+    build:
+      context: ..
+      dockerfile: docker/worker.Dockerfile
+    restart: unless-stopped
+    env_file:
+      - ../config/.env.production.example
+    environment:
+      APP_ENV: ${APP_ENV:-production}
+      APP_VERSION: ${APP_VERSION:-v90.gw}
+    secrets:
+      - database_url
+      - jwt_secret
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+secrets:
+  postgres_user:
+    file: ${POSTGRES_USER_FILE:?POSTGRES_USER_FILE is required}
+  postgres_password:
+    file: ${POSTGRES_PASSWORD_FILE:?POSTGRES_PASSWORD_FILE is required}
+  database_url:
+    file: ${DATABASE_URL_FILE:?DATABASE_URL_FILE is required}
+  jwt_secret:
+    file: ${JWT_SECRET_FILE:?JWT_SECRET_FILE is required}
+
+volumes:
+  postgres_data:

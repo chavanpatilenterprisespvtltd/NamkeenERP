@@ -1,0 +1,18 @@
+V90.ei BUILD VERIFICATION
+=========================
+Release: V90.ei
+Schema target: 210
+
+Verified:
+- Python compileall: PASS
+- Focused V90.ei/maintenance/OEE/regression tests: 8 passed
+- Full pytest suite: 391 passed, 27 warnings, 0 failures
+- CI repository gate: PASS
+- Migration continuity: PASS through 210
+- Migration 210 SQLite DDL execution: PASS (3 tables)
+- Checksum generation: PASS
+- Checksum verification: PASS
+- PostgreSQL migration smoke test: NOT RUN — no live DATABASE_URL/PostgreSQL instance available
+- GitHub Actions remote CI: NOT RUN/CLAIMED
+- Git commit: NOT CLAIMED
+- Production deployment: NOT CLAIMED

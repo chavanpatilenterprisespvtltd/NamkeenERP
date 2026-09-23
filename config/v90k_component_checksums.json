@@ -1,0 +1,12 @@
+{
+  "app/v90k_operational_master.py": "39278ee7fc8e95c9059174bb931e5b3fb151a69c3241d70449d083e3fbfcab6a",
+  "app/__main__.py": "d54be881e8494d95ff8253c6fe2f6f849a4ef11551b1fa46d74fc8e144788e8e",
+  "migrations/084_v90k_operational_master_workflows.sql": "b743b25d889595b276d5936a027a4b0fce61cd2cdaa69074da49939e1a0bbabb",
+  "config/release_manifest.json": "a7cfd5b6e9fab521f3fb7cf017fc1f67dd54d4248f9bf749245a35ebfcfedf22",
+  "config/migration_manifest.json": "418e6cf3307b418d80a620c3d43ad79c3eb7ce1e71d6595a942d6efe35e82907",
+  "config/maintenance_release_v90k.json": "bc02c4edb6c89a870ce75d1d66fb492bfbd8e8f562f261be1fda009504680b96",
+  "docs/V90_K_OPERATIONAL_MASTER_WORKFLOWS.md": "50cdbc9465d154ccf9de0176a1616cfc3849255930e27a642d263c32eb831c57",
+  "tests/test_v90k_operational_masters.py": "0ea900f19bd78aa1dddf04d71e5f2224ac5afa4d76910ec12efc49ef22fcf1a2",
+  "RELEASE_NOTES_V90K.md": "4fa82c9c298f9031f4aeffa6214b84c7bda807361931732ac14126fb2c0052f0",
+  "README.md": "8b51c5fa361cd77cab4354e05eefcfdcacd54ba86014e5fdf92d386e3f1fa60d"
+}

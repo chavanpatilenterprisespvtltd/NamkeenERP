@@ -1,0 +1,20 @@
+V90.ej build verification
+
+Release: v90.ej
+Schema target: 211
+
+Verified:
+- Python compileall: PASS
+- V90.ej focused / maintenance integration tests: 10 passed
+- Full pytest suite: 393 passed, 27 warnings, 0 failures
+- CI repository gate: PASS
+- Migration continuity: PASS through 211
+- Migration 211 SQLite DDL: PASS (3 tables)
+- Migration 211 manifest SHA: MATCH
+- Checksum generation: 837 files
+- Checksum verification: PASS (837 files)
+- ZIP integrity: PASS (after packaging)
+- PostgreSQL migration smoke test: NOT RUN — no live DATABASE_URL / PostgreSQL instance available
+- GitHub Actions remote CI: not run/claimed
+- Git commit: not claimed
+- Production deployment: not claimed

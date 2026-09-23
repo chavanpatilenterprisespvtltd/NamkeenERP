@@ -1,0 +1,99 @@
+# FILE PATH: .github/workflows/ci.yml
+# [Session CS1] FIX — VALIDATE-AND-TEST JOB HAS NO PYTEST INSTALLED, SO "PYTEST -Q" CANNOT RUN.
+# Confirmed live this session via a local reproduction: `python -m venv` + `pip install -r
+# requirements.txt` (no other install step) + `python -m pytest --version` raised
+# "No module named pytest" in this sandbox. requirements.txt only lists fastapi, uvicorn,
+# sqlalchemy and psycopg — none of which pulls in pytest. The migration-smoke job below
+# was unaffected because it already runs `pip install -r requirements.txt pytest` inline.
+#
+# ROOT CAUSE: validate-and-test's only install step was `pip install -r requirements.txt`,
+# which never included pytest (or httpx, which fastapi's TestClient needs).
+#
+# THE FIX: added one step installing requirements-dev.txt (pytest, httpx) right after the
+# existing requirements.txt install, in validate-and-test only. migration-smoke, the job
+# steps' order, the Postgres service config, ci_gate.py, compileall, and verify_checksums.py
+# are all unchanged.
+# NOT RUN: the actual GitHub Actions run for this repository — this fix was verified against
+# a local reproduction of the same failure, not against the live workflow log. Confirm on the
+# next push that "ERP CI" goes green before assuming this is the only remaining cause.
+# The "android-web.yml" workflow failure is separate and was NOT diagnosed by this change.
+
+name: ERP CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-and-test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: erp
+          POSTGRES_PASSWORD: erp_ci
+          POSTGRES_DB: erp_ci
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U erp -d erp_ci"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      DATABASE_URL: postgresql+psycopg://erp:erp_ci@localhost:5432/erp_ci
+      JWT_SECRET: ci-only-not-for-production
+      ERP_ENV: ci
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: python -m pip install --upgrade pip
+      - run: pip install -r requirements.txt
+      # [Session CS1] FIX — see file header. This step was missing; pytest/httpx were never installed.
+      - run: pip install -r requirements-dev.txt
+      - name: Repository and migration gate
+        run: python scripts/ci_gate.py
+      - name: Run cumulative tests
+        run: pytest -q --disable-warnings
+      - name: Compile Python
+        run: python -m compileall -q app scripts tests
+      - name: Verify checksums
+        run: python scripts/verify_checksums.py
+
+  migration-smoke:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: erp
+          POSTGRES_PASSWORD: erp_ci
+          POSTGRES_DB: erp_ci
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U erp -d erp_ci"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      DATABASE_URL: postgresql+psycopg://erp:erp_ci@localhost:5432/erp_ci
+      JWT_SECRET: ci-only-not-for-production
+      ERP_ENV: ci
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt pytest
+      - run: python scripts/migration_smoke.py

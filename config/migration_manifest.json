@@ -1,0 +1,1074 @@
+{
+  "migrations": [
+    {
+      "version": 61,
+      "filename": "061_v72_release_uat.sql",
+      "sha256": "0540f84375cc445ae40675a61f29e235a9f253beb343608e831450c73f1f15e0"
+    },
+    {
+      "version": 62,
+      "filename": "062_v73_customer_deployment.sql",
+      "sha256": "302ba4f3b85e60b77c7fa8998e7e4d70ca2a61491f3dfb4a5874d0f58f6139e0"
+    },
+    {
+      "version": 63,
+      "filename": "063_v74_first_customer_bootstrap.sql",
+      "sha256": "8da50ae5717f6d3a1897ed424d4fdaed05ba164a98733b9d415e2def3d2e8bca"
+    },
+    {
+      "version": 64,
+      "filename": "064_v75_master_data_administration.sql",
+      "sha256": "26516c85f074194482f5842d69a1cd23ee2c68bf221fff2fe50f9c426db1670a"
+    },
+    {
+      "version": 65,
+      "filename": "065_v76_master_data_api_ui.sql",
+      "sha256": "d564e3deb27860042f5859527882cd53f9058f032d3970d582a8921f663e2fc8"
+    },
+    {
+      "version": 66,
+      "filename": "066_v77_persistent_master_api.sql",
+      "sha256": "49169438af11527989a5754d10f4e6aeb84798334248ca90caf6af903c6ab9c1"
+    },
+    {
+      "version": 67,
+      "filename": "067_v78_master_data_ui_integration.sql",
+      "sha256": "b4c9eac3fa809091586b8c9ad6541aea19763834447d5de91dd3a7c05fa5868a"
+    },
+    {
+      "version": 68,
+      "filename": "068_v79_bulk_master_import_export.sql",
+      "sha256": "1b6a95e93ee3cbd1275a1997009f3baee100c4300c2b1f646b8fc3b3b23a016b"
+    },
+    {
+      "version": 69,
+      "filename": "069_v80_master_data_ui_integration.sql",
+      "sha256": "7608eb1c05bdd59e90ae3e7a81b7d3c5a80e71b4389ce740df2ceabfc6f284a1"
+    },
+    {
+      "version": 70,
+      "filename": "070_v82_dependent_master_lookups.sql",
+      "sha256": "77df701fe62e8d2cb85a3dbb5037cae5fec4fa9992afdd503434919778524dc9"
+    },
+    {
+      "version": 71,
+      "filename": "071_v83_dependent_master_ui.sql",
+      "sha256": "7f1450e39c310b74724383c5a97526d003e7cf2220cc9d825879190c56ef986d"
+    },
+    {
+      "version": 72,
+      "filename": "072_v84_master_validation.sql",
+      "sha256": "1e457bc3cfffca9acf2fd519f587d1efde70af3d9a1e650c98b38b2d72214a74"
+    },
+    {
+      "version": 73,
+      "filename": "073_v85_master_validation_gate.sql",
+      "sha256": "4f98d2274c50f6036ea605babf3eb56056286895738fd7e8540da50f5178279d"
+    },
+    {
+      "version": 74,
+      "filename": "074_v86_master_validation_persistence.sql",
+      "sha256": "01832b57d211ee7b7f7469baf09064f90ca280a42db8c68d3a28d67d83162769"
+    },
+    {
+      "version": 75,
+      "filename": "075_v87_approval_queue_ui.sql",
+      "sha256": "3db9fe184172395dc120fb01a7803379d60ee7ca48b4906f32b8f615d1725d61"
+    },
+    {
+      "version": 76,
+      "filename": "076_v88_bulk_master_operational.sql",
+      "sha256": "b4c96232b44dca86cc5b42cc2a2e0791d60af44ac9c88f3d2d904083621b6202"
+    },
+    {
+      "version": 77,
+      "filename": "077_v89_release_gate_audit.sql",
+      "sha256": "4b8331eb94bd9336dc87ef9e2ca1524d7d28a4e7ccd759dfc364fcf7f386bfc2"
+    },
+    {
+      "version": 78,
+      "filename": "078_v90_go_live_release.sql",
+      "sha256": "10d7dbc37688855d64452f84e73cdda5fc003750c019ad8da4f16d752d28c443"
+    },
+    {
+      "version": 79,
+      "filename": "079_v90f_org_structure.sql",
+      "sha256": "3b6bf5627bdb4f8d72ffe26fd4af0bdd79a44c92f72629842ea13d637f546aaf"
+    },
+    {
+      "version": 80,
+      "filename": "080_v90g_access_scope.sql",
+      "sha256": "0405c5c2f021d99c520814de8af956560c715d2eb225c221c77bc968e5e1c836"
+    },
+    {
+      "version": 81,
+      "filename": "081_v90h_master_scope.sql",
+      "sha256": "469d2c7f3b289eef69e0e720b8197a56d706d344011ce389df6cb757bbd2202e"
+    },
+    {
+      "version": 82,
+      "filename": "082_v90i_master_data_api.sql",
+      "sha256": "9b0dfe695ab1f798b055d9b8c084c5e84c857d2c68b4d5ad69c28d110554899d"
+    },
+    {
+      "version": 83,
+      "filename": "083_v90j_product_master_workflows.sql",
+      "sha256": "f19afd3a0372a95ee9f7e088ebc639fe376d8729b33b861eefadff815c69ccf0"
+    },
+    {
+      "version": 84,
+      "filename": "084_v90k_operational_master_workflows.sql",
+      "sha256": "b743b25d889595b276d5936a027a4b0fce61cd2cdaa69074da49939e1a0bbabb"
+    },
+    {
+      "version": 85,
+      "filename": "085_v90l_procurement_foundation.sql",
+      "sha256": "9b364ac832c527d3d9ea62c03cfaab3196302cdf8ccd77075b5adcd0363bceb6"
+    },
+    {
+      "version": 86,
+      "filename": "086_v90m_receiving_qc_inventory.sql",
+      "sha256": "628b8ad3d4dc16196a8f94c472074023b8debf6923dbae048e2d4c33b02b5d8e"
+    },
+    {
+      "version": 87,
+      "filename": "087_v90n_inventory_ops.sql",
+      "sha256": "21319a0505615dde786b75c2577b465e8f8b4ae198561219e5fcf0811fa79077"
+    },
+    {
+      "version": 88,
+      "filename": "088_v90o_production_planning.sql",
+      "sha256": "c3048ff5b5e2ba434ff6bd461854d5a87d4b4dd2cbf1f8dc6f6d0b6a8736dc24"
+    },
+    {
+      "version": 89,
+      "filename": "089_v90p_recipe_bom_material_requirements.sql",
+      "sha256": "4c53e137ebcc453bf4f3a261bfc0535e065b6a7f525776466f127022883c584e"
+    },
+    {
+      "version": 90,
+      "filename": "090_v90q_material_reservation_production_orders.sql",
+      "sha256": "324f1bbf6cd9662d0ee6c93e6c58087e45435c84af14695bde73fe63336b3545"
+    },
+    {
+      "version": 91,
+      "filename": "091_v90r_production_execution.sql",
+      "sha256": "e74f3dc943907b231442fb5e744f56a05d55d5d5656d560b767b1504550f471a"
+    },
+    {
+      "version": 92,
+      "filename": "092_v90s_production_process_logging.sql",
+      "sha256": "6705c73fb5e3f2b216535e3f049c7010e4acb8bcbcb9089aa55bb6704ee377de"
+    },
+    {
+      "version": 93,
+      "filename": "093_v90t_process_controls_qc.sql",
+      "sha256": "145f4bd29c13689ba7aa0d02c14e8d732d444f48e5c24669be38f1a5ee086767"
+    },
+    {
+      "version": 94,
+      "filename": "094_v90u_batch_output_yield.sql",
+      "sha256": "8edd5685e2cf255881e72eb7027b05ec06031452635c2f89453998538d481be8"
+    },
+    {
+      "version": 95,
+      "filename": "095_v90v_finished_goods_receipt.sql",
+      "sha256": "1b3174a9a91eaad9da02e2adbaf63eaac1eb1ea724e1182a3421dbe61f2bf8be"
+    },
+    {
+      "version": 96,
+      "filename": "096_v90w_packing_sku_conversion.sql",
+      "sha256": "e4ac69a1d6242843529ddf9d2540b4f0662bbc219f1a5149515a40bfc698eaac"
+    },
+    {
+      "version": 97,
+      "filename": "097_v90x_packing_qc.sql",
+      "sha256": "b5f9e07e3e30e0632803532292a3171876d86d5d3ff934eeed00d40bb4540685"
+    },
+    {
+      "version": 98,
+      "filename": "098_v90y_fg_fefo_dispatch.sql",
+      "sha256": "d6358534bc4644d038b53a75acc935a44674c747a6e67be0d8ef4d9e2dfba76e"
+    },
+    {
+      "version": 99,
+      "filename": "099_v90z_sales_orders.sql",
+      "sha256": "0a9a20a213029c6d8c234e0e6a8f1324a857a4f7b70a0d5908b282e913d99ced"
+    },
+    {
+      "version": 100,
+      "filename": "100_v90aa_price_margin_negotiation.sql",
+      "sha256": "f8e4bcb44598a2b1aa3a48e7e50ecd072d81f175311a90bae56dadbfecc1c176"
+    },
+    {
+      "version": 101,
+      "filename": "101_v90ab_incentive_rules.sql",
+      "sha256": "29c47c1fa41e6f5ced57975e5ffe60bcfd807c8cd5ee999894123500b033e5bc"
+    },
+    {
+      "version": 102,
+      "filename": "102_v90ac_credit_payment.sql",
+      "sha256": "5835d1027aacb8d9fd0216a0eeddace30beadedefc3852a0d199dbb63e4cc815"
+    },
+    {
+      "version": 103,
+      "filename": "103_v90ad_sales_credit_integration.sql",
+      "sha256": "d4b1eb0064edea9dea74efea721def7db4e0613e867580e2b0abe93c308de31f"
+    },
+    {
+      "version": 104,
+      "filename": "104_v90ae_sales_order_allocation.sql",
+      "sha256": "306d0a7378ea3fbf6d1f67e005418b1234f3a06d42fcb0cb873957ba5685b5f6"
+    },
+    {
+      "version": 105,
+      "filename": "105_v90af_dispatch_pick.sql",
+      "sha256": "333056fe3aff8cec6577de1ff8ae676641c9c070875755059b0a7a77751b8f74"
+    },
+    {
+      "version": 106,
+      "filename": "106_v90ag_dispatch_execution.sql",
+      "sha256": "b054b63e5ae33454a7bae843a888913a3815f3e85e0f8f0eaa852be14c47d83c"
+    },
+    {
+      "version": 107,
+      "filename": "107_v90ah_returns_reverse_logistics.sql",
+      "sha256": "acd589a8d4b55b003c072ba163d0a875239af8ec20ad1c67b11f27015e09ce68"
+    },
+    {
+      "version": 108,
+      "filename": "108_v90ai_return_disposition.sql",
+      "sha256": "8adf2b2577fe10ba8ada7b6ab5f886bc2a32d1f3a221c6b4d4f37540ca1b8b7c"
+    },
+    {
+      "version": 109,
+      "filename": "109_v90aj_return_accounting.sql",
+      "sha256": "8f8155ef05bb7a09db1f2350edaa814d123f34731d58a18cb6ba8aab7739ee7e"
+    },
+    {
+      "version": 110,
+      "filename": "110_v90ak_collections_payment_lifecycle.sql",
+      "sha256": "abbb7008bd59c016ccf3739439584d619cf65a39a7f5be9dd725f2ca24aba867"
+    },
+    {
+      "version": 111,
+      "filename": "111_v90al_receivables_aging.sql",
+      "sha256": "59f30a6c39c50524755651ae009165b3dc8c66c3e21b0f8286bb1354dced8fb7"
+    },
+    {
+      "version": 112,
+      "filename": "112_v90am_bank_reconciliation.sql",
+      "sha256": "264870301965d329bd7159a833d94fa7691cf0fb1bfe854355f66d69a4cdd125"
+    },
+    {
+      "version": 113,
+      "filename": "113_v90an_production_sales_integration.sql",
+      "sha256": "c0b3ebaa26cbb44b53989d25876b423a7d1fc1bf273b31a1f82bc78dc39849f4"
+    },
+    {
+      "version": 114,
+      "filename": "114_v90ao_integration_uat_release_verification.sql",
+      "sha256": "583ef80d1499cb0631c915d2d368a5bbcf668105d899c69520f74843089e45ee"
+    },
+    {
+      "version": 115,
+      "filename": "115_v90ap_supplier_payables.sql",
+      "sha256": "02adf77a4eb153614a20eaf8ad54cb5f803de9504d7599768aebad199435b672"
+    },
+    {
+      "version": 116,
+      "filename": "116_v90aq_cost_accounting.sql",
+      "sha256": "cb6d4115763bdc8a11be83d353be491876b731e166285bfbeefb71c2cdbdb928"
+    },
+    {
+      "version": 117,
+      "filename": "117_v90ar_variance_analysis.sql",
+      "sha256": "6075bf9dc2c2bca06c4783ea6ddfb9125377799699b258b022a27327083c5441"
+    },
+    {
+      "version": 118,
+      "filename": "118_v90as_factory_kpi_mis.sql",
+      "sha256": "722c0c33a59416b73e638c19dd71b7f7bcd685c1fae6ac432487633bd7337be1"
+    },
+    {
+      "version": 119,
+      "filename": "119_v90at_sales_mis_territory_reporting.sql",
+      "sha256": "8c1dc31f1fe698e251f4ae3ee80956782fd358018801597f542820ddd669d49d"
+    },
+    {
+      "version": 120,
+      "filename": "120_v90au_sales_portfolio.sql",
+      "sha256": "b2a4a1490ba0da5cc23750afdf5c0d33d3f5e6c7dd7ced8e05b723b912a58266"
+    },
+    {
+      "version": 121,
+      "filename": "121_v90av_scheme_incentive_settlement.sql",
+      "sha256": "763d9b4fd095e6ce831174a134caa0f71951b409025e605b7c1a80ae08a5ad6e"
+    },
+    {
+      "version": 122,
+      "filename": "122_v90aw_returns_analytics_rework.sql",
+      "sha256": "9754cd8ebab3269a7e70cb27aec3dc6ac58f3663bb48d0cbf15abf8962e7aad4"
+    },
+    {
+      "version": 123,
+      "filename": "123_v90ax_dispatch_reconciliation_pod_backorder.sql",
+      "sha256": "d7ffc257d62919a0bde8ddd053fcdd9b76d379bf7c4ddef601d0200471e1122a"
+    },
+    {
+      "version": 124,
+      "filename": "124_v90ay_inventory_valuation_ageing.sql",
+      "sha256": "982590f3200047ebc9bf8247c732754b1bf3e8f8291b14e598934eb4c53cd187"
+    },
+    {
+      "version": 125,
+      "filename": "125_v90az_batch_traceability_recall.sql",
+      "sha256": "8ab61e6742b554b85c967b7e37fe784fbc4d7b27102fd1ce0ff906ebcda60639"
+    },
+    {
+      "version": 126,
+      "filename": "126_v90ba_barcode_qr_operational_completion.sql",
+      "sha256": "bcbade31cd5ea113a38c3409dff55cc09055862eada311b812ed73bd8ef69abc"
+    },
+    {
+      "version": 127,
+      "filename": "127_v90bb_mobile_offline_sync.sql",
+      "sha256": "b5b9d4310724b659ccee3ccdfd347b8519a06167874ae90cd076e250bb6798cb"
+    },
+    {
+      "version": 128,
+      "filename": "128_v90bc_evidence_attachment_gps.sql",
+      "sha256": "51ad8cf8bbe50d6854b89591d21cb5348666c9e1833ba0649e45cdc886d52e71"
+    },
+    {
+      "version": 129,
+      "filename": "129_v90bd_notifications_approval_workflow.sql",
+      "sha256": "4b7f996a85e0296bc1a6d24772aa7a96c63e3534b5c20b08e7587b55ab978cb7"
+    },
+    {
+      "version": 130,
+      "filename": "130_v90be_audit_corrective_workflow.sql",
+      "sha256": "3f64fb8fbfc7079a95f21dc610866c86081b0c65123de38fd8d00cd4a3c61ad6"
+    },
+    {
+      "version": 131,
+      "filename": "131_v90bf_security_hardening.sql",
+      "sha256": "ca53c26cded4272f08cb3a68e1129220c4ad6588216d23d4455b14b236b10278"
+    },
+    {
+      "version": 132,
+      "filename": "132_v90bg_backup_restore_migration_validation.sql",
+      "sha256": "73b8beac890c9599bcb54ef9e0a93d706e68464cd028ad6d655ef16d7a45d47e"
+    },
+    {
+      "version": 133,
+      "filename": "133_v90bh_deployment_release_registry.sql",
+      "sha256": "2a025c63dde8a4862ec60a9980384434a738676bb6d3d049165a8e6675ded592"
+    },
+    {
+      "version": 134,
+      "filename": "134_v90bi_github_ci_pipeline.sql",
+      "sha256": "12630f93a08127d05ac47c23dea95d460569631163a5175d777fd33fb174a9e8"
+    },
+    {
+      "version": 135,
+      "filename": "135_v90bj_ui_mobile_web_integration.sql",
+      "sha256": "da959f666ac8a68762e1b8827124f21f2a703c7573ba50de386286dd83067069"
+    },
+    {
+      "version": 136,
+      "filename": "136_v90bk_role_dashboards_ui_screens.sql",
+      "sha256": "660ddf6f747eadaf67e5d8e9cecc85d16f69cc475bd75f8747fabc9d2333f753"
+    },
+    {
+      "version": 137,
+      "filename": "137_v90bl_management_dashboard_approval_notification_ui.sql",
+      "sha256": "22beb55ff9db881e729a86906b4d863f11ab96e2b0c2fbcd55063da09960890e"
+    },
+    {
+      "version": 138,
+      "filename": "138_v90bm_transaction_ui.sql",
+      "sha256": "9e0b38d82ecfeafaac0225b31a813db3db04ae9f64bd0af45b6533c968c919e1"
+    },
+    {
+      "version": 139,
+      "filename": "139_v90bn_inventory_ui.sql",
+      "sha256": "474d2aff560a9b5d0eaffd7e29eb48f58b54f2c49fa8fa97e5542d7da9012030"
+    },
+    {
+      "version": 140,
+      "filename": "140_v90bo_production_ui.sql",
+      "sha256": "8ca0df13309f2d0d11a10abd9c57b974a9149db6e54ea665227dcf0017495cda"
+    },
+    {
+      "version": 141,
+      "filename": "141_v90bp_packing_sales_ui.sql",
+      "sha256": "9aacfd3d848f7bce69a744b448518c77bc642f8b237ab8401f9b845cf650e755"
+    },
+    {
+      "version": 142,
+      "filename": "142_v90bq_salesperson_ui.sql",
+      "sha256": "2546354fc5d1a57f0431c68a62dbb4b7961a2523fee1bf926413fdd2cfb8f222"
+    },
+    {
+      "version": 143,
+      "filename": "143_v90br_collections_receivables_ui.sql",
+      "sha256": "21bba6785af0c0cd33729d9b74dbc25f2f324a5f8861beeeff347b394c21e7fb"
+    },
+    {
+      "version": 144,
+      "filename": "144_v90bs_dispatch_ui.sql",
+      "sha256": "6b95537b7da0092dfefeb9eaabd4c11cfe80853ce8b46a7b19c5868eb80d8e00"
+    },
+    {
+      "version": 145,
+      "filename": "145_v90bt_returns_ui.sql",
+      "sha256": "62718794e81079f5d7055227e0a0d0676068c0a202f5d775f05432f28b98b614"
+    },
+    {
+      "version": 146,
+      "filename": "146_v90bu_reporting_bridge.sql",
+      "sha256": "cda91887755a39610773cf05656216ef58bf972ebd1904fd2e19fc7f57c3d00c"
+    },
+    {
+      "version": 147,
+      "filename": "147_v90bv_field_sales_ui.sql",
+      "sha256": "c96727f78b3cce35d156b04a745731816038ea71586a14bae6536c741dae129e"
+    },
+    {
+      "version": 148,
+      "filename": "148_v90bw_intercompany.sql",
+      "sha256": "ccb2ed5570a26171762afd5517e19713229dc03d9de3fbce4169aa5936de0a97"
+    },
+    {
+      "version": 149,
+      "filename": "149_v90bx_intercompany_operational.sql",
+      "sha256": "3eef3797b7688ca88964ce8f75a6b3b1ad5834a41e00429bcf919d51c919cea4"
+    },
+    {
+      "version": 150,
+      "filename": "150_v90by_gst_hsn_tax_master.sql",
+      "sha256": "fad48470d739fcf3cc9a8ee19442cd5f41317e7aa7808c8f3b1a5d745253cc4c"
+    },
+    {
+      "version": 151,
+      "filename": "151_v90bz_accounting_tally_bridge.sql",
+      "sha256": "9dbe25c5cdc94fffd324abf5a2368eacbc3344ed76e15e4f2b5f6e06f39c8726"
+    },
+    {
+      "version": 152,
+      "filename": "152_v90ca_accounting_posting_tally.sql",
+      "sha256": "3502aae3e73c3c8d43eb27ebd81a999e697d988a278681dad2b8af5f0acc4b3c"
+    },
+    {
+      "version": 153,
+      "filename": "153_v90cb_financial_controls.sql",
+      "sha256": "6efaed148f1abe003e5d9632f4a50146ef7483a697ca097f3ca50fb59c9240b6"
+    },
+    {
+      "version": 154,
+      "filename": "154_v90cc_assets_loans.sql",
+      "sha256": "e6419123fa494b2e4b8ebc91f176a7fd2547076d7945b502a4ee37d5471ba9fa"
+    },
+    {
+      "version": 155,
+      "filename": "155_v90cd_financial_integration.sql",
+      "sha256": "bc11633c839e909565e9784a895f9494d6b94a884734c8e517c77f7670c81e42"
+    },
+    {
+      "version": 156,
+      "filename": "156_v90ce_statutory_reporting.sql",
+      "sha256": "60aadff6f9bbedf3ab1b211338847c946d48843897eb37e163fd12be8efc37b2"
+    },
+    {
+      "version": 157,
+      "filename": "157_v90cf_gst_reconciliation.sql",
+      "sha256": "b2e8aba9e1fdcec8c0cc5262da18ea1cbe5a01b04099582fedeadb771c905e18"
+    },
+    {
+      "version": 158,
+      "filename": "158_v90cg_gst_filing.sql",
+      "sha256": "f2ee42a2c70089a947e455d6fd553294080739989f5a81f402d9e5386dfb5aa1"
+    },
+    {
+      "version": 159,
+      "filename": "159_v90ch_gst_compliance.sql",
+      "sha256": "dbbbab431b755293727ecdda080446985df0acc8052885a9a27a9e212c74078a"
+    },
+    {
+      "version": 160,
+      "filename": "160_v90ci_gst_return_operations.sql",
+      "sha256": "e27e791cdefdf3850ecc8963f219fcf631e6acacee545fc5500c31c1cc33c540"
+    },
+    {
+      "version": 161,
+      "filename": "161_v90cj_gst_settlement.sql",
+      "sha256": "182a03e2437e3d892a0a617ac636455b4c2d31739d9c5c859829b3f299016301"
+    },
+    {
+      "version": 162,
+      "filename": "162_v90ck_gst_final_close.sql",
+      "sha256": "1140bf471032aa5fce14d1c5bc8f79eb815cd50fc6ad9284cb0ab0cae3448f5f"
+    },
+    {
+      "version": 163,
+      "filename": "163_v90cl_accounting_completion.sql",
+      "sha256": "10428b47bb71b0e13e23177b8503463fd0a5dcfc5e715af6a1b566a78bfb2e04"
+    },
+    {
+      "version": 164,
+      "filename": "164_v90cm_accounting_reconciliation.sql",
+      "sha256": "2a450d6e4b49a7b1f153c26d631adb7a1b3fc2e188414847195c11c9f701a4db"
+    },
+    {
+      "version": 165,
+      "filename": "165_v90cn_year_end_close.sql",
+      "sha256": "bc779e40a033f4873273c9769d078e700c30304d92e6843e6ff7b7fdb33c92d7"
+    },
+    {
+      "version": 166,
+      "filename": "166_v90co_tally_sync.sql",
+      "sha256": "0b37f197782799cf674981b2811f1ca2215b83b984a110912fb126ef98a438db"
+    },
+    {
+      "version": 167,
+      "filename": "167_v90cp_tally_hardening.sql",
+      "sha256": "77301682cd5bbf6a6679a84c7d991d714efa08f4a787bfd84728eb8899a22c42"
+    },
+    {
+      "version": 168,
+      "filename": "168_v90cq_advanced_mrp.sql",
+      "sha256": "effe7ebef57d731ca09d973f1ca4b1901228b89d5542946ff586556d56b56257"
+    },
+    {
+      "version": 169,
+      "filename": "169_v90cr_replenishment.sql",
+      "sha256": "84725ecda4b7650f05991954775de8fb19591b90e90b5768e875a5a7e4a388ac"
+    },
+    {
+      "version": 170,
+      "filename": "170_v90cs_procurement_planning.sql",
+      "sha256": "1bb3602a7e6ca6a7dd854f3b8c9445251fdd1b075b2a76707f2b64cff91a9203"
+    },
+    {
+      "version": 171,
+      "filename": "171_v90ct_purchase_order_automation.sql",
+      "sha256": "26255a31e52558eb0c6443c8e498a36c3976025b54b32ab7e2d1b7b89529dfdd"
+    },
+    {
+      "version": 172,
+      "filename": "172_v90cu_procurement_commercial.sql",
+      "sha256": "cb48a63abddff2f2a7d711b5bc0f20ea91df4fa6d2360b4fae79f0ec057415b8"
+    },
+    {
+      "version": 173,
+      "filename": "173_v90cv_procurement_analytics.sql",
+      "sha256": "9024c3ed480f1cde982f34fe345e22c5e1b0f6edb7071a1a802e532b6287aeb6"
+    },
+    {
+      "version": 174,
+      "filename": "174_v90cw_manufacturing_costing.sql",
+      "sha256": "398af8e1a2b2baefd9c54b9e1f4271ea6a01d9d5159192b85b678e71c4abdf4d"
+    },
+    {
+      "version": 175,
+      "filename": "175_v90cx_manufacturing_loss_yield.sql",
+      "sha256": "0f42f145450c26f295c2d56a4313920aad6830ab490425d57bf3f005fff43e16"
+    },
+    {
+      "version": 176,
+      "filename": "176_v90cy_manufacturing_variance.sql",
+      "sha256": "0211945f998a257e1a698bcce86c0e312f54ecf2ae57d29d5534f2d54f6046e8"
+    },
+    {
+      "version": 177,
+      "filename": "177_v90cz_manufacturing_scheduling.sql",
+      "sha256": "9a6fcafe222d5cb547ac88a98d4b1efc6bec30aec7e52157cd12bac62a5deab6"
+    },
+    {
+      "version": 178,
+      "filename": "178_v90da_manufacturing_scheduling_optimization.sql",
+      "sha256": "6cd190d560fdfe88d4b9bdc978f315a584cb0107f68a2d4ea8204b8a63a4493f"
+    },
+    {
+      "version": 179,
+      "filename": "179_v90db_machine_oee.sql",
+      "sha256": "0cf9578186364447a05ae548b477bf90587b24f024b2f2bacbd7461380764748"
+    },
+    {
+      "version": 180,
+      "filename": "180_v90dc_preventive_maintenance.sql",
+      "sha256": "0751494dbe8ddfbc2b3bdd1a5d32980de50a6987a9fad0cc639ae5cab2331a09"
+    },
+    {
+      "version": 181,
+      "filename": "181_v90dd_machine_iot.sql",
+      "sha256": "450c066a8e387a9fb23d3131e3f6f1f63722e157b96abd9aba550851308b5746"
+    },
+    {
+      "version": 182,
+      "filename": "182_v90de_food_quality.sql",
+      "sha256": "605829137e0d447811861fedc38d8bab0d80ae03df3305f23ce9abfdbc97fbd4"
+    },
+    {
+      "version": 183,
+      "filename": "183_v90df_food_traceability.sql",
+      "sha256": "3ceeee285e0de7a544b0512fc7d8e0715fa79102c98df5dd16097d085172f459"
+    },
+    {
+      "version": 184,
+      "filename": "184_v90dg_hr_workforce.sql",
+      "sha256": "3feb2819cb8b1b828f0d44bab73a3f5cb62d0d33a05963ae2e5220ca3eaf3c7f"
+    },
+    {
+      "version": 185,
+      "filename": "185_v90dh_workforce_advanced.sql",
+      "sha256": "8c057d6e17623528f86509e9943e57dd65658df8869a8b3d349cbe7a004623d9"
+    },
+    {
+      "version": 186,
+      "filename": "186_v90di_payroll.sql",
+      "sha256": "5d4a0668040dc789a92e75c5c8a51a4dcd35c441ad19469ba3703826802560bf"
+    },
+    {
+      "version": 187,
+      "filename": "187_v90dl_payroll_settlement.sql",
+      "sha256": "5152ddce2c0e3e35be26d37e4c09ecc4f4a080f5117bcac822cf1527e4338029"
+    },
+    {
+      "version": 188,
+      "filename": "188_v90dm_payroll_accounting.sql",
+      "sha256": "538333594559df34cd4edd06b3e2b1db44b8b5649e8536aa36e4343577f6950c"
+    },
+    {
+      "version": 189,
+      "filename": "189_v90dn_payroll_mis.sql",
+      "sha256": "780ac7bb5aa1a7159f5f9e4f6de8d9adc09059caebee24febe928acfb4a2b14e"
+    },
+    {
+      "version": 190,
+      "filename": "190_v90do_labour_productivity.sql",
+      "sha256": "aa747ce9d37b62509cbd61fa43edf9b5f8de39fa409b02bc28141339b8b9dc94"
+    },
+    {
+      "version": 191,
+      "filename": "191_v90dp_workforce_performance.sql",
+      "sha256": "66ccf35a7985d32038d58a67bf37f76e9b6154c6092b59d959dc8e3f59f04d0f"
+    },
+    {
+      "version": 192,
+      "filename": "192_v90dq_workforce_planning.sql",
+      "sha256": "5f0584b87dc763345fa64f921eda0a69e64add1d08380aef96cd6afb9943247b"
+    },
+    {
+      "version": 193,
+      "filename": "193_v90dr_capacity_skill_availability.sql",
+      "sha256": "5d2073d762045df5282fe96712b6873b64bf90c32178ff9cd2aee1aa331da345"
+    },
+    {
+      "version": 194,
+      "filename": "194_v90ds_training_skill_optimization.sql",
+      "sha256": "0d6361345b8e5f1b976a6aa9f7e8f30000c32512bd79b9bc6e2812deccdaa952"
+    },
+    {
+      "version": 195,
+      "filename": "195_v90dt_workforce_forecasting.sql",
+      "sha256": "1d9a7357517f0d50b6aa80c5546c19771ab2bc9f4a4b246f7172c85060e5c7d6"
+    },
+    {
+      "version": 196,
+      "filename": "196_v90du_workforce_benchmarking.sql",
+      "sha256": "d31494ac735ff6a21249bd40d952921a6480841ebf9b317654c9c2833f7dcdf9"
+    },
+    {
+      "version": 197,
+      "filename": "197_v90dv_workforce_budgeting.sql",
+      "sha256": "da4be265c79c544ef5ffb78c26ea57aad9041707e4c4569090277f69cac33828"
+    },
+    {
+      "version": 198,
+      "filename": "198_v90dw_workforce_training_compliance.sql",
+      "sha256": "b09eb424dea89f2a4d6b65a9d1ecd15b4fd0349e843c06323d819f873c18522a"
+    },
+    {
+      "version": 199,
+      "filename": "199_v90dx_workforce_cost_reconciliation.sql",
+      "sha256": "0c0ab336275afa52450b0c7e00afc035a8256c8586ed2ffe767fbf9587898346"
+    },
+    {
+      "version": 200,
+      "filename": "200_v90dy_workforce_productivity_kpi.sql",
+      "sha256": "d463683cfbad27474da2c263f714a57a268c798ef350e41e9d981cf1152f2fd1"
+    },
+    {
+      "version": 201,
+      "filename": "201_v90dz_workforce_overtime_standards.sql",
+      "sha256": "660fadde2e7166a2ab1c2371ac6b543c4c8a42b3bdcb327b4e753599d0e323c9"
+    },
+    {
+      "version": 202,
+      "filename": "202_v90ea_workforce_oee_integration.sql",
+      "sha256": "1d7936273a592186a3caf93d4d8dbdc64df4dfa6013169f14af9c950cb041701"
+    },
+    {
+      "version": 203,
+      "filename": "203_v90eb_workforce_bottleneck_analytics.sql",
+      "sha256": "ee2c8e91603f77534393c3a30bba1375b911ebaea85cc80c6382c49a8d7debf4"
+    },
+    {
+      "version": 204,
+      "filename": "204_v90ec_factory_bottleneck_optimization.sql",
+      "sha256": "1bc8cec697b4abd257391452f3912d46ecf10078b5b54bc1f9bb9f2f00529593"
+    },
+    {
+      "version": 205,
+      "filename": "205_v90ed_factory_bottleneck_scenarios.sql",
+      "sha256": "8c98a072509b0dcf7fa3e8c535947c448a2a18857c28177f6aaff3977a37f4ae"
+    },
+    {
+      "version": 206,
+      "filename": "206_v90ee_factory_scenario_handoff.sql",
+      "sha256": "a0b1abad6dbd8fe9b980bcadd86eb3f9298f20c7696d3a45c5c7d0ce8004e554"
+    },
+    {
+      "version": 207,
+      "filename": "207_v90ef_scheduling_execution.sql",
+      "sha256": "972a805b4fcb450185bf9aab741c4f7f062d2df57a6de8174704c698ded93af3"
+    },
+    {
+      "version": 208,
+      "filename": "208_v90eg_execution_reconciliation.sql",
+      "sha256": "a8b07ecd915fcb1e00234c1ae9a9f1b2e339db0423096726e709ea210fcdb69f"
+    },
+    {
+      "version": 209,
+      "filename": "209_v90eh_factory_benefit_realization.sql",
+      "sha256": "da542d573414ce3b302489eba703eb6b3af924a08458355c610a8879961e1180"
+    },
+    {
+      "version": 210,
+      "filename": "210_v90ei_maintenance_labour_costing.sql",
+      "sha256": "0aeb5019edfcbe4399c6cc00fdc1107ffa1271b39cbff4b4f2f72b1b37a7fa85"
+    },
+    {
+      "version": 211,
+      "filename": "211_v90ej_maintenance_production_cost.sql",
+      "sha256": "00d958a4ca6dd78cf7e5db523e204afdbcfc6c06ce897b2850d8071559c9642d"
+    },
+    {
+      "version": 212,
+      "filename": "212_v90ek_maintenance_reliability_cost.sql",
+      "sha256": "2d6f04e3ba7373d9cd986efc228a41b694fb6dee9571dea99ccbccb43943016d"
+    },
+    {
+      "version": 213,
+      "filename": "213_v90el_reliability_improvement.sql",
+      "sha256": "5c9ba5d74bf42dbf9f589d10932a6ba88daf8e1697002e8a53dce41005b7d011"
+    },
+    {
+      "version": 214,
+      "filename": "214_v90em_maintenance_roi_optimization.sql",
+      "sha256": "358e6f051173c3e55f9c5f54b5e79ba7168138ce6ffa545fdd8499bb1a9efb00"
+    },
+    {
+      "version": 215,
+      "filename": "215_v90en_maintenance_strategy_optimization.sql",
+      "sha256": "a274c8ceab8eeadf980e7acb11de9899019b818ff0f0d897fd253806a2460931"
+    },
+    {
+      "version": 216,
+      "filename": "216_v90ep_predictive_maintenance_risk.sql",
+      "sha256": "dd91d73accd352670185023678c9934178f0bca4be72dcf02364875592c624db"
+    },
+    {
+      "version": 217,
+      "filename": "217_v90eq_maintenance_queue_prioritization.sql",
+      "sha256": "9da5a84fa5b4fd677cef0fa75e5edd8fa6be61c050f384d1b5addfb4b8a971b4"
+    },
+    {
+      "version": 218,
+      "filename": "218_v90er_maintenance_execution_feedback.sql",
+      "sha256": "1a14b531920ca5981fb61d062c0a782b69cb392a26adb393682610993502cacf"
+    },
+    {
+      "version": 219,
+      "filename": "219_v90es_maintenance_outcome_optimization.sql",
+      "sha256": "f462b5860a3c2b21b9aa258973befbf1e3745b84f81b4b9d82e7facadf168293"
+    },
+    {
+      "version": 220,
+      "filename": "220_v90et_reliability_action_execution.sql",
+      "sha256": "272fba2427d5eb6c62e803bff999ebf5ced6b6bcf838ee4555589283927d7a26"
+    },
+    {
+      "version": 221,
+      "filename": "221_v90eu_reliability_governance.sql",
+      "sha256": "1aaa60d804f0d05648dafa3c62d3212bfbe15477a0c428ace7c9c70dbf2d899e"
+    },
+    {
+      "version": 222,
+      "filename": "222_v90ev_reliability_change_implementation.sql",
+      "sha256": "d178206a180b7d9f1d98b2b1ac0289455ed8b02bf50fa218818607b39656903b"
+    },
+    {
+      "version": 223,
+      "filename": "223_v90ew_reliability_change_effectiveness.sql",
+      "sha256": "00b8535b12e49a772bc357438d948582c7ecaa12941484887a0a1b115dab5b14"
+    },
+    {
+      "version": 224,
+      "filename": "224_v90ex_reliability_governance_closure.sql",
+      "sha256": "5c97a428f327a4e7ac9fe14697d1f5712ef2c6f678c2a7a567d3b1013fce5251"
+    },
+    {
+      "version": 225,
+      "filename": "225_v90ey_reliability_continuous_improvement.sql",
+      "sha256": "356367e58ee8578c2b08db9f3e740f80e8051217186b7599a8c226cec7be13cc"
+    },
+    {
+      "version": 226,
+      "filename": "226_v90ez_reliability_knowledge_standardization.sql",
+      "sha256": "3752d0da759e1cb8a94bf874015c43ca24fb70efcd78a5205f3935dc6cbd6631"
+    },
+    {
+      "version": 227,
+      "filename": "227_v90fa_reliability_standard_deployment.sql",
+      "sha256": "72b085c5755fa9fa07bb680b03e5ee7223d28ae396b4007ab53729804d08e3e0"
+    },
+    {
+      "version": 228,
+      "filename": "228_v90fb_enterprise_reliability_benchmarking.sql",
+      "sha256": "68b1ede925381b54af47953ed71ed883266d59c70e673f29f09db336b031309f"
+    },
+    {
+      "version": 229,
+      "filename": "229_v90fc_reliability_capa.sql",
+      "sha256": "52a512a04a51e45c86a20b0fb8a623df2206e36f155685e37f5cf97ffb23c137"
+    },
+    {
+      "version": 230,
+      "filename": "230_v90fd_reliability_audit_compliance.sql",
+      "sha256": "8d4fb6f92abf75a41f993a34780083f16b83a955f1716ecd91428ebf0cd16bb5"
+    },
+    {
+      "version": 231,
+      "filename": "231_v90fe_reliability_executive_command.sql",
+      "sha256": "e1c0c8265354c0ecabc455adc89d226e85b3b325c4139d7533cc94bb8c12178d"
+    },
+    {
+      "version": 232,
+      "filename": "232_v90ff_reliability_executive_action.sql",
+      "sha256": "b6f19db24c104edd5317194c5fc1a9a51d301466c54b33670bceebd7618f3504"
+    },
+    {
+      "version": 233,
+      "filename": "233_v90fg_reliability_executive_effectiveness.sql",
+      "sha256": "f7b7e36fde5542fd578d6ea265781cb03a7c6491ecaeb0491098e1ad2518745b"
+    },
+    {
+      "version": 234,
+      "filename": "234_v90fh_reliability_executive_governance.sql",
+      "sha256": "e53281e0ad143c2d168273c926fb49753e98d3448cb097c04979215b1d1cfda2"
+    },
+    {
+      "version": 235,
+      "filename": "235_v90fi_reliability_executive_governance_effectiveness.sql",
+      "sha256": "17004210aee22bcce2b0ecda96420b00431a4f26e186fe61fc236e1b34a47a5f"
+    },
+    {
+      "version": 236,
+      "filename": "236_v90fj_reliability_governance_learning.sql",
+      "sha256": "1d8ba1f6a49b8e4c7d03c7bbf50d859951572b0675004c140c6df46bedafc5e1"
+    },
+    {
+      "version": 237,
+      "filename": "237_v90fk_reliability_governance_learning_execution.sql",
+      "sha256": "9e9a53d64f52b2466dd178446a5484eaa80aa43ec4ac5231042ac931bc63a50e"
+    },
+    {
+      "version": 238,
+      "filename": "238_v90fl_reliability_governance_learning_closure.sql",
+      "sha256": "6371d475274802dee20206699945132f51e64217860f99e3d3dbca497408cb7d"
+    },
+    {
+      "version": 239,
+      "filename": "239_v90fm_intercompany_execution.sql",
+      "sha256": "de6aeb3ff24c1e46f3547eb3a48d65adeb75b4dcbc35c67b55a39dce05d0de16"
+    },
+    {
+      "version": 240,
+      "filename": "240_v90fn_security_rbac_scope_hardening.sql",
+      "sha256": "7a9c1c11a60b92c4752e57ea6dc72c18ca90cb1d3fe769a7b0eebe9b6a1de3cc"
+    },
+    {
+      "version": 241,
+      "filename": "241_v90fo_audit_approval_evidence.sql",
+      "sha256": "0bceecf4174b7a29db331ff130728b952e9ff94a28d3f39abef0033e9990f51f"
+    },
+    {
+      "version": 242,
+      "filename": "242_v90fp_transaction_governance_integration.sql",
+      "sha256": "a9d4060a666f6ca08384d5b96d34cb11c4d14f9ba35fe7c212d44ee2c0fa6f6b"
+    },
+    {
+      "version": 243,
+      "filename": "243_v90fq_governance_certification.sql",
+      "sha256": "2ab2814e390c89f346df87a16032f907df827596e680354d3ef3d1033a8639be"
+    },
+    {
+      "version": 244,
+      "filename": "244_v90fr_governance_coverage_remediation.sql",
+      "sha256": "1a334a4c69c057cc8f40e656e43245ddb040910146048b567492d117e0d280bd"
+    },
+    {
+      "version": 245,
+      "filename": "245_v90fs_governance_remediation_uat.sql",
+      "sha256": "f36a36331fdd384a797007d7c25e6585c8d4608871f2445a462dd52070ddab71"
+    },
+    {
+      "version": 246,
+      "filename": "246_v90ft_uat_production_readiness.sql",
+      "sha256": "d7d2714d9f2d427e53781e9f9be71b1bfe973d420d47b03742fc96ae085598b0"
+    },
+    {
+      "version": 247,
+      "filename": "247_v90fv_deployment_cutover.sql",
+      "sha256": "1035100dced251f794afba976e0d82094624b3f7997d1e135ed964f56a4c5d48"
+    },
+    {
+      "version": 248,
+      "filename": "248_v90fw_backup_dr.sql",
+      "sha256": "0878c4cc767a5c79f349b2ff3c307e63f09976ccf0eb10f38f74d32b9caf6be1"
+    },
+    {
+      "version": 249,
+      "filename": "249_v90fx_observability.sql",
+      "sha256": "3a2fd18008b0b307e8110f71315ef60b9f1f4db9bf1918a953206091fa2d1139"
+    },
+    {
+      "version": 250,
+      "filename": "250_v90fy_performance_scalability.sql",
+      "sha256": "19982ae39a34ff875e255deef3ac3d7e8a671fde5f8e226bb6fc518f89b47054"
+    },
+    {
+      "version": 251,
+      "filename": "251_v90fz_performance_optimization.sql",
+      "sha256": "9b5b530e0294505dc1af8b15f52546858239b7ec30d5cb3dcdfa030f7faa6c07"
+    },
+    {
+      "version": 252,
+      "filename": "252_v90ga_performance_production_gate.sql",
+      "sha256": "f02604a1777ba9dd95fab121a81e1c980c926e00b96a604e4f9b2dc43b22e009"
+    },
+    {
+      "version": 253,
+      "filename": "253_v90gb_production_readiness_performance.sql",
+      "sha256": "b7d71be83677ab4c0f22c1ff51d263b36eebafc1994b21f4b6842f2e397eb1cb"
+    },
+    {
+      "version": 254,
+      "filename": "254_v90gc_production_release_certification.sql",
+      "sha256": "e3b0600a2d6fe4352a9c07914fc0de7ce04a30ba7a85aca5c447ed95e4aca9bb"
+    },
+    {
+      "version": 255,
+      "filename": "255_v90gd_go_live_execution.sql",
+      "sha256": "bad3bd3455b01cf7d15a69675b36ab65854ed16ae6fa2329f6c2ea9e4f672321"
+    },
+    {
+      "version": 256,
+      "filename": "256_v90ge_post_go_live_stabilization.sql",
+      "sha256": "e29af029b5c2c3254eafe5bd16cea551b312b5d00dd8b4e5ae841a9d9c7aa216"
+    },
+    {
+      "version": 257,
+      "filename": "257_v90gf_final_go_live_closure.sql",
+      "sha256": "14d38828c4c49437878d79b420bbaf236de073fc066be789efde7768f3bdc511"
+    },
+    {
+      "version": 258,
+      "filename": "258_v90gg_operational_handover_hypercare.sql",
+      "sha256": "c0efc66e802fccceae1bbd2aad949f2c24af6eec87cb03ea127f5ea0c47bedec"
+    },
+    {
+      "version": 259,
+      "filename": "259_v90gh_continuous_operations_sla.sql",
+      "sha256": "d1388cfe25ee4bf0f76bfc3a0245875311d28a2ae138093da2cdce242cf890b8"
+    },
+    {
+      "version": 260,
+      "filename": "260_v90gi_incident_problem_escalation.sql",
+      "sha256": "c2fbed04b9e14a8de2944d102dee056ac73461f786050df4297aceb39953bbb5"
+    },
+    {
+      "version": 261,
+      "filename": "261_v90gj_advanced_mis_dashboard.sql",
+      "sha256": "abada549362766232757986c2291a09989f25ca71fbe8a89e4b22f89a5a56273"
+    },
+    {
+      "version": 262,
+      "filename": "262_v90gk_costing_profitability.sql",
+      "sha256": "fff40228f1e3a4b91f3397a54af6350bb74739f1b92b38a27c138ca46e3fc754"
+    },
+    {
+      "version": 263,
+      "filename": "263_v90gl_working_capital.sql",
+      "sha256": "5915696315d49d1ece66f5f9b95aec0be536ca36bb476f0c5e55b67eec3849b7"
+    },
+    {
+      "version": 264,
+      "filename": "264_v90gn_advanced_sales_distribution.sql",
+      "sha256": "8dafcfbf922612bfc69ec31aca0f9799d905cce6bcc2cdd2657579c87204996b"
+    },
+    {
+      "version": 265,
+      "filename": "265_v90go_customer_distribution_execution.sql",
+      "sha256": "04d636658736dfbe7fcde2cac7895b2ba949162b81617c291211f3287ad031e2"
+    },
+    {
+      "version": 266,
+      "filename": "266_v90gp_manufacturing_workforce_integration.sql",
+      "sha256": "ef5a114d291af666bbe2fadfda7218c58f90bf3853ec59b8287446d7c74d9210"
+    },
+    {
+      "version": 267,
+      "filename": "267_v90gq_food_quality_traceability_command.sql",
+      "sha256": "3488d8afbd5d01bdea3a59a7c4927ee86019f7853dcb312fe3c54983ec225f16"
+    },
+    {
+      "version": 268,
+      "filename": "268_v90gr_mobile_offline_execution.sql",
+      "sha256": "9627ed147a2f63584cadb0d265bdf46e8af1e80356cdd6ac32dfa1a856a53c92"
+    },
+    {
+      "version": 269,
+      "filename": "269_v90gs_mobile_transaction_integration.sql",
+      "sha256": "106dc2346f8aa107fe7f175a6b6b656bcbf49906feaefd3d6ab88cac76e72ae8"
+    },
+    {
+      "version": 270,
+      "filename": "270_v90gt_mobile_inventory_dispatch_delivery_execution.sql",
+      "sha256": "d9540501ed5d80751e2331a99b72d3d12f40b813cccf26973e1882d856fb9e9e"
+    },
+    {
+      "version": 271,
+      "filename": "271_v90gu_mobile_remaining_transaction_execution.sql",
+      "sha256": "1a30ab6c828a27512480506c704a7264893fd3d8f07c639950835c0055d80e77"
+    },
+    {
+      "version": 272,
+      "filename": "272_v90gv_mobile_exception_reconciliation_approval.sql",
+      "sha256": "7f6e2ab0af74f36badeb442fcdab26c2590a513c65eeebcfeb238d76d29b6503"
+    },
+    {
+      "version": 273,
+      "filename": "273_v90gw_erp_completion_audit.sql",
+      "sha256": "f05914c27a3d045edf3d800714137db7effe13925d538a864458c559f9ac597a"
+    }
+  ],
+  "target_schema_version": 273,
+  "latest_schema": 273,
+  "schema_target": 273,
+  "erp_schema_target": 273,
+  "latest_migration": "273_v90gw_erp_completion_audit.sql"
+}

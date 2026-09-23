@@ -1,0 +1,9 @@
+{
+  "app/v90r_production_execution.py": "4a45ce942422d2730c0f4a0a2313e0113628e3f88296342934a7667fc0f6f5ab",
+  "migrations/091_v90r_production_execution.sql": "e74f3dc943907b231442fb5e744f56a05d55d5d5656d560b767b1504550f471a",
+  "tests/test_v90r_production_execution.py": "f2118e350510db60ee83d36707ef480908371415363663d2a61d3ea7732a8082",
+  "docs/V90_R_PRODUCTION_EXECUTION.md": "9aae82bad5c9e49b4129910d9b5b04e36fda6d8356372eada58755e55b5eb20d",
+  "app/__main__.py": "f68ec66a7c6b7315e43e08e6c5cc6bdde29101620700f1d41fb1d19c60b9535b",
+  "config/release_manifest.json": "c05a9c5820e3c7afd440286b78cd21800c0d1f66df4cd9464d53f9a753ea165e",
+  "config/migration_manifest.json": "973c6d19af7f01caefd12589cd65a16b538b2a6cb72801e49593d08dcb6b9a8c"
+}

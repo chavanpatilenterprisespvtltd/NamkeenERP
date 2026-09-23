@@ -1,0 +1,11 @@
+V90.ao BUILD VERIFICATION
+==========================
+Cumulative pytest: 164 passed, 0 failed
+Python compileall: PASS
+Migration manifest: versions 61-114 contiguous; checksums verified
+Release manifest: v90.ao / schema target 114
+UAT integration tests: PASS
+Negative UAT test: PASS
+Release-readiness verification: PASS
+Local SQLite/database artifacts removed from release package
+ZIP integrity: verified after packaging

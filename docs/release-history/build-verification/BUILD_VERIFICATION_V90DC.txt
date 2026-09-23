@@ -1,0 +1,5 @@
+V90.dc verification
+Focused tests: 2/2 passed
+Python compile: passed
+Migration target: 180
+PostgreSQL smoke: not run (DATABASE_URL unavailable)

@@ -1,0 +1,18 @@
+V90.ek build verification
+========================
+Release: V90.ek
+Schema target: 212
+Migration: 212_v90ek_maintenance_reliability_cost.sql
+
+Focused regression: PASS (11 passed)
+Full pytest suite: PASS (395 passed, 27 warnings, 0 failures)
+Python compilation: PASS
+CI repository gate: PASS
+Migration 212 SQLite DDL: PASS
+Migration manifest continuity/checksum: PASS
+Artifact checksum generation: PASS (842 files)
+Artifact checksum verification: PASS (842 files)
+PostgreSQL migration smoke: NOT RUN — no live DATABASE_URL/PostgreSQL instance available
+GitHub Actions remote CI: NOT run/claimed
+Git commit: NOT claimed
+Production deployment: NOT claimed

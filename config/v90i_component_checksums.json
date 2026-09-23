@@ -1,0 +1,10 @@
+{
+  "app/v90i_master_api.py": "6a8d42e47b5700536c9cd525b07f868fde7c45afc6867552d11b12059391a833",
+  "migrations/082_v90i_master_data_api.sql": "9b0dfe695ab1f798b055d9b8c084c5e84c857d2c68b4d5ad69c28d110554899d",
+  "config/release_manifest.json": "fa0dffb009bd3e5e4c5db758da5f59426aa50bd1e94d9f6181385fb37db26131",
+  "config/migration_manifest.json": "1a935a508c3d07d381b46f76d0cb1c8dfe529055aa7393725364c7a389818090",
+  "config/maintenance_release_v90i.json": "deb49fdcd360d132de31170f06d83b5c1962b71f0a3265c3d5bb2a649705ba15",
+  "docs/V90_I_MASTER_DATA_API.md": "c66231e9080663d48b241b102a4dde133d611ff7ad0162ce9e09df7c152eb945",
+  "tests/test_v90i_master_api.py": "489f1de772c77f57660be01d4fe893d7b7b85d078a06f3e8141cc342bfca1003",
+  "RELEASE_NOTES_V90I.md": "8a05f6ddda408b7580d752a8f2d1b0dc670702a7f269ef6414a124e4ac481366"
+}

@@ -1,0 +1,7 @@
+{
+  "maintenance_release": "v90.b",
+  "base_release": "v90",
+  "stage": "core_runtime_database_hardening",
+  "preserves": "v90.a and all prior cumulative work",
+  "tests": "52 passed"
+}

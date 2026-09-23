@@ -1,0 +1,6 @@
+V90.cu verification
+Focused tests: 2/2 passed
+Python compile: passed
+CI repository gate: passed
+Artifact checksums: 625 verified
+Migration target: 172

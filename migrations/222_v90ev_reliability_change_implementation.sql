@@ -1,0 +1,67 @@
+-- V90.ev: Reliability Governance -> Controlled Operational Change Implementation
+CREATE TABLE IF NOT EXISTS maintenance_reliability_change_implementation(
+ implementation_id TEXT PRIMARY KEY,
+ proposal_id TEXT NOT NULL,
+ organization_id TEXT NOT NULL,
+ entity_id TEXT NOT NULL,
+ period_key TEXT NOT NULL,
+ change_type TEXT NOT NULL,
+ implementation_status TEXT NOT NULL DEFAULT 'REQUESTED',
+ owner_user_id TEXT,
+ due_date DATE,
+ effective_from DATE,
+ implementation_note TEXT,
+ evidence_note TEXT,
+ implemented_by TEXT,
+ implemented_at TIMESTAMP,
+ baseline_breakdown_orders INTEGER NOT NULL DEFAULT 0,
+ current_breakdown_orders INTEGER NOT NULL DEFAULT 0,
+ baseline_breakdown_hours NUMERIC NOT NULL DEFAULT 0,
+ current_breakdown_hours NUMERIC NOT NULL DEFAULT 0,
+ baseline_maintenance_cost NUMERIC NOT NULL DEFAULT 0,
+ current_maintenance_cost NUMERIC NOT NULL DEFAULT 0,
+ breakdown_reduction_pct NUMERIC NOT NULL DEFAULT 0,
+ downtime_reduction_hours NUMERIC NOT NULL DEFAULT 0,
+ maintenance_cost_impact NUMERIC NOT NULL DEFAULT 0,
+ effectiveness_score NUMERIC NOT NULL DEFAULT 0,
+ benefit_status TEXT NOT NULL DEFAULT 'NOT_ASSESSED',
+ rollback_note TEXT,
+ created_by TEXT NOT NULL,
+ created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+ UNIQUE(proposal_id)
+);
+CREATE INDEX IF NOT EXISTS ix_maintenance_reliability_change_implementation_scope ON maintenance_reliability_change_implementation(organization_id,entity_id,period_key,implementation_status,owner_user_id);
+CREATE TABLE IF NOT EXISTS maintenance_reliability_plan_change_revision(
+ revision_id TEXT PRIMARY KEY,
+ implementation_id TEXT NOT NULL,
+ organization_id TEXT NOT NULL,
+ entity_id TEXT NOT NULL,
+ period_key TEXT NOT NULL,
+ plan_id TEXT,
+ work_center_id TEXT,
+ proposed_frequency_type TEXT,
+ proposed_frequency_value NUMERIC,
+ proposed_next_due_date DATE,
+ change_reason TEXT NOT NULL,
+ status TEXT NOT NULL DEFAULT 'PROPOSED',
+ approved_by TEXT,
+ approved_at TIMESTAMP,
+ implemented_by TEXT,
+ implemented_at TIMESTAMP,
+ rollback_status TEXT NOT NULL DEFAULT 'NOT_REQUESTED',
+ rollback_note TEXT,
+ created_by TEXT NOT NULL,
+ created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+ UNIQUE(implementation_id)
+);
+CREATE INDEX IF NOT EXISTS ix_maintenance_reliability_plan_change_revision_scope ON maintenance_reliability_plan_change_revision(organization_id,entity_id,period_key,status,work_center_id);
+CREATE TABLE IF NOT EXISTS maintenance_reliability_change_implementation_close(
+ close_id TEXT PRIMARY KEY,
+ organization_id TEXT NOT NULL,
+ entity_id TEXT NOT NULL,
+ period_key TEXT NOT NULL,
+ status TEXT NOT NULL DEFAULT 'CLOSED',
+ closed_by TEXT NOT NULL,
+ closed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+ UNIQUE(organization_id,entity_id,period_key)
+);

@@ -1,0 +1,12 @@
+V90.cp — Tally Production Integration Hardening
+Release: v90.cp
+Schema target: 167
+Focused V90.cp tests: 2/2 passed
+Python compilation: passed
+CI repository gate: passed
+Migration continuity: 61-167 contiguous
+Migration checksums: verified
+Artifact checksums: 599 files verified
+PostgreSQL migration smoke: NOT RUN (DATABASE_URL unavailable)
+Known legacy release-specific tests: not used for terminal-version verification
+Known recursive test_v90_release_integrity.py: excluded because it can hang

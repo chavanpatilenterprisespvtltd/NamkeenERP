@@ -1,0 +1,11 @@
+// Reference release configuration. Replace with the real Android project module configuration.
+android {
+    buildTypes {
+        getByName("release") {
+            isMinifyEnabled = true
+            isShrinkResources = true
+            signingConfig = signingConfigs.getByName("release")
+            buildConfigField("String", "API_BASE_URL", "\\\"https://erp.example.invalid/\\\"")
+        }
+    }
+}

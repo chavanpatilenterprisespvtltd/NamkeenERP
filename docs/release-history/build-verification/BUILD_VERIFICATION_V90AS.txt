@@ -1,0 +1,9 @@
+V90.as BUILD VERIFICATION
+==========================
+Cumulative tests: 177 passed, 0 failed
+Migration range: 061-118 contiguous
+New migration: 118_v90as_factory_kpi_mis.sql
+Python compile: PASS
+Generated .pyc artifacts: removed
+Local SQLite/database artifacts: removed
+Release contents: source + migrations + tests + configuration + deployment/docs

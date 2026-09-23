@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS erp_uat_plan(plan_id TEXT PRIMARY KEY,organization_id TEXT NULL,period_key TEXT NOT NULL,name TEXT NOT NULL,status TEXT NOT NULL DEFAULT 'DRAFT',created_by TEXT NOT NULL,created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,started_at TIMESTAMP NULL,certified_at TIMESTAMP NULL,certified_by TEXT NULL,signoff_note TEXT NULL,signoff_evidence_ref TEXT NULL);
+CREATE TABLE IF NOT EXISTS erp_uat_execution(execution_id TEXT PRIMARY KEY,plan_id TEXT NOT NULL,scenario_code TEXT NOT NULL,process_area TEXT NOT NULL,test_case TEXT NOT NULL,result TEXT NOT NULL,evidence_ref TEXT NULL,notes TEXT NOT NULL,tested_by TEXT NOT NULL,tested_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
+CREATE TABLE IF NOT EXISTS erp_production_readiness_check(readiness_id TEXT PRIMARY KEY,plan_id TEXT NOT NULL,check_code TEXT NOT NULL,category TEXT NOT NULL,status TEXT NOT NULL DEFAULT 'OPEN',evidence_ref TEXT NULL,notes TEXT NOT NULL,owner_user_id TEXT NULL,reviewed_by TEXT NOT NULL,reviewed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,UNIQUE(plan_id,check_code));
+CREATE INDEX IF NOT EXISTS ix_uat_plan_scope ON erp_uat_plan(organization_id,status,period_key);
+CREATE INDEX IF NOT EXISTS ix_uat_execution_plan ON erp_uat_execution(plan_id,result,scenario_code);
+CREATE INDEX IF NOT EXISTS ix_readiness_plan ON erp_production_readiness_check(plan_id,status,category);

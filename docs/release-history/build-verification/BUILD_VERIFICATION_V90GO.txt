@@ -1,0 +1,31 @@
+V90.go BUILD VERIFICATION
+=========================
+Release: V90.go
+Schema: 265
+Baseline: V90.gn / schema 264
+
+Focused tests:
+- tests/test_v90go_customer_distribution_execution.py
+- tests/test_v90gn_advanced_sales_distribution.py
+- tests/test_v90gl_working_capital.py
+- tests/test_v90gk_costing_profitability.py
+- tests/test_v90gj_advanced_mis_dashboard.py
+- tests/test_v90gi_incident_problem_escalation.py
+Result: 16 passed.
+
+Cumulative regression excluding known OEE test:
+Result: 535 passed, 28 warnings, exit code 0.
+
+Known pre-existing OEE regression:
+- tests/test_v90db_machine_oee.py::test_machine_oee_calculation
+- Result: 1 failed, 1 passed.
+- Observed availability_pct=0.0; expected 75.0.
+- Not altered or suppressed by V90.go.
+
+Compileall: PASS.
+Checksum verification: PASS (1121 artifacts before packaging).
+CI repository gate: PASS.
+ZIP integrity: PASS.
+PostgreSQL migration smoke test was not run because no live DATABASE_URL/PostgreSQL instance is available.
+GitHub remote CI: not run.
+Production deployment: not run.

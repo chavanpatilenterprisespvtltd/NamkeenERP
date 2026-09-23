@@ -1,0 +1,11 @@
+V90.av BUILD VERIFICATION
+release=V90.av
+schema_target=121
+tests=186
+passed=186
+failed=0
+migrations=61-121 contiguous
+migration_checksums=PASS
+python_compile=PASS
+generated_artifacts=REMOVED
+zip_integrity=PASS

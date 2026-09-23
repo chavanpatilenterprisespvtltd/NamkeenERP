@@ -1,0 +1,7 @@
+{
+  "release": "v90.c",
+  "baseline": "v90.b",
+  "change": "ordered_checksum_verified_postgresql_migration_runner",
+  "migration_execution": "postgresql_only",
+  "historical_versions_preserved": true
+}

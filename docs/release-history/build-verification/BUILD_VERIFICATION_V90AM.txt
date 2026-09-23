@@ -1,0 +1,8 @@
+V90.am build verification
+
+Cumulative pytest: 160 passed, 0 failed
+Migration sequence: 61..112 contiguous
+Migration checksums: PASS
+Release manifests: v90.am / schema 112
+Python compile: PASS
+ZIP integrity: PASS

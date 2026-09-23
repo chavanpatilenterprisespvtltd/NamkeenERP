@@ -1,0 +1,9 @@
+V90.gw BUILD VERIFICATION
+Migration: 273_v90gw_erp_completion_audit.sql
+Migration SHA-256: f05914c27a3d045edf3d800714137db7effe13925d538a864458c559f9ac597a
+Focused tests: PASS (2)
+Python compileall: PASS
+Checksum verification: PASS
+CI repository gate: PASS
+PostgreSQL migration smoke test: NOT RUN — no live DATABASE_URL/PostgreSQL instance available.
+Production deployment: NOT RUN.

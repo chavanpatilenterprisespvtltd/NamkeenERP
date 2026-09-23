@@ -1,0 +1,9 @@
+V90.bo BUILD VERIFICATION
+
+Cumulative pytest: 253 passed, 18 pre-existing warnings, 0 failed
+CI repository gate: PASSED
+Migration sequence: 61..140 contiguous
+Migration manifest checksums: PASSED
+Artifact checksum verification: PASSED
+Python compileall: PASSED
+Release excludes local DB/SQLite files, bytecode, and __pycache__

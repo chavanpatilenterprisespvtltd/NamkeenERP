@@ -1,0 +1,4 @@
+V90.bf component checksum manifest
+app/v90bf_security_hardening.py
+migrations/131_v90bf_security_hardening.sql
+tests/test_v90bf_security_hardening.py

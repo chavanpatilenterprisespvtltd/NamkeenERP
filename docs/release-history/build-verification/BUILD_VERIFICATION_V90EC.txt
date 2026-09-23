@@ -1,0 +1,38 @@
+V90.ec BUILD VERIFICATION
+==========================
+Release: V90.ec
+Schema target: 204
+Base release: V90.eb
+
+Focused regression:
+- tests/test_v90ec_factory_bottleneck.py
+- tests/test_v90eb_workforce_bottleneck.py
+- tests/test_v90ea_workforce_oee_integration.py
+- tests/test_v90db_machine_oee.py
+- tests/test_v90dz_workforce_overtime_standards.py
+- tests/test_v90dy_workforce_productivity_kpi.py
+- tests/test_v90dx_workforce_cost_reconciliation.py
+- tests/test_v90dw_workforce_training_compliance.py
+- tests/test_v90dv_workforce_budgeting.py
+- tests/test_v90du_workforce_benchmarking.py
+- tests/test_v90dt_workforce_forecasting.py
+- tests/test_v90dr_capacity_skills.py
+- tests/test_v90dq_workforce_planning.py
+Result: 26 passed
+
+Python compilation: PASS
+CI repository gate: PASS
+Migration 204 SQLite DDL execution: PASS
+Migration continuity: PASS through 204
+Checksum generation: PASS
+Checksum verification: PASS (count recorded by script at generation time)
+
+PostgreSQL migration smoke test: NOT RUN
+Reason: no live DATABASE_URL / PostgreSQL instance is available.
+The smoke script was invoked with PYTHONPATH=. and returned:
+"DATABASE_URL is required for migration smoke test"
+
+Full pytest suite: NOT completed; no full-suite pass is claimed.
+GitHub Actions remote CI: not run/claimed.
+Git commit: not claimed.
+Production deployment: not claimed.

@@ -1,0 +1,8 @@
+V90.du build verification
+Release: v90.du
+Schema target: 196
+Focused tests: 3 passed
+Python compile: passed
+Checksum verification: 751 files passed
+CI repository gate: passed
+PostgreSQL migration smoke: not run (no live DATABASE_URL/PostgreSQL instance available)

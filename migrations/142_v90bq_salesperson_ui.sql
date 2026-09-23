@@ -1,0 +1,2 @@
+-- V90.bq: salesperson UI support tables are created by the idempotent runtime schema helper.
+-- Migration reserves schema position and documents deployment sequencing.

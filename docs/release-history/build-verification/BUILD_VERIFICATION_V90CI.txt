@@ -1,0 +1,8 @@
+V90.ci GST Return Operations verification
+Focused tests: 2/2 passed
+Python compilation: passed
+CI repository gate: passed
+Checksum verification: passed (563 files)
+Migration continuity: 61 -> 160
+PostgreSQL migration smoke: not run; DATABASE_URL unavailable
+Known recursive legacy release-integrity test: excluded because it can hang

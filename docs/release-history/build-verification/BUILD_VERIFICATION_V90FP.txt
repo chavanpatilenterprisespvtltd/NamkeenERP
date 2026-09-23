@@ -1,0 +1,11 @@
+a9d4060a666f6ca08384d5b96d34cb11c4d14f9ba35fe7c212d44ee2c0fa6f6b  migrations/242_v90fp_transaction_governance_integration.sql
+f89056e61595f50bcf8b3e37a2a4211c67d64c96c9e32af92627f7d7a70accd7  config/migration_manifest.json
+d483fbd851d23f81ea985bfb321a258ac743c015aafa8e8ce4feab2af5307d28  config/release_manifest.json
+V90.fp build
+Schema: 242
+Full tests: 463 passed, 1 pre-existing unrelated failure (V90.db machine OEE), 27 warnings
+Focused tests: 8 passed
+Compilation: PASS
+CI gate: PASS
+Checksums: 999 files verified
+PostgreSQL smoke: not executed successfully; DATABASE_URL unavailable

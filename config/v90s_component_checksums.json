@@ -1,0 +1,13 @@
+{
+  "app/v90s_process_logging.py": "7bd04b8cab4411ba7ee93ad571c809dc4401f6b4f17a0703c5c55835347b877d",
+  "migrations/092_v90s_production_process_logging.sql": "6705c73fb5e3f2b216535e3f049c7010e4acb8bcbcb9089aa55bb6704ee377de",
+  "tests/test_v90s_process_logging.py": "ccd92f17a3a30e74ea24bafa4a2f42fac611e45edf1d2a64e59c7209ba1818ee",
+  "tests/test_v90_release_integrity.py": "ef878b18c62f0fa3eb55aa1e3d0ed78b290ada05e84e621835d455999c6f1771",
+  "tests/test_v90r_production_execution.py": "32632710afe651276b7325b165fc69d77df1e28e55e92928f62118d5d1aa3f02",
+  "app/__main__.py": "91f934acef31812916e3cdff7dbba268cfbe96e653b7e5517a02459bb98e8135",
+  "config/release_manifest.json": "a740b616cc130346158b7ceca90d2ec6843201b85b58425f087b93bff0c9ead8",
+  "config/migration_manifest.json": "92c581e18a10051d942445de2548f745c7d04b47526aa7da70f1e22d262f2615",
+  "README.md": "41932445bfa115c0f092f555165f6b1234756aefe4117504bf228da29c575835",
+  "docs/V90_S_PRODUCTION_PROCESS_LOGGING.md": "f5f92927402004ff8408be00144d91e6482079286c2b1416891d2c7b5a56e0c7",
+  "RELEASE_NOTES_V90S.md": "a55c2b95350537e157d3438abca3b3dc131e7ce70567cb0fff1c6a753025bd13"
+}

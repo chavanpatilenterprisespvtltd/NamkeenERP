@@ -1,0 +1,9 @@
+-- V90.ga: Performance certification integration and production performance gate.
+CREATE TABLE IF NOT EXISTS erp_perf_production_gate(gate_id TEXT PRIMARY KEY,organization_id TEXT NULL,period_key TEXT NOT NULL,release_version TEXT NOT NULL,environment TEXT NOT NULL,status TEXT NOT NULL DEFAULT 'OPEN',note TEXT NOT NULL,created_by TEXT NOT NULL,created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,certified_at TIMESTAMP NULL,certified_by TEXT NULL,certification_note TEXT NULL,certification_evidence_ref TEXT NULL,closed_at TIMESTAMP NULL,closed_by TEXT NULL,close_note TEXT NULL,close_evidence_ref TEXT NULL,UNIQUE(organization_id,period_key,release_version,environment));
+CREATE TABLE IF NOT EXISTS erp_perf_production_gate_check(check_id TEXT PRIMARY KEY,gate_id TEXT NOT NULL,check_code TEXT NOT NULL,check_name TEXT NOT NULL,status TEXT NOT NULL DEFAULT 'OPEN',evidence_ref TEXT NULL,note TEXT NOT NULL,reviewed_by TEXT NOT NULL,reviewed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,UNIQUE(gate_id,check_code));
+CREATE INDEX IF NOT EXISTS ix_perf_prod_gate_scope ON erp_perf_production_gate(organization_id,period_key,status,created_at);
+CREATE INDEX IF NOT EXISTS ix_perf_prod_gate_check ON erp_perf_production_gate_check(gate_id,status,check_code);
+INSERT INTO erp_permissions(permission_id,permission_name) VALUES('performance.production_gate.view','View ERP performance production gate') ON CONFLICT(permission_id) DO NOTHING;
+INSERT INTO erp_permissions(permission_id,permission_name) VALUES('performance.production_gate.manage','Manage ERP performance production gate') ON CONFLICT(permission_id) DO NOTHING;
+INSERT INTO erp_role_permissions(role_id,permission_id) VALUES('super_admin','performance.production_gate.view') ON CONFLICT(role_id,permission_id) DO NOTHING;
+INSERT INTO erp_role_permissions(role_id,permission_id) VALUES('super_admin','performance.production_gate.manage') ON CONFLICT(role_id,permission_id) DO NOTHING;

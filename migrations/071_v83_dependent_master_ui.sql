@@ -1,0 +1,1 @@
+-- Compatibility migration 71 retained in the consolidated release.

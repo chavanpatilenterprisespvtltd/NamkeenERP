@@ -1,0 +1,3 @@
+-- V90.ap Supplier Payables, Outstanding and Supplier Ageing
+-- Runtime schema creation is implemented in app/v90ap_supplier_payables.py; this migration records ordered release state.
+-- Application startup creates/validates the required tables and permissions idempotently.

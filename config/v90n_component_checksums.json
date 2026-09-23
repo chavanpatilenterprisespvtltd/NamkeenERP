@@ -1,0 +1,10 @@
+{
+  "app/v90n_inventory_ops.py": "e3bd33d2082da9646d2cdaf4e8d48f259f48707008ac7e248488db1ad3b52329",
+  "migrations/087_v90n_inventory_ops.sql": "21319a0505615dde786b75c2577b465e8f8b4ae198561219e5fcf0811fa79077",
+  "tests/test_v90n_inventory_ops.py": "6fb6604ae7e82fb6d142a923724901c8e1b1fd2725b66b6c9b7dcfdd9986d915",
+  "config/release_manifest.json": "d3226d03fb58e06321efc580c249d915546a87876c0e53d3ebdfb0a69451c0e5",
+  "config/migration_manifest.json": "6a60db7f6dafa3e70994efcf7c3e4be12c4d820733e43093d771f55942fe4fed",
+  "docs/V90_N_INVENTORY_OPERATIONS.md": "60b025868a980eafd845b65d8fb204269fbb6ed144da4f493fe80c5eacd64728",
+  "README.md": "8a30b06abe869bb626a75ece4c79b71e9e7253b9ab78d283e52eab0ff114a0bb",
+  "app/__main__.py": "1e3e5eec0612179012bd619fa1d591753e9c5d5170ad92385fe8a263901dfb66"
+}

@@ -1,0 +1,14 @@
+{
+  "organization_code": "CUSTOMER001",
+  "organization_name": "Example Namkeen Foods",
+  "entities": [
+    {"code": "X", "name": "Manufacturing Entity", "mode": "manufacturing"},
+    {"code": "Y", "name": "Sales & Marketing Entity", "mode": "sales"}
+  ],
+  "site": {"code": "SITE001", "name": "Main Factory", "timezone": "Asia/Kolkata"},
+  "default_language": "en",
+  "enabled_languages": ["en", "mr", "hi"],
+  "single_company_mode": false,
+  "seed_initial_products": true,
+  "external_integrations": {"tally": false, "gst_irp": false, "eway_bill": false}
+}

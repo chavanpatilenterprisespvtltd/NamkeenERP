@@ -1,0 +1,4 @@
+CREATE TABLE IF NOT EXISTS erp_completion_audit(audit_id TEXT PRIMARY KEY,organization_id TEXT NULL,period_key TEXT NOT NULL,release_version TEXT NOT NULL,status TEXT NOT NULL DEFAULT 'OPEN',created_by TEXT NOT NULL,created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,closed_by TEXT NULL,closed_at TIMESTAMP NULL,close_note TEXT NULL,close_evidence_ref TEXT NULL);
+CREATE TABLE IF NOT EXISTS erp_completion_audit_control(control_id TEXT PRIMARY KEY,audit_id TEXT NOT NULL,control_code TEXT NOT NULL,control_name TEXT NOT NULL,result TEXT NOT NULL DEFAULT 'BLOCKED',evidence_ref TEXT NULL,notes TEXT NOT NULL,reviewed_by TEXT NOT NULL,reviewed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,UNIQUE(audit_id,control_code));
+CREATE INDEX IF NOT EXISTS ix_completion_audit_scope ON erp_completion_audit(organization_id,period_key,status,created_at);
+CREATE INDEX IF NOT EXISTS ix_completion_control ON erp_completion_audit_control(audit_id,result,control_code);

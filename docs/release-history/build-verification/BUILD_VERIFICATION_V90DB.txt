@@ -1,0 +1,2 @@
+0cf9578186364447a05ae548b477bf90587b24f024b2f2bacbd7461380764748  migrations/179_v90db_machine_oee.sql
+0e448e621305a3645c50accf8bb26313c5774c0a5d99331c73dcd424abbec8c2  config/artifact_checksums.json

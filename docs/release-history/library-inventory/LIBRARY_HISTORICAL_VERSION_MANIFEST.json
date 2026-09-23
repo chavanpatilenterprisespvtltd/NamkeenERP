@@ -1,0 +1,2048 @@
+{
+  "source": "ChatGPT Library export PDF uploaded in current conversation",
+  "source_file": "ChatGPT_Library_Historical_Inventory.pdf",
+  "generated_utc": "2026-09-15T07:49:36.396966+00:00",
+  "inventory_entry_count": 357,
+  "numbered_release_versions_present": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89,
+    90
+  ],
+  "numbered_release_versions_missing_within_2_to_90": [],
+  "v1_artifact_found_in_inventory": false,
+  "v90_lettered_release_codes_present": [
+    "al",
+    "am",
+    "an",
+    "ao",
+    "ap",
+    "aq",
+    "ar",
+    "as",
+    "at",
+    "au",
+    "av",
+    "aw",
+    "ax",
+    "ay",
+    "az",
+    "ba",
+    "bb",
+    "bc",
+    "bd",
+    "be",
+    "bf",
+    "bg",
+    "bh",
+    "bi",
+    "bj",
+    "bk",
+    "bl",
+    "bm",
+    "bn",
+    "bo",
+    "bp",
+    "bq",
+    "br",
+    "bs",
+    "bt",
+    "by",
+    "bz",
+    "ca",
+    "cb",
+    "cc",
+    "cd",
+    "ce",
+    "cf",
+    "cg",
+    "ch",
+    "ci",
+    "cj",
+    "ck",
+    "cl",
+    "cm",
+    "cn",
+    "co",
+    "cp",
+    "cq",
+    "cr",
+    "cs",
+    "ct",
+    "cu",
+    "cv",
+    "cw",
+    "cx",
+    "cy",
+    "cz",
+    "da",
+    "db",
+    "dc",
+    "dd",
+    "de",
+    "df",
+    "dg",
+    "dh",
+    "di",
+    "dj",
+    "dk",
+    "dl",
+    "dm",
+    "dn",
+    "do",
+    "dp",
+    "dq",
+    "dr",
+    "ds",
+    "dt",
+    "du",
+    "dv",
+    "dw",
+    "dx",
+    "dy",
+    "dz",
+    "ea",
+    "eb",
+    "ec",
+    "ed",
+    "ee",
+    "ef",
+    "eg",
+    "ei",
+    "ej",
+    "ek",
+    "el",
+    "em",
+    "en",
+    "ep",
+    "eq",
+    "er",
+    "es",
+    "et",
+    "eu",
+    "ev",
+    "ew",
+    "ex",
+    "ey",
+    "ez",
+    "fa",
+    "fb",
+    "fc",
+    "fd",
+    "fe",
+    "ff",
+    "fg",
+    "fh",
+    "fi",
+    "fj",
+    "fk",
+    "fl",
+    "fm",
+    "fn",
+    "fo",
+    "fp",
+    "fq",
+    "fr",
+    "fs",
+    "ft",
+    "fu",
+    "fv",
+    "fw",
+    "fx",
+    "fy",
+    "fz",
+    "ga",
+    "gb",
+    "gc",
+    "gd",
+    "ge",
+    "gf",
+    "gg",
+    "gi",
+    "gk",
+    "gl",
+    "gn",
+    "go",
+    "gp",
+    "gq",
+    "gr",
+    "gs",
+    "gt",
+    "gu",
+    "gv",
+    "gw"
+  ],
+  "v90_lettered_release_code_count": 159,
+  "entries": [
+    {
+      "name": "Namkeen_ERP_V90_GW_ERP_COMPLETION_AUDIT_RELEASE.zip",
+      "activity": "Modified",
+      "when": "1d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_GV_MOBILE_EXCEPTION_RECONCILIATION_APPROVAL_RELEASE.zip",
+      "activity": "Modified",
+      "when": "1d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_GU_MOBILE_REMAINING_TRANSACTION_EXECUTION_RELEASE.zip",
+      "activity": "Modified",
+      "when": "1d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_GT_MOBILE_INVENTORY_DISPATCH_DELIVERY_EXECUTION_RELEASE.zip",
+      "activity": "Modified",
+      "when": "1d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_GS_MOBILE_TRANSACTION_INTEGRATION_RELEASE.zip",
+      "activity": "Modified",
+      "when": "1d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_GR_MOBILE_OFFLINE_EXECUTION_RELEASE.zip",
+      "activity": "Modified",
+      "when": "1d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_GQ_FOOD_QUALITY_TRACEABILITY_RELEASE.zip",
+      "activity": "Modified",
+      "when": "1d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_GP_MANUFACTURING_WORKFORCE_INTEGRATION_RELEASE.zip",
+      "activity": "Modified",
+      "when": "2d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_GO_CUSTOMER_DISTRIBUTION_EXECUTION_RELEASE.zip",
+      "activity": "Modified",
+      "when": "2d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_GN_ADVANCED_SALES_DISTRIBUTION_RELEASE.zip",
+      "activity": "Modified",
+      "when": "2d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_GL_WORKING_CAPITAL_RELEASE.zip",
+      "activity": "Opened",
+      "when": "2d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_GI_INCIDENT_PROBLEM_ESCALATION_RELEASE(1).zip",
+      "activity": "Modified",
+      "when": "2d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_GK_COSTING_PROFITABILITY_RELEASE(1).zip",
+      "activity": "Modified",
+      "when": "2d ago"
+    },
+    {
+      "name": "Namkeen_ERP_MASTER_HANDOFF_CURRENT(1).md",
+      "activity": "Modified",
+      "when": "2d ago"
+    },
+    {
+      "name": "Namkeen_ERP_MASTER_HANDOFF_CURRENT.md",
+      "activity": "Modified",
+      "when": "2d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_GK_COSTING_PROFITABILITY_RELEASE.zip",
+      "activity": "Opened",
+      "when": "2d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_GG_OPERATIONAL_HANDOVER_HYPERCARE_RELEASE.zip",
+      "activity": "Opened",
+      "when": "2d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_GF_FINAL_GO_LIVE_CLOSURE_RELEASE.zip",
+      "activity": "Opened",
+      "when": "2d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_GI_INCIDENT_PROBLEM_ESCALATION_RELEASE.zip",
+      "activity": "Opened",
+      "when": "2d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_GE_POST_GO_LIVE_STABILIZATION_RELEASE.zip",
+      "activity": "Opened",
+      "when": "3d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_GD_GO_LIVE_EXECUTION_RELEASE.zip",
+      "activity": "Opened",
+      "when": "3d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_GC_PRODUCTION_RELEASE_CERTIFICATION_RELEASE.zip",
+      "activity": "Opened",
+      "when": "3d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_GB_PRODUCTION_READINESS_PERFORMANCE_RELEASE.zip",
+      "activity": "Opened",
+      "when": "3d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_GA_PERFORMANCE_PRODUCTION_GATE_RELEASE.zip",
+      "activity": "Opened",
+      "when": "3d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_FZ_PERFORMANCE_OPTIMIZATION_RELEASE.zip",
+      "activity": "Opened",
+      "when": "3d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_FX_OBSERVABILITY_RELEASE.zip",
+      "activity": "Opened",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_FY_PERFORMANCE_SCALABILITY_RELEASE.zip",
+      "activity": "Opened",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_FV_DEPLOYMENT_CUTOVER_RELEASE.zip",
+      "activity": "Opened",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_FW_BACKUP_DR_RELEASE.zip",
+      "activity": "Opened",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_FV_DEPLOYMENT_EXECUTION_RELEASE.zip",
+      "activity": "Modified",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_FU_PRODUCTION_HARDENING_RELEASE.zip",
+      "activity": "Opened",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_FT_UAT_PRODUCTION_READINESS_RELEASE.zip",
+      "activity": "Opened",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_FN_SECURITY_RBAC_SCOPE_HARDENING_RELEASE.zip",
+      "activity": "Opened",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_FR_GOVERNANCE_COVERAGE_REMEDIATION_RELEASE.zip",
+      "activity": "Opened",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_FS_GOVERNANCE_REMEDIATION_UAT_RELEASE.zip",
+      "activity": "Opened",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_FO_ERP_GOVERNANCE_CONTROL_RELEASE.zip",
+      "activity": "Opened",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_FM_INTERCOMPANY_EXECUTION_RELEASE.zip",
+      "activity": "Opened",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_FQ_GOVERNANCE_CERTIFICATION_RELEASE.zip",
+      "activity": "Opened",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_FP_ERP_TRANSACTION_GOVERNANCE_INTEGRATION_RELEASE.zip",
+      "activity": "Opened",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_FL_RELIABILITY_GOVERNANCE_LEARNING_KNOWLEDGE_RELEASE.zip",
+      "activity": "Opened",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_FJ_RELIABILITY_GOVERNANCE_LEARNING_RELEASE.zip",
+      "activity": "Opened",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_EU_MAINTENANCE_ESCALATION_GOVERNANCE_RELEASE.zip",
+      "activity": "Opened",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_FW_RELIABILITY_CONTINUOUS_IMPROVEMENT_REENTRY_RELEASE.zip",
+      "activity": "Opened",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_FK_RELIABILITY_GOVERNANCE_LEARNING_EXECUTION_RELEASE.zip",
+      "activity": "Opened",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_FI_RELIABILITY_EXECUTIVE_GOVERNANCE_EFFECTIVENESS_RELEASE.zip",
+      "activity": "Opened",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_ET_MAINTENANCE_ESCALATION_EFFECTIVENESS_RELEASE.zip",
+      "activity": "Opened",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_EU_MAINTENANCE_ESCALATION_GOVERNANCE_RELEASE(1).zip",
+      "activity": "Modified",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_ET_MAINTENANCE_ESCALATION_EFFECTIVENESS_RELEASE(1).zip",
+      "activity": "Modified",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_FV_RELIABILITY_RESIDUAL_RISK_RELEASE.zip",
+      "activity": "Modified",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_FU_RELIABILITY_SUSTAINABILITY_ACTION_EFFECTIVENESS_RELEASE.zip",
+      "activity": "Modified",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_FT_RELIABILITY_SUSTAINABILITY_ACTION_RELEASE.zip",
+      "activity": "Modified",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_FS_RELIABILITY_BENEFIT_SUSTAINABILITY_RELEASE.zip",
+      "activity": "Modified",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_FR_RELIABILITY_OUTCOME_BENEFIT_RELEASE.zip",
+      "activity": "Modified",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_FQ_RELIABILITY_ACTION_OUTCOME_RELEASE.zip",
+      "activity": "Modified",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_FP_RELIABILITY_CONTROL_ACTION_HANDOFF_RELEASE.zip",
+      "activity": "Modified",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_FO_RELIABILITY_CONTINUOUS_CONTROL_RELEASE.zip",
+      "activity": "Modified",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_FN_RELIABILITY_BENEFIT_CONTROL_RELEASE.zip",
+      "activity": "Modified",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_FM_RELIABILITY_POST_EXECUTION_VERIFICATION_RELEASE.zip",
+      "activity": "Modified",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_FL_RELIABILITY_READINESS_EXECUTION_RELEASE.zip",
+      "activity": "Modified",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_FK_RELIABILITY_OPERATIONAL_READINESS_RELEASE.zip",
+      "activity": "Modified",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_FJ_RELIABILITY_ENTERPRISE_INTEGRATION_RELEASE.zip",
+      "activity": "Modified",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_FI_RELIABILITY_EXECUTIVE_PORTFOLIO_RELEASE.zip",
+      "activity": "Modified",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_FC_RELIABILITY_CAPA_INTEGRATION_RELEASE.zip",
+      "activity": "Opened",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_FD_RELIABILITY_AUDIT_COMPLIANCE_RELEASE.zip",
+      "activity": "Opened",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_FG_RELIABILITY_EXECUTIVE_EFFECTIVENESS_RELEASE.zip",
+      "activity": "Opened",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_FH_RELIABILITY_EXECUTIVE_GOVERNANCE_RELEASE.zip",
+      "activity": "Opened",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_FF_RELIABILITY_EXECUTIVE_ACTION_RELEASE.zip",
+      "activity": "Opened",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_FE_RELIABILITY_EXECUTIVE_COMMAND_CENTER_RELEASE.zip",
+      "activity": "Opened",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_FB_ENTERPRISE_RELIABILITY_BENCHMARKING_RELEASE.zip",
+      "activity": "Opened",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_EW_RELIABILITY_CHANGE_EFFECTIVENESS_RELEASE.zip",
+      "activity": "Opened",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_EV_RELIABILITY_CHANGE_IMPLEMENTATION_RELEASE.zip",
+      "activity": "Opened",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_EX_RELIABILITY_GOVERNANCE_CLOSURE_RELEASE.zip",
+      "activity": "Opened",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_FA_RELIABILITY_STANDARD_DEPLOYMENT_RELEASE.zip",
+      "activity": "Opened",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_EZ_RELIABILITY_KNOWLEDGE_STANDARDIZATION_RELEASE.zip",
+      "activity": "Opened",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_EY_RELIABILITY_CONTINUOUS_IMPROVEMENT_RELEASE.zip",
+      "activity": "Opened",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_ER_MAINTENANCE_SLA_RELEASE(1).zip",
+      "activity": "Opened",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_ES_MAINTENANCE_OUTCOME_OPTIMIZATION_RELEASE.zip",
+      "activity": "Opened",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_ES_MAINTENANCE_ESCALATION_RELEASE(1).zip",
+      "activity": "Opened",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_ES_MAINTENANCE_ESCALATION_RELEASE.zip",
+      "activity": "Opened",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_ER_MAINTENANCE_EXECUTION_FEEDBACK_RELEASE.zip",
+      "activity": "Opened",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_EU_RELIABILITY_GOVERNANCE_RELEASE.zip",
+      "activity": "Opened",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_ET_RELIABILITY_ACTION_EXECUTION_RELEASE.zip",
+      "activity": "Opened",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_ER_MAINTENANCE_SLA_RELEASE.zip",
+      "activity": "Opened",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_EN_MAINTENANCE_STRATEGY_OPTIMIZATION_RELEASE.zip",
+      "activity": "Opened",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_EP_PREDICTIVE_MAINTENANCE_RISK_RELEASE.zip",
+      "activity": "Opened",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_EL_RELIABILITY_IMPROVEMENT_RELEASE.zip",
+      "activity": "Opened",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_EM_MAINTENANCE_ROI_OPTIMIZATION_RELEASE.zip",
+      "activity": "Opened",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_EQ_MAINTENANCE_QUEUE_PRIORITIZATION_RELEASE.zip",
+      "activity": "Opened",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_EK_MAINTENANCE_RELIABILITY_COST_RELEASE.zip",
+      "activity": "Opened",
+      "when": "4d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_EJ_MAINTENANCE_PRODUCTION_COST_RELEASE.zip",
+      "activity": "Modified",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_EI_MAINTENANCE_LABOUR_COSTING_RELEASE.zip",
+      "activity": "Modified",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_EG_EXECUTION_RECONCILIATION_RELEASE.zip",
+      "activity": "Modified",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_EF_MANUFACTURING_SCHEDULING_EXECUTION_RELEASE.zip",
+      "activity": "Modified",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_EE_FACTORY_SCENARIO_HANDOFF_RELEASE.zip",
+      "activity": "Modified",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_ED_FACTORY_BOTTLENECK_SCENARIOS_RELEASE.zip",
+      "activity": "Modified",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_EC_FACTORY_BOTTLENECK_OPTIMIZATION_RELEASE.zip",
+      "activity": "Modified",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_EB_WORKFORCE_BOTTLENECK_ANALYTICS_RELEASE.zip",
+      "activity": "Modified",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_EA_WORKFORCE_OEE_INTEGRATION_RELEASE.zip",
+      "activity": "Modified",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_DZ_WORKFORCE_OVERTIME_STANDARDS_RELEASE.zip",
+      "activity": "Modified",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_DY_WORKFORCE_PRODUCTIVITY_KPI_RELEASE.zip",
+      "activity": "Modified",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_DX_WORKFORCE_COST_RECONCILIATION_RELEASE.zip",
+      "activity": "Modified",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_DW_WORKFORCE_TRAINING_COMPLIANCE_RELEASE.zip",
+      "activity": "Modified",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_DV_WORKFORCE_BUDGET_BENCHMARKING_RELEASE.zip",
+      "activity": "Modified",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_DU_WORKFORCE_BENCHMARKING_RELEASE(1).zip",
+      "activity": "Modified",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_DT_WORKFORCE_FORECASTING_RELEASE.zip",
+      "activity": "Modified",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_DU_WORKFORCE_BENCHMARKING_RELEASE.zip",
+      "activity": "Modified",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_DS_WORKFORCE_OPTIMIZATION_RELEASE.zip",
+      "activity": "Modified",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_DR_WORKFORCE_CAPACITY_RELEASE.zip",
+      "activity": "Modified",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_DP_WORKFORCE_PERFORMANCE_RELEASE.zip",
+      "activity": "Modified",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_DQ_WORKFORCE_PLANNING_RELEASE.zip",
+      "activity": "Modified",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_DO_LABOUR_PRODUCTIVITY_RELEASE.zip",
+      "activity": "Modified",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_DN_PAYROLL_MIS_RELEASE.zip",
+      "activity": "Modified",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_DM_PAYROLL_ACCOUNTING_RELEASE.zip",
+      "activity": "Modified",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_DK_PAYROLL_STATUTORY_COMPLIANCE_RELEASE.zip",
+      "activity": "Modified",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_DL_PAYROLL_SETTLEMENT_RELEASE.zip",
+      "activity": "Modified",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_DJ_ADVANCED_PAYROLL_RELEASE.zip",
+      "activity": "Modified",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_DI_PAYROLL_EMPLOYEE_COST_RELEASE.zip",
+      "activity": "Modified",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_DH_ADVANCED_WORKFORCE_LABOUR_COSTING_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_DF_ADVANCED_FOOD_TRACEABILITY_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_DG_HR_WORKFORCE_LABOUR_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_DC_PREVENTIVE_MAINTENANCE_MACHINE_RELIABILITY_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_DA_MANUFACTURING_SCHEDULING_OPTIMIZATION_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_CZ_MANUFACTURING_SCHEDULING_CAPACITY_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_DD_MACHINE_IOT_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_DB_MACHINE_OEE_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_DE_FOOD_QUALITY_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_CY_MANUFACTURING_VARIANCE_FACTORY_PERFORMANCE_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_CX_MANUFACTURING_LOSS_YIELD_BYPRODUCT_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_CT_PO_AUTOMATION_PROCUREMENT_CONTROLS_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_CW_MANUFACTURING_COSTING_YIELD_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_CR_MRP_REPLENISHMENT_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_CV_ADVANCED_PROCUREMENT_ANALYTICS_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_CU_PROCUREMENT_COMMERCIAL_CONTROLS_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_CS_ADVANCED_PROCUREMENT_SUPPLIER_PLANNING_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_CO_TALLY_SYNC_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_CP_TALLY_PRODUCTION_HARDENING_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_CK_GST_FINAL_STATUTORY_CLOSE_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_CN_YEAR_END_CLOSE_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_CQ_ADVANCED_MRP_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_CM_ACCOUNTING_RECONCILIATION_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_CL_ACCOUNTING_COMPLETION_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_CE_GST_STATUTORY_REPORTING_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_CG_GST_STATUTORY_FILING_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_CH_GST_COMPLIANCE_WORKFLOW_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_CF_GST_RECONCILIATION_STATUTORY_EXPORT_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_CJ_GST_FILING_RECONCILIATION_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_CI_GST_RETURN_OPERATIONS_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_CD_ADVANCED_FINANCIAL_INTEGRATION_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_BT_RETURNS_UI_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_CB_FINANCIAL_CONTROLS_STATUTORY_REPORTS_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_CC_ASSETS_LOANS_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_BS_DISPATCH_TRANSPORT_POD_UI_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_BY_GST_HSN_TAX_MASTER_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_BZ_ACCOUNTING_TALLY_BRIDGE_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_CA_ACCOUNTING_POSTING_TALLY_ADAPTER_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_BR_COLLECTIONS_RECEIVABLES_UI_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_BN_GRN_QC_INVENTORY_UI_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_BO_PRODUCTION_PLANNING_EXECUTION_UI_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_BP_PACKING_FG_SALES_UI_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_BQ_SALESPERSON_CUSTOMER_VISIT_ORDER_BUILDER_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_BM_PRODUCT_RECIPE_PROCUREMENT_UI_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_BG_BACKUP_RESTORE_MIGRATION_VALIDATION_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_BI_GITHUB_CICD_AUTOMATED_PIPELINE_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_BK_ROLE_UI_DASHBOARDS_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_BF_SECURITY_HARDENING_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_BL_MANAGEMENT_DASHBOARD_APPROVAL_NOTIFICATIONS_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_BH_PRODUCTION_DEPLOYMENT_DOCKER_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_BJ_ANDROID_WEB_UI_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_BC_ATTACHMENTS_GPS_EVIDENCE_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_BD_NOTIFICATIONS_APPROVAL_WORKFLOW_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_AZ_BATCH_TRACEABILITY_RECALL_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_BB_MOBILE_OFFLINE_SYNC_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_BE_AUDIT_CORRECTIVE_WORKFLOW_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_BA_BARCODE_QR_OPERATIONAL_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_AV_SCHEME_INCENTIVE_SETTLEMENT_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_AW_RETURNS_ANALYTICS_REWORK_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_AY_INVENTORY_VALUATION_STOCK_AGEING_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_AX_DISPATCH_RECONCILIATION_POD_BACKORDER_RELEASE.zip",
+      "activity": "Opened",
+      "when": "5d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_AU_DISTRIBUTOR_DEALER_TERRITORY_PORTFOLIO_RELEASE.zip",
+      "activity": "Modified",
+      "when": "6d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_AT_SALES_MIS_RELEASE.zip",
+      "activity": "Modified",
+      "when": "6d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_AS_FACTORY_MIS_RELEASE.zip",
+      "activity": "Modified",
+      "when": "6d ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_AR_PRODUCTION_VARIANCE_ANALYSIS_RELEASE.zip",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_AQ_COST_ACCOUNTING_RELEASE.zip",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_AP_RELEASE.zip",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_AO_INTEGRATION_UAT_FINAL_VERIFICATION.zip",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v90ak_Collections_Payment_Lifecycle.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_GITHUB_READY.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v90ai_Return_QC_Disposition.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v90al_Receivables_Aging.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_Lettered_Sequence_a_to_al.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_AN_PRODUCTION_QC_PACKING_SALES_INTEGRATION.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_GITHUB_READY_FRESH.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_AL_RELEASE.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v90aj_Return_Accounting.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_V90_AM_RELEASE.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v90ah_Returns_Reverse_Logistics.zip",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v90ag_Dispatch_Execution_Stock_Depletion_Invoice_Linkage.zip",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v90af_Dispatch_Pick_List_Foundation.zip",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v90ae_Sales_Order_Stock_Allocation.zip",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v90ad_Sales_Order_Credit_Control.zip",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v90ac_Customer_Credit_Outstanding_Payment_Control.zip",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v90ab_Incentive_Rules_Salesperson_Incentive.zip",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v90aa_Price_Margin_Negotiation_Controls.zip",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v90z_Sales_Order_Foundation.zip",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v90y_FG_FEFO_Dispatch_Control.zip",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v90x_Packing_QC_NetWeight.zip",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v90w_Packing_SKU_Conversion.zip",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v90v_Finished_Goods_Receipt.zip",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v90u_Batch_Output_Yield_Wastage.zip",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v90t_Process_Controls_QC_Integration.zip",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v90s_Production_Process_Logging.zip",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v90r_Production_Order_Execution.zip",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v90q_Material_Reservation_Production_Orders.zip",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v90p_Recipe_BOM_Material_Requirement_Engine.zip",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v90o_Production_Planning_Foundation.zip",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v90n_Inventory_Operations.zip",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v90m_GRN_Receiving_QC_Inventory.zip",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v90l_Procurement_Foundation.zip",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v90k_Operational_Master_Workflows.zip",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v90j_Product_Master_Workflows.zip",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v90i_Master_Data_CRUD_API_Integration.zip",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v90h_Master_Data_Scoping.zip",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v90g_Access_Scope_Warehouse_Control.zip",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v90f_Org_Entity_Responsibility_Foundation.zip",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v90e_Persistent_Identity_Roles_Permissions.zip",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v90d_Authentication_Security_Foundation.zip",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v90c_Migration_Runtime_Hardening.zip",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v90b_Core_Runtime_Database_Hardening.zip",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v90a_Release_Reconciliation.zip",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v79_Production_Bulk_Master_Import_Export.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v78_Production_Postgres_Master_Data_UI_Integration.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v80_Production_Master_Data_UI_Integration.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v77_Production_Postgres_Master_API.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v71_Production_Deployment_E2E.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v69_Production_Ops_DR_Observability.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v73_Customer_Deployment_Build.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v75_Master_Data_Administration.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v74_First_Customer_Bootstrap_Migration.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v70_Production_Security_Deployment_Hardening.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v76_Master_Data_API_UI.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v72_Production_Release_UAT.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v65_Production_Inventory_Valuation_Sales_Margin.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v68_Production_Statutory_MIS_Report_Export.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v67_Production_Management_Dashboard_Drilldown_Reporting.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v61_Production_Maintenance_Utilities.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v64_Production_Cost_Settlement.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v60_Production_Complaint_Recall_Management.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v66_Production_Management_Profitability_MIS.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v59_Production_Compliance_Traceability_Evidence_Chain.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v63_Production_Labour_Manpower_Productivity.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v62_Production_Fuel_Oil_Utilities.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v51_Production_BOM_Recipe_Planning.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v52_MRP_Production_Orders.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v56_Production_QC_Inventory_Compliance_Integration.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v53_Production_Execution_Integration.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v54_Production_Floor_Execution.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v58_Production_Compliance_Master_Reporting.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v55_Production_Factory_QC_Process_Control.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v50_Production_Costing_Batch_Profitability.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v57_Production_Compliance_Operations_Engine.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v45_Production_GST_Compliance_Tax_Engine.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v47_Production_Dispatch_Logistics_Transport.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v44_Production_Accounting_Master_Reconciliation_Dashboard.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v46_Production_EInvoice_EWayBill_Integration.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v48_Production_Delivery_Settlement.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v49_Production_Sales_Return_Reverse_Logistics.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v40_Production_Sales_Transaction_Integration.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v43_Production_Accounting_Reconciliation_Voucher_Mapping.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v42_Production_Accounting_Outbox_Tally_Worker.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v37_Production_Sales_Customer_Accounts.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v41_Production_Persistent_End_to_End_Sales_Posting.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v39_Production_Pricing_Schemes_Incentives.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v38_Production_Collections_Credit_Control.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v36_Production_Accounts_Tax_Ageing.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v34_Production_Supplier_Purchase_Order.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v32_Production_Warehouse_Dashboard_Replenishment.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v33_Production_Procurement_Planning.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v35_Production_Purchase_to_Pay.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v30_Production_Warehouse_Locations.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v29_Production_License_Plate_Carton_Tracking.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v28_Production_Barcode_Warehouse_Operations.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v31_Production_Warehouse_Execution_Stock_Counting.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v27_UOM_SKU_Barcode_Hierarchy.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v23_Production_Role_Based_Dashboards.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v25_Production_Inventory_Warehouse.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v26_Production_Consumption_WIP_Packing_FG_Traceability.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v24_Production_Operational_APIs.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v22_Production_Android_Business_Workflows.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v20_Production_Domain_Integration.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v18_Production_TwoWay_Sync.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v17_Production_Mobile_Sync_Collections_Returns.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v21_Production_Android_Sync_Client.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v19_Production_Domain_ChangeLog_Offline.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v14_Production_Security_Sync_Adapters.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v13_Postgres_Persistence_Transaction_Core.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v15_Production_Postgres_Integration.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v16_Production_Transaction_API.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v12_End_to_End_Vertical_Slice.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v8_Transaction_Posting_Engine.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v4_Core_Backend.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v6_Production_Hardening.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v11_Security_Offline_RBAC.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v5_Transaction_Engine.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v10_App_Integration_Prototype.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v7_PostgreSQL_API_Foundation.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v9_Production_Transaction_Posting.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v86_Production_Master_Validation_Approval_Persistence.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v88_Bulk_Master_Operational_Completion.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v85_Production_Master_Validation_Gate.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v84_Production_Master_Validation_Business_Rules.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v81_Production_Structured_Master_Data_Screens.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v89_Production_E2E_Security_Gate.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v90_Production_Release.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v82_Production_Dependent_Master_Lookups.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v87_Master_Approval_UI_Integration.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v83_Production_Dependent_Master_UI_Integration.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_v3_Technical_Backend_Starter.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_V2_Prototype_with_Compliance.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_Clickable_UI_Prototype.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_Technical_Prototype.zip",
+      "activity": "Opened",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_Flow_DFD_ERD_Design_Draft(1).pdf",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_Flow_DFD_ERD_Design_Draft(1).pptx",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_Technical_Prototype(1).zip",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_Clickable_UI_Prototype(1).zip",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_Next_Technical_Implementation_Blueprint(1).docx",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_Final_SQL_and_Screen_Specification(1).docx",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_Detailed_Functional_Data_Specification(1).pdf",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_Detailed_Functional_Data_Specification(1).docx",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_Detailed_Database_Functional_Specification(1).xlsx",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_Final_PostgreSQL_Schema(1).sql",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_Final_Database_UI_Specification(1).xlsx",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_Compliance_Production_Migration.sql",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_FSSAI_Maharashtra_FDA_Compliance_Control_Matrix.xlsx",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_FSSAI_Maharashtra_FDA_Compliance_Module.docx",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_Screen_by_Screen_Wireframes.pdf",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_Screen_by_Screen_Wireframes.docx",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_Next_Technical_Implementation_Blueprint.pdf",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_Next_Technical_Implementation_Blueprint.docx",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_Final_SQL_and_Screen_Specification.pdf",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_Final_SQL_and_Screen_Specification.docx",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_Final_Database_UI_Specification.xlsx",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_Final_PostgreSQL_Schema.sql",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_Detailed_Database_Functional_Specification.xlsx",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_Detailed_Functional_Data_Specification.docx",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_Detailed_Functional_Data_Specification.pdf",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_Flow_DFD_ERD_Design_Draft.pdf",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Namkeen_ERP_Flow_DFD_ERD_Design_Draft.pptx",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Farsan_Namkeen_Complete_Manufacturing_to_Retail_Plan.pdf",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Farsan_Namkeen_Separate_Business_Plan_Marathi.pdf",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "chart-1(1).png",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Boondi_Production_Business_Plan_Improved_Marathi.pdf",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Boondi_Production_Plan_Marathi_Complete_Formatted.pdf",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "Bundi_Production_Market_Distribution_Business_Plan.pdf",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "330492e4-b218-44da-9210-75cd1b83a299.txt",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "inetexam_pending_commissions_round2_verified.xlsx",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "inetexam_pending_commissions_round2.xlsx",
+      "activity": "Modified",
+      "when": "1w ago"
+    },
+    {
+      "name": "inetexam_pending_commissions_verified_pass.xlsx",
+      "activity": "Modified",
+      "when": "1w ago"
+    }
+  ]
+}

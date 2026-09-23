@@ -1,0 +1,11 @@
+V90.cq — Advanced Manufacturing Planning / MRP
+Release: v90.cq
+Schema target: 168
+Focused V90.cq tests: 2/2 passed
+Python compilation: passed
+CI repository gate: passed
+Migration continuity: 61-168 contiguous
+Migration checksums: verified
+Artifact checksums: 604 files verified
+PostgreSQL migration smoke: NOT RUN (DATABASE_URL unavailable)
+Known recursive test_v90_release_integrity.py: excluded because it can hang

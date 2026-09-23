@@ -1,0 +1,8 @@
+{
+  "release": "v90.j",
+  "baseline": "v90.i",
+  "change": "product_sku_pack_uom_workflows",
+  "schema_target": 83,
+  "historical_versions_preserved": true,
+  "test_count": 71
+}

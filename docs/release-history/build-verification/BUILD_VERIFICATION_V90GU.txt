@@ -1,0 +1,22 @@
+V90.gu build verification
+Release: V90.gu
+Schema: 271
+Baseline: V90.gt / schema 270
+
+Focused V90.gu + V90.gt + V90.gs tests: 5 passed
+Compileall: PASS
+Checksum verification: PASS
+CI repository gate: PASS
+
+Cumulative regression excluding known OEE test:
+545 tests collected
+544 passed
+1 pre-existing failure: tests/test_v90gp_manufacturing_workforce_integration.py::test_dashboard_and_snapshot
+The V90.gp failure expects a batch dated 2026-09-12 and observed batch_count=0 in the test environment; it predates V90.gu and is not caused by V90.gu changes.
+The cumulative suite was validated in non-overlapping batches. One batch reached 50 passed before the shell timeout during pytest teardown; no additional functional failure was observed in that batch.
+
+Known OEE defect remains separate and unchanged: tests/test_v90db_machine_oee.py has the historical availability expectation mismatch (expected 75.0%, observed 0.0%). It was excluded from the cumulative count above.
+
+PostgreSQL migration smoke test: NOT RUN — no live DATABASE_URL/PostgreSQL instance available.
+Production deployment: NOT RUN.
+GitHub remote CI: NOT RUN.

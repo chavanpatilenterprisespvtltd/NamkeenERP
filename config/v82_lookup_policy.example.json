@@ -1,0 +1,27 @@
+{
+  "search_default_limit": 100,
+  "max_limit": 200,
+  "active_only": true,
+  "organization_scoped": true,
+  "relationships": {
+    "product": [
+      "variant",
+      "sku"
+    ],
+    "variant": [
+      "sku"
+    ],
+    "pack_size": [
+      "sku"
+    ],
+    "warehouse": [
+      "bin"
+    ],
+    "tax_profile": [
+      "hsn"
+    ],
+    "sku": [
+      "price_list"
+    ]
+  }
+}

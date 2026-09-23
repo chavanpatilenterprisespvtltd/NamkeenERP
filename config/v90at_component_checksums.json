@@ -1,0 +1,18 @@
+[
+  {
+    "path": "app/v90at_sales_mis.py",
+    "sha256": "aa29eddae17b66fd42ae8aa203a27670218bcb2d3df8da511922caf5649f0933"
+  },
+  {
+    "path": "migrations/119_v90at_sales_mis_territory_reporting.sql",
+    "sha256": "8c1dc31f1fe698e251f4ae3ee80956782fd358018801597f542820ddd669d49d"
+  },
+  {
+    "path": "tests/test_v90at_sales_mis.py",
+    "sha256": "2acaae15cc4b760157f0d2653b1b2d2f60b998f6c3ea8dbc2345906189bc17db"
+  },
+  {
+    "path": "RELEASE_NOTES_V90AT.md",
+    "sha256": "fdb9f46af445b560d88219a262baab3f2a5a413fe666b190be5e1881d8b690e4"
+  }
+]

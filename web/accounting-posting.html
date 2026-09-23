@@ -1,0 +1,5 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Accounting Posting & Tally</title><style>body{font-family:system-ui;margin:2rem;max-width:900px}section{border:1px solid #ddd;border-radius:10px;padding:1rem;margin:1rem 0}code{word-break:break-all}</style></head><body><h1>Accounting Posting & Tally</h1><p>V90.ca posting bridge. All mappings and entities are configuration-driven.</p><section><b>Capabilities</b><ul><li>Sales invoice → accounting voucher</li><li>GST transaction → balanced accounting voucher</li><li>Inward GST → purchase/input-tax posting</li><li>Tally XML export with idempotency</li><li>Posting ledger and debit/credit reconciliation</li></ul></section><section><b>APIs</b><pre>POST /v90ca/accounting/post
+POST /v90ca/accounting/post/sales-invoice/{invoice_id}
+POST /v90ca/accounting/post/tax/{tax_line_id}
+GET  /v90ca/accounting/postings?organization_id=...
+POST /v90ca/tally/{posting_id}/export</pre></section></body></html>

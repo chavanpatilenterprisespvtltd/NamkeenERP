@@ -1,0 +1,7 @@
+V90.gp — Manufacturing & Workforce Integration
+Baseline: V90.go / schema 265
+Target: schema 266
+Migration: 266_v90gp_manufacturing_workforce_integration.sql
+Validation status: release-specific tests and static/compile validation are required before release certification.
+PostgreSQL smoke test: NOT RUN unless a live DATABASE_URL/PostgreSQL instance is available.
+Known historical OEE test defect is not modified by this release.

@@ -1,0 +1,10 @@
+{
+  "erp_schema_target": 273,
+  "latest_migration": "273_v90gw_erp_completion_audit.sql",
+  "latest_schema": 273,
+  "migration_policy": "ordered_and_checksum_verified",
+  "release": "v90.gw",
+  "release_version": "v90.gw",
+  "schema_target": 273,
+  "version": "v90.gw"
+}

@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS go_live_decision (decision_id uuid PRIMARY KEY, release_version varchar(32) NOT NULL, approved boolean NOT NULL, blockers jsonb NOT NULL, evidence jsonb NOT NULL, decided_at timestamptz NOT NULL DEFAULT now());

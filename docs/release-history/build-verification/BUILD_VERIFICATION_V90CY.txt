@@ -1,0 +1,8 @@
+V90.cy BUILD VERIFICATION
+=========================
+Focused tests: 2/2 passed
+Python compilation: passed
+Migration continuity: 61..176 contiguous
+Migration checksum verification: passed
+PostgreSQL migration smoke: not run (DATABASE_URL unavailable)
+Known recursive legacy integrity test: excluded because it can hang

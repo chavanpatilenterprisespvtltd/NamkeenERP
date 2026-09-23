@@ -1,0 +1,10 @@
+V90.fn Security/RBAC + Organization/Entity Isolation Hardening
+Schema target: 240
+Focused tests: 15 passed
+Cumulative suite: 458 passed, 1 pre-existing unrelated failure (V90.db machine OEE), 27 warnings
+Python compilation: PASS
+CI repository gate: PASS
+Checksum verification: PASS
+PostgreSQL migration smoke: NOT RUN - no live DATABASE_URL/PostgreSQL instance available
+Remote GitHub CI: NOT RUN
+Production deployment: NOT RUN

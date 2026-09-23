@@ -1,0 +1,32 @@
+V90.gl BUILD VERIFICATION
+=========================
+Baseline: V90.gk / schema 262
+Release: V90.gl
+Schema target: 263
+Migration: 263_v90gl_working_capital.sql
+Migration SHA-256: 5915696315d49d1ece66f5f9b95aec0be536ca36bb476f0c5e55b67eec3849b7
+
+Implementation:
+- Working capital/cash/credit management snapshot API
+- Receivables, overdue receivables, payables, overdue payables
+- Inventory value, cash availability, payment commitments
+- Credit limit/utilization and collection target/realization
+- DSO, DPO, inventory days, cash conversion cycle
+- Net working capital metric
+- RBAC + organization/entity scope enforcement
+- Web UI entry point /ui/working-capital
+
+Validation:
+- Focused V90.gl + V90.gk + V90.gj + V90.gi + V90.gh: 13 passed
+- Historical-release compatibility assertions: 32 passed
+- Cumulative regression excluding known OEE defect: 529 tests reached 100% with no test failures; pytest process did not exit within shell timeout and is therefore not recorded as a clean runner PASS.
+- Known V90.db OEE defect: 1 failed, 1 passed; expected availability 75.0%, observed 0.0%. This is pre-existing and unrelated to V90.gl.
+- Compileall: PASS
+- Checksum verification: PASS after packaging preparation
+- CI repository gate: PASS
+- PostgreSQL migration smoke test: NOT RUN because no live DATABASE_URL/PostgreSQL instance is available.
+- GitHub remote CI: NOT RUN
+- Production deployment: NOT RUN
+
+Design boundary:
+No automatic bank connectivity, payment initiation, external collection execution, or automatic cash forecasting is claimed without connected evidence/data sources.

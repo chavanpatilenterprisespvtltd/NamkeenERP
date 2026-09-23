@@ -1,0 +1,28 @@
+V90.ea — Build Verification
+
+Source baseline: V90.dz release ZIP (schema 201)
+Release target: V90.ea
+Migration target: 202
+
+Verified:
+- Python compilation: PASS (python -m compileall -q app scripts tests)
+- CI repository gate: PASS (python scripts/ci_gate.py)
+- Workforce + Machine/OEE focused regression: PASS (23 passed)
+- V90.db machine/OEE regression: PASS (6 passed)
+- V90.dz..V90.ea workforce regression: PASS (23 passed)
+- app.__main__ import and V90.ea route registration: PASS
+- Migration 202 SQLite syntax parse: PASS
+- Checksum generation: PASS (788 files)
+- Checksum verification: PASS (788 files)
+- Migration manifest continuity through 202: PASS via CI repository gate
+
+Not completed / not claimed:
+- Full pytest suite was not run to completion for this release.
+- PostgreSQL migration smoke test was not run because no live DATABASE_URL/PostgreSQL instance is available.
+- GitHub Actions remote CI was not run/claimed from this environment.
+- No Git commit was created/claimed.
+- No production deployment was performed/claimed.
+
+Pre-existing cumulative fixes included in V90.ea:
+- Corrected one extra closing parenthesis in V90.do runtime SQLite table creation.
+- Corrected one extra closing parenthesis in V90.dp runtime SQLite incentive table creation.

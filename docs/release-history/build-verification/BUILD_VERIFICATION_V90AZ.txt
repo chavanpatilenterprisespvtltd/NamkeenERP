@@ -1,0 +1,7 @@
+V90.az verification
+Tests: 199 passed, 18 pre-existing warnings, 0 failed
+Migration range: 61-125 contiguous
+Migration manifest/checksums: PASS
+Python compile: PASS
+Release archive excludes transient/reference DB and bytecode artifacts
+Feature: Batch Traceability + Recall/Withdrawal

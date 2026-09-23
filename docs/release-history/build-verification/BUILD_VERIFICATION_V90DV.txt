@@ -1,0 +1,26 @@
+V90.dv local verification record
+
+Source baseline: Namkeen_ERP_V90_DU_WORKFORCE_BENCHMARKING_RELEASE(1).zip
+Target release: V90.dv
+Target schema: 197
+
+Implemented:
+- migration 197: labour budgets, actuals/overtime, benchmark snapshots
+- API routes for budgets, actuals, snapshots and dashboard
+- RBAC permissions for view/manage/post/snapshot
+- Web dashboard page
+- release and migration manifests
+- focused V90.dt/V90.du/V90.dv regression tests
+
+Verified locally:
+- Python compileall: PASS
+- Focused tests (V90.dt + V90.du + V90.dv + release integrity): PASS (6 passed)
+- CI repository gate: PASS
+- Checksum generation: PASS (758 files)
+- Checksum verification: PASS (758 files)
+
+Not verified locally:
+- Full pytest suite: attempted twice but exceeded the 300-second execution limit; therefore NOT CLAIMED PASS.
+- PostgreSQL migration smoke test was not run because no live DATABASE_URL/PostgreSQL instance is available.
+- No remote GitHub Actions run was claimed.
+- No Git commit or production deployment was claimed.

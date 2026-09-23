@@ -1,0 +1,10 @@
+{
+  "app/v90x_packing_qc.py": "a01dfc889767451a12861f5650f718f39a1ea1ac7b09b2037d624f85b06c064e",
+  "migrations/097_v90x_packing_qc.sql": "b5f9e07e3e30e0632803532292a3171876d86d5d3ff934eeed00d40bb4540685",
+  "config/migration_manifest.json": "1d17f01a1ce1660ab54c28eae63f6a81889aeba49172f591e47db2273054af78",
+  "config/release_manifest.json": "f9fc4b20cf7b3ab8962b8744e41fc6309a505d84f2fb655728fd0011da2122f4",
+  "app/__main__.py": "ee8d1dfc49ae2ff5263dc8644cdbd46814074330d0e193e4881841267e04762c",
+  "tests/test_v90x_packing_qc.py": "f36799ddab23a4f0266a31f73f2896564bbbaaedac529f3c593fcc131a69ee11",
+  "README.md": "f8627a19d4ffc7349cbfb41f67f72ace18316af18a47512b8411cdd9de49d78d",
+  "RELEASE_NOTES_V90X.md": "a56ad7c84be270aece17673e13f353f8546f45876d8d513cdaf449e94e448db9"
+}

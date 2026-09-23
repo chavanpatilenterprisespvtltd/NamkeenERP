@@ -1,0 +1,13 @@
+{
+  "product": "Namkeen ERP",
+  "candidate": "1.0",
+  "code_baseline": "v90.gw",
+  "schema_target": 273,
+  "status": "production-candidate",
+  "source_of_truth": "This consolidated repository",
+  "historical_lineage": "V2 through V90.gw as represented by the cumulative release history",
+  "deployment_status": "not deployed",
+  "postgresql_validation": "not run in this consolidation environment",
+  "business_uat_status": "pending",
+  "production_signoff_status": "pending"
+}

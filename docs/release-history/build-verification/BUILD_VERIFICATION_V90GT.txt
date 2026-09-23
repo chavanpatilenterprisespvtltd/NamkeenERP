@@ -1,0 +1,15 @@
+V90.gt build verification
+=========================
+Source baseline: V90.gs mobile transaction integration package
+Release: V90.gt
+Schema target: 270
+
+Validation performed after implementation:
+- Focused V90.gt + V90.gs tests: 3 passed
+- Cumulative regression excluding known OEE test: 543 passed, 28 warnings, exit code 0
+- Python compileall: PASS
+- Checksum generation/verification: PASS
+- CI gate: PASS
+- ZIP integrity: PASS (after packaging)
+- PostgreSQL migration smoke test: NOT RUN because no live DATABASE_URL/PostgreSQL instance is available.
+- Production deployment: NOT RUN.

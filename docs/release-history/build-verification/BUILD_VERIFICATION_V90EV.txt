@@ -1,0 +1,3 @@
+V90.ev verification record is generated during release packaging.
+Schema target: 222
+Base release: V90.eu / schema 221

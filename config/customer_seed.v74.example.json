@@ -1,0 +1,24 @@
+{
+  "uom": ["kg", "g", "piece", "pack", "carton"],
+  "products": [
+    "Special Farsan",
+    "Simple / Regular Farsan",
+    "Zero Shev – Small Size",
+    "Chana Dal",
+    "Makka Chivda",
+    "Lasoon Shev",
+    "Medium Shev",
+    "Motichur Boondi",
+    "Masala Shenga",
+    "Khari Boondi",
+    "Papdi",
+    "Chilli Milli",
+    "Sabu Chivda",
+    "Batata Chivda",
+    "Shev Chivda"
+  ],
+  "initial_pack_sizes_g": [500, 1000],
+  "payment_modes": ["UPI", "CASH", "CHEQUE"],
+  "warehouses": ["RM", "PKG", "WIP", "FG", "QC", "DISP"],
+  "roles": ["ADMIN", "MANAGEMENT", "MANAGER", "SALES", "FACTORY", "QC", "ACCOUNTS"]
+}

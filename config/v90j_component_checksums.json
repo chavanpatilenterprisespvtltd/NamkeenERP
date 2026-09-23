@@ -1,0 +1,13 @@
+{
+  "app/v90j_product_master.py": "11625aebd5e6aa0d46affe629ceb5cc825d46fd5829a360d978d2d4103913ea6",
+  "app/__main__.py": "b1a99f7a2f5c5902716cace096345063b82b485ad7859f6eda133b99011b4cf4",
+  "migrations/083_v90j_product_master_workflows.sql": "f19afd3a0372a95ee9f7e088ebc639fe376d8729b33b861eefadff815c69ccf0",
+  "config/release_manifest.json": "45854e59ec38a3b45f7bb44e618b748eccf33aecb40837aac37db7a4a9abb91c",
+  "config/migration_manifest.json": "5ed298fefaa8a356dab9d0f5b9c6154547e1b5ded5e659704dc9064eb400e32e",
+  "config/maintenance_release_v90j.json": "80dda693ae26317237725bb3d2c32c84544048e887ca104a52cc5c6f3466a6fc",
+  "docs/V90_J_PRODUCT_MASTER_WORKFLOWS.md": "3224e13abf54de844a61bbe227b089e87a84e44c84f7352ae9a69e963ede08fd",
+  "tests/test_v90j_product_master.py": "78321caf832f6f662b7e8c21227f045ae3128bbb073fe662e6e4d0cf04e4f0ae",
+  "tests/test_v90_release_integrity.py": "2096bf06527464047351498ed87eb7f6433a415fe731c634bd5c5a34364e3b2a",
+  "README.md": "7a8d9809cbf8dd2a81dd90cbbc85e104af7a80c9d218a5dd2bf0806898582db4",
+  "RELEASE_NOTES_V90J.md": "bf9a79fea8d772e8e148ac43585b8800dde21165f9d70c26ab20154201b31e29"
+}
