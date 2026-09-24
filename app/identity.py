@@ -13,7 +13,7 @@ SCHEMA = {
     ]
 }
 
-DEFAULT_ROLES = [('super_admin','Super Admin'),('manager','Manager'),('operator','Operator'),('salesperson','Salesperson'),('accounts','Accounts')]
+DEFAULT_ROLES = [('super_admin','Super Admin'),('manager','Manager'),('operator','Operator'),('salesperson','Salesperson'),('accounts','Accounts'),('purchase','Purchase'),('warehouse','Warehouse'),('production','Production'),('production_manager','Production Manager'),('quality','Quality'),('packing','Packing'),('dispatch','Dispatch'),('costing','Costing'),('sales','Sales'),('mis','MIS'),('hr_manager','HR Manager')]
 DEFAULT_PERMISSIONS = [
     ('dashboard.view','View dashboard'),('masters.view','View masters'),('masters.edit','Edit masters'),
     ('production.view','View production'),('production.edit','Edit production'),('production.approve','Approve production'),('inventory.view','View inventory'),
