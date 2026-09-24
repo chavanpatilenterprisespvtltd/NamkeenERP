@@ -1187,7 +1187,7 @@
     },
     {
       "path": "docs/ERP_MASTER_HANDOFF.md",
-      "sha256": "be8f35eae40bcdee14752a0b59aac3e7a50f945464b469eb11539dd21194da99"
+      "sha256": "f75a88e0d5afecc691462c5ceea27eaa2e031b935a02d2be728e423820689c3c"
     },
     {
       "path": "docs/ERP_MASTER_HANDOFF_SOURCE.md",
@@ -1247,7 +1247,7 @@
     },
     {
       "path": "docs/RELEASE_GENEALOGY.md",
-      "sha256": "92d6ae940399f1d0ee334a7ea639fc4db4dfb6607709d8e03f1d6cef6477a6fc"
+      "sha256": "f7a3920c09ac4424ada718034a3c9a373aa5ae0e0b1ee61cdb64749c592d2945"
     },
     {
       "path": "docs/UAT_MATRIX.md",
@@ -3552,6 +3552,10 @@
     {
       "path": "migrations/273_v90gw_erp_completion_audit.sql",
       "sha256": "f05914c27a3d045edf3d800714137db7effe13925d538a864458c559f9ac597a"
+    },
+    {
+      "path": "requirements-dev.txt",
+      "sha256": "f8fa0d05b784affe534c8bf7a87e46e6505a69e21a3c71b5734288dbe57e1237"
     },
     {
       "path": "requirements.txt",
