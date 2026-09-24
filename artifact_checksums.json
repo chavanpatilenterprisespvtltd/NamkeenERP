@@ -107,7 +107,7 @@
     },
     {
       "path": "app/identity.py",
-      "sha256": "b6348155ecbdef1a88ee15c5324e45f89e51ca749e03340974f0061f70205ba8"
+      "sha256": "2d9f3496c440487cefcb8bf1ff1b0b1f9fbde176292d6d0ee1564e4df532e015"
     },
     {
       "path": "app/master/__init__.py",
