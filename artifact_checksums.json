@@ -407,7 +407,7 @@
     },
     {
       "path": "app/v90bf_security_hardening.py",
-      "sha256": "88fbc53c6eab2da3da06bb53a7bd82ce3f680c05160a079144f22b85c0bb6894"
+      "sha256": "a61770e46f802f9ad84a67c09a8924e610abcd5bed9ff28181a6cf6b386c51ea"
     },
     {
       "path": "app/v90bg_backup_restore.py",

@@ -76,7 +76,7 @@ def record_login_attempt(engine: Engine, username: str, ip_address: str, success
 def login_is_throttled(engine: Engine, username: str, ip_address: str) -> bool:
     cutoff = datetime.fromtimestamp(datetime.now(timezone.utc).timestamp() - LOGIN_WINDOW_SECONDS, timezone.utc).isoformat()
     with engine.connect() as c:
-        row = c.execute(text("SELECT COUNT(*) AS n FROM security_login_attempts WHERE username=:u AND ip_address=:ip AND success=0 AND attempted_at >= :cut"), {'u': username.strip().lower(), 'ip': ip_address, 'cut': cutoff}).first()
+        row = c.execute(text("SELECT COUNT(*) AS n FROM security_login_attempts WHERE username=:u AND ip_address=:ip AND success=FALSE AND attempted_at >= :cut"), {'u': username.strip().lower(), 'ip': ip_address, 'cut': cutoff}).first()
         return int(row[0] or 0) >= LOGIN_MAX_FAILURES
 
 
