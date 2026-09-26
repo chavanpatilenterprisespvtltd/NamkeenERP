@@ -1,3 +1,23 @@
+# FILE PATH: app/auth.py
+# ─── Authentication v1.1 (Session CS2 — token secret read from Docker secret file; demo users dev-only) ─
+#
+# [Session CS2] FIX — PRODUCTION TOKENS WERE SIGNED WITH THE PUBLIC DEFAULT SECRET "dev-only-change-me".
+# Confirmed this session by reading the code: make_access_token()/parse_access_token() read only
+# AUTH_TOKEN_SECRET, while config/.env.production.example and the compose file supply only
+# JWT_SECRET_FILE=/run/secrets/jwt_secret. Result: any production container used the default secret,
+# so anyone who read this repo could forge a Super Admin token.
+#
+# ROOT CAUSE: the V90.bh deployment templates introduced *_FILE secrets but the V90.d auth code
+# was never updated to read them.
+#
+# THE FIX: both functions now call runtime_security.token_secret(), which reads AUTH_TOKEN_SECRET,
+# JWT_SECRET or their *_FILE variants and refuses missing/default/short secrets in staging/production.
+# default_demo_users() now returns {} unless runtime_security.demo_login_enabled() (dev/test only).
+# NOT touched: token format, TTL, password hashing (PBKDF2), session validator hook, require_roles().
+# Verified by tests/test_v90gx_runtime_security.py and the unchanged tests/test_v90d_auth.py.
+#
+# ─── v1.0 HEADER (preserved) ─────────────────────────────────────────────
+# Original V90.d authentication foundation; no in-file changelog existed before Session CS2.
 from __future__ import annotations
 
 import hashlib
@@ -9,6 +29,8 @@ from dataclasses import dataclass
 from typing import Optional
 
 from fastapi import HTTPException, Request
+
+from .runtime_security import demo_login_enabled, token_secret
 
 PBKDF2_ITERS = 210_000
 TOKEN_TTL_SECONDS = 8 * 60 * 60
@@ -48,14 +70,14 @@ def verify_password(password: str, encoded: str) -> bool:
 def make_access_token(user: UserRecord, ttl_seconds: int = TOKEN_TTL_SECONDS) -> str:
     expiry = int(time.time()) + ttl_seconds
     nonce = secrets.token_urlsafe(18)
-    secret = os.getenv("AUTH_TOKEN_SECRET", "dev-only-change-me")
+    secret = token_secret()  # [Session CS2] FIX — see file header (reads *_FILE, strict in production).
     body = f"{user.user_id}|{user.username}|{user.role}|{expiry}|{nonce}"
     sig = hmac.new(secret.encode(), body.encode(), hashlib.sha256).hexdigest()
     return f"{body}|{sig}"
 
 
 def parse_access_token(token: str) -> UserRecord:
-    secret = os.getenv("AUTH_TOKEN_SECRET", "dev-only-change-me")
+    secret = token_secret()  # [Session CS2] FIX — see file header (reads *_FILE, strict in production).
     parts = token.split("|")
     if len(parts) != 6:
         raise HTTPException(status_code=401, detail="invalid authentication token")
@@ -96,6 +118,9 @@ def require_roles(*roles: str):
 
 
 def default_demo_users() -> dict[str, tuple[UserRecord, str]]:
+    # [Session CS2] FIX — see file header. Legacy demo logins exist only in development/test.
+    if not demo_login_enabled():
+        return {}
     return {
         "admin": (UserRecord("u-admin", "admin", "Super Admin"), os.getenv("DEMO_ADMIN_PASSWORD", "change-me")),
         "manager": (UserRecord("u-manager", "manager", "Manager"), os.getenv("DEMO_MANAGER_PASSWORD", "change-me")),

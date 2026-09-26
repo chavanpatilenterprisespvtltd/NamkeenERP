@@ -1,11 +1,11 @@
 {
-  "erp_schema_target": 273,
-  "latest_migration": "273_v90gw_erp_completion_audit.sql",
-  "latest_schema": 273,
+  "erp_schema_target": 279,
+  "latest_migration": "279_v90gx_master_validation_fix_forward.sql",
+  "latest_schema": 279,
   "migration_policy": "ordered_and_checksum_verified",
-  "release": "v90.gw",
-  "release_version": "v90.gw",
-  "schema_target": 273,
-  "version": "v90.gw",
-  "target_schema_version": 273
+  "release": "v90.gx",
+  "release_version": "v90.gx",
+  "schema_target": 279,
+  "target_schema_version": 279,
+  "version": "v90.gx"
 }

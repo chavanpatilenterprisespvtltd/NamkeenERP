@@ -1,3 +1,31 @@
+# FILE PATH: app/v90ag_dispatch_execution.py
+# ─── Dispatch Execution v1.1 (Session CS2 — FY invoice numbering, e-way/advance gates, multi-line invoice fix, GST finalize) ─
+#
+# [Session CS2] FIX — MULTI-LINE ORDERS COULD NOT BE DISPATCHED (DUPLICATE invoice_line_id).
+# Confirmed live this session by running the old INSERT … SELECT against a SQLite schema built by
+# ensure_v90z_schema/ensure_v90ag_schema with two order lines: sqlite3.IntegrityError "UNIQUE constraint
+# failed: sales_invoice_lines.invoice_line_id". The existing test only used one line, so it never failed.
+# ROOT CAUSE: INSERT … SELECT copied every order line with the same single :id UUID.
+# THE FIX: one INSERT per sales_order_line with its own uuid4().
+#
+# [Session CS2] FIX — DISPATCH FAILED ON POSTGRESQL (FOREIGN KEY dispatch_lines → dispatches).
+# Confirmed live this session: pytest on PostgreSQL 16 raised ForeignKeyViolation "dispatch_lines_dispatch_id_fkey"
+# because the dispatches header row was inserted after its lines (SQLite does not enforce foreign keys).
+# THE FIX: the INSERT INTO dispatches statement moved before the line loop, same values, same transaction.
+#
+# [Session CS2] FEATURE — INVOICE NUMBER / E-WAY / ADVANCE TERMS AT DISPATCH.
+# Confirmed this session by reading the code: invoice_no was typed by hand (80 chars allowed, GST
+# allows 16), eway_bill_no was free text with no threshold rule, and no advance-payment rule existed.
+# THE FIX: DispatchCreate.invoice_no is optional (max 16). Inside the posting transaction
+# v90gx_company_gst_invoicing.prepare_dispatch_invoice() (a) blocks dispatch when the customer has
+# ADVANCE terms and the advance is not received, (b) blocks when the order value exceeds the e-way
+# threshold and no 12-digit e-way bill number is given, (c) allocates the FY series number when no
+# number is typed. After posting, finalize_invoice_gst() stores the CGST/SGST/IGST split and print data;
+# the response now includes `gst` and `print_url`.
+# NOT touched: stock depletion, FEFO consumption, allocation status, pick-list rules, GET /v90ag/dispatches.
+#
+# ─── v1.0 HEADER (preserved) ─────────────────────────────────────────────
+# Original V90.ag dispatch execution; no in-file changelog existed before Session CS2.
 from __future__ import annotations
 from datetime import datetime, timezone
 from uuid import UUID, uuid4
@@ -9,6 +37,7 @@ from sqlalchemy import text
 from .auth import authenticate
 from .identity import permissions_for_user
 from .master_scope import assert_entity_location_allowed
+from .v90gx_company_gst_invoicing import finalize_invoice_gst, prepare_dispatch_invoice
 
 
 def _now() -> str:
@@ -92,7 +121,8 @@ def ensure_v90ag_schema(engine) -> None:
 
 class DispatchCreate(BaseModel):
     dispatch_no: str = Field(min_length=2, max_length=80)
-    invoice_no: str = Field(min_length=2, max_length=80)
+    # [Session CS2] FEATURE — optional: when omitted the FY series number (PREFIX/YY-YY/NNNN) is allocated.
+    invoice_no: str | None = Field(default=None, min_length=2, max_length=16)
     vehicle_no: str | None = Field(default=None, max_length=80)
     transporter: str | None = Field(default=None, max_length=120)
     eway_bill_no: str | None = Field(default=None, max_length=80)
@@ -126,7 +156,7 @@ def register_v90ag_routes(app: FastAPI, engine) -> None:
                 raise HTTPException(409, 'picked pick list is required')
             pick_lines = conn.execute(text('SELECT * FROM dispatch_pick_lines WHERE pick_list_id=:id ORDER BY created_at'), {'id': str(pick['pick_list_id'])}).mappings().all()
             duplicate = conn.execute(text("SELECT dispatch_id,status FROM dispatches WHERE sales_order_id=:id AND status='POSTED'"), {'id': str(sales_order_id)}).mappings().first()
-            invoice_dup = conn.execute(text("SELECT invoice_id FROM sales_invoices WHERE organization_id=:o AND entity_id=:e AND invoice_no=:n"), {'o': str(order['organization_id']), 'e': str(order['entity_id']), 'n': body.invoice_no}).first()
+            invoice_dup = conn.execute(text("SELECT invoice_id FROM sales_invoices WHERE organization_id=:o AND entity_id=:e AND invoice_no=:n"), {'o': str(order['organization_id']), 'e': str(order['entity_id']), 'n': body.invoice_no}).first() if body.invoice_no else None
             dispatch_dup = conn.execute(text("SELECT dispatch_id FROM dispatches WHERE organization_id=:o AND entity_id=:e AND dispatch_no=:n"), {'o': str(order['organization_id']), 'e': str(order['entity_id']), 'n': body.dispatch_no}).first()
         actor = _require(engine, request, str(order['entity_id']), str(order['location_id']), True)
         actor_id = actor.user_id
@@ -144,6 +174,10 @@ def register_v90ag_routes(app: FastAPI, engine) -> None:
         dispatch_id = str(uuid4())
         invoice_id = str(uuid4())
         with engine.begin() as conn:
+            # [Session CS2] FEATURE — advance-terms gate, e-way threshold gate and FY invoice number, inside this transaction.
+            invoice_no = prepare_dispatch_invoice(engine, order=dict(order), user_id=actor_id, invoice_no=body.invoice_no, eway_bill_no=body.eway_bill_no, conn=conn)
+            # [Session CS2] FIX — header before lines: dispatch_lines has a FOREIGN KEY to dispatches (enforced by PostgreSQL).
+            conn.execute(text("INSERT INTO dispatches(dispatch_id,organization_id,entity_id,location_id,warehouse_id,sales_order_id,pick_list_id,dispatch_no,status,vehicle_no,transporter,eway_bill_no,notes,created_by,posted_at) VALUES(:d,:o,:e,:l,:w,:so,:p,:dn,'POSTED',:v,:t,:ew,:n,:by,CURRENT_TIMESTAMP)"), {'d': dispatch_id, 'o': order['organization_id'], 'e': order['entity_id'], 'l': order['location_id'], 'w': order['warehouse_id'], 'so': str(sales_order_id), 'p': pick['pick_list_id'], 'dn': body.dispatch_no, 'v': body.vehicle_no, 't': body.transporter, 'ew': body.eway_bill_no, 'n': body.notes, 'by': actor_id})
             for line in pick_lines:
                 qty = float(line['picked_qty'])
                 if qty <= 0 or str(line['status']) != 'PICKED':
@@ -166,12 +200,15 @@ def register_v90ag_routes(app: FastAPI, engine) -> None:
                 conn.execute(text("UPDATE fg_fefo_allocation SET status='CONSUMED' WHERE reference_type='SALES_ORDER' AND reference_id=:so AND packed_fg_lot_id=:lot AND status='OPEN' AND quantity>=:q"), {'so': str(sales_order_id), 'lot': line['packed_fg_lot_id'], 'q': qty})
                 conn.execute(text("INSERT INTO dispatch_lines(dispatch_line_id,dispatch_id,sales_order_line_id,sales_order_allocation_id,sku_id,packed_fg_lot_id,lot_code,dispatched_qty,uom) VALUES(:id,:d,:sl,:a,:s,:lot,:code,:q,'kg')"), {'id': str(uuid4()), 'd': dispatch_id, 'sl': line['sales_order_line_id'], 'a': line['sales_order_allocation_id'], 's': line['sku_id'], 'lot': line['packed_fg_lot_id'], 'code': line['lot_code'], 'q': qty})
 
-            conn.execute(text("INSERT INTO dispatches(dispatch_id,organization_id,entity_id,location_id,warehouse_id,sales_order_id,pick_list_id,dispatch_no,status,vehicle_no,transporter,eway_bill_no,notes,created_by,posted_at) VALUES(:d,:o,:e,:l,:w,:so,:p,:dn,'POSTED',:v,:t,:ew,:n,:by,CURRENT_TIMESTAMP)"), {'d': dispatch_id, 'o': order['organization_id'], 'e': order['entity_id'], 'l': order['location_id'], 'w': order['warehouse_id'], 'so': str(sales_order_id), 'p': pick['pick_list_id'], 'dn': body.dispatch_no, 'v': body.vehicle_no, 't': body.transporter, 'ew': body.eway_bill_no, 'n': body.notes, 'by': actor_id})
 
-            conn.execute(text("INSERT INTO sales_invoices(invoice_id,organization_id,entity_id,location_id,sales_order_id,dispatch_id,invoice_no,status,subtotal,discount_total,taxable_value,gst_total,grand_total,created_by) SELECT :i,organization_id,entity_id,location_id,sales_order_id,:d,:n,'POSTED',subtotal,discount_total,taxable_value,gst_total,grand_total,:by FROM sales_orders WHERE sales_order_id=:so"), {'i': invoice_id, 'd': dispatch_id, 'n': body.invoice_no, 'by': actor_id, 'so': str(sales_order_id)})
-            conn.execute(text("INSERT INTO sales_invoice_lines(invoice_line_id,invoice_id,sales_order_line_id,sku_id,quantity,unit_price,discount_amount,taxable_amount,gst_rate,gst_amount,line_total) SELECT :id,:inv,sales_order_line_id,sku_id,quantity,unit_price,discount_amount,taxable_amount,gst_rate,gst_amount,line_total FROM sales_order_lines WHERE sales_order_id=:so"), {'id': str(uuid4()), 'inv': invoice_id, 'so': str(sales_order_id)})
+            conn.execute(text("INSERT INTO sales_invoices(invoice_id,organization_id,entity_id,location_id,sales_order_id,dispatch_id,invoice_no,status,subtotal,discount_total,taxable_value,gst_total,grand_total,created_by) SELECT :i,organization_id,entity_id,location_id,sales_order_id,:d,:n,'POSTED',subtotal,discount_total,taxable_value,gst_total,grand_total,:by FROM sales_orders WHERE sales_order_id=:so"), {'i': invoice_id, 'd': dispatch_id, 'n': invoice_no, 'by': actor_id, 'so': str(sales_order_id)})
+            # [Session CS2] FIX — one invoice_line_id per order line (the old INSERT…SELECT reused one UUID for every line).
+            for so_line_id in [r[0] for r in conn.execute(text("SELECT sales_order_line_id FROM sales_order_lines WHERE sales_order_id=:so"), {'so': str(sales_order_id)}).all()]:
+                conn.execute(text("INSERT INTO sales_invoice_lines(invoice_line_id,invoice_id,sales_order_line_id,sku_id,quantity,unit_price,discount_amount,taxable_amount,gst_rate,gst_amount,line_total) SELECT :id,:inv,sales_order_line_id,sku_id,quantity,unit_price,discount_amount,taxable_amount,gst_rate,gst_amount,line_total FROM sales_order_lines WHERE sales_order_line_id=:sl"), {'id': str(uuid4()), 'inv': invoice_id, 'sl': so_line_id})
             conn.execute(text("UPDATE sales_orders SET status='DISPATCHED', stock_status='DISPATCHED', hold_reason=NULL WHERE sales_order_id=:id"), {'id': str(sales_order_id)})
-        return {'dispatch_id': dispatch_id, 'invoice_id': invoice_id, 'sales_order_id': str(sales_order_id), 'dispatch_no': body.dispatch_no, 'invoice_no': body.invoice_no, 'status': 'POSTED'}
+        gst = finalize_invoice_gst(engine, invoice_id, actor_id, eway_bill_no=body.eway_bill_no, vehicle_no=body.vehicle_no)  # [Session CS2]
+        return {'dispatch_id': dispatch_id, 'invoice_id': invoice_id, 'sales_order_id': str(sales_order_id), 'dispatch_no': body.dispatch_no, 'invoice_no': invoice_no, 'status': 'POSTED',
+                'gst': gst, 'print_url': f'/v90gx/sales-invoices/{invoice_id}/print'}
 
     @app.get('/v90ag/dispatches/{dispatch_id}')
     def get_dispatch(dispatch_id: UUID, request: Request):

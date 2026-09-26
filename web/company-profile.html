@@ -1,0 +1,72 @@
+<!-- FILE PATH: web/company-profile.html -->
+<!-- Company Profile screen v1.0 (Session CS2 — new: legal details of company X and company Y, invoice series, e-way rules) -->
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Company Profile | Namkeen ERP</title>
+<link rel="stylesheet" href="/web/assets/app.css">
+<style>.wide{max-width:none}.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}label{display:grid;gap:4px;font-size:13px;color:#374151;min-width:0}select{width:100%;min-width:0;font:inherit;padding:10px;border-radius:8px;border:1px solid #d1d5db;background:#fff}.ok{color:#047857}table{width:100%;border-collapse:collapse}td,th{border-bottom:1px solid #e5e7eb;padding:6px;text-align:left;font-size:14px}</style></head>
+<body><main class="shell">
+<header><div><h1>Company Profile</h1><span class="muted">Company X (manufacturing) and Company Y (sales &amp; marketing): GSTIN, PAN, FSSAI, address, bank, invoice prefix</span></div><a class="pill" href="/ui/daily-work">Daily work</a></header>
+<section class="card"><h2>Entities</h2><table id="ents"><tr><td class="muted">Loading…</td></tr></table></section>
+<section class="card" style="margin-top:16px"><h2>Edit profile</h2>
+<form id="f" class="wide">
+<div class="two">
+<label>Entity<select id="entity" required></select></label>
+<label>Organization<select name="organization_id" id="org" required></select></label>
+<label>Business role<select name="business_role" required><option value="MANUFACTURER">Manufacturer (company X)</option><option value="SALES_MARKETING">Sales &amp; marketing (company Y)</option><option value="BOTH">Both</option></select></label>
+<label>Legal name<input name="legal_name" required minlength="2"></label>
+<label>Trade name / brand<input name="trade_name" placeholder="e.g. Dip's-t-Chips"></label>
+<label>GSTIN<input name="gstin" maxlength="15" placeholder="27AAAAA0000A1Z5"></label>
+<label>PAN<input name="pan" maxlength="10"></label>
+<label>CIN<input name="cin"></label>
+<label>FSSAI licence no. (14 digits)<input name="fssai_license_no" maxlength="14"></label>
+<label>FSSAI valid to<input name="fssai_valid_to" type="date"></label>
+<label>Address line 1<input name="address_line1" required></label>
+<label>Address line 2<input name="address_line2"></label>
+<label>City<input name="city" required></label>
+<label>District<input name="district"></label>
+<label>State<select name="state_code" id="state" required></select></label>
+<label>Pincode<input name="pincode" required maxlength="6"></label>
+<label>Phone<input name="phone"></label>
+<label>E-mail (alerts go here)<input name="email" type="email"></label>
+<label>Bank name<input name="bank_name"></label>
+<label>Account no.<input name="bank_account_no"></label>
+<label>IFSC<input name="bank_ifsc" maxlength="11"></label>
+<label>Branch<input name="bank_branch"></label>
+<label>UPI ID<input name="upi_id"></label>
+<label>Invoice prefix (1–6 letters/digits)<input name="invoice_prefix" maxlength="6" placeholder="CPE"></label>
+<label><span><input type="checkbox" name="einvoice_applicable"> e-invoice (IRN) applicable</span></label>
+</div>
+<div><button>Save profile</button> <span id="msg"></span></div>
+</form></section>
+<section class="grid" style="margin-top:16px"><article><h2>Invoice number series</h2><div id="series" class="list"></div></article><article><h2>E-way bill thresholds</h2><div id="eway" class="list"></div></article></section>
+</main>
+<script src="/web/assets/erp-forms.js"></script>
+<script>
+const $=id=>document.getElementById(id), E=ERP;
+const STATES={'27':'Maharashtra','24':'Gujarat','29':'Karnataka','30':'Goa','23':'Madhya Pradesh','36':'Telangana','37':'Andhra Pradesh','33':'Tamil Nadu','07':'Delhi','09':'Uttar Pradesh','08':'Rajasthan','22':'Chhattisgarh','32':'Kerala','19':'West Bengal','06':'Haryana','03':'Punjab','10':'Bihar','21':'Odisha','20':'Jharkhand','18':'Assam','05':'Uttarakhand','02':'Himachal Pradesh','01':'Jammu and Kashmir','04':'Chandigarh','26':'Dadra and Nagar Haveli and Daman and Diu','34':'Puducherry'};
+E.fillSelect($('state'),Object.entries(STATES).sort((a,b)=>a[1].localeCompare(b[1])).map(([k,v])=>({k,v:`${k} — ${v}`})),'k',x=>x.v);$('state').value='27';
+let ents=[];
+async function load(){
+  try{
+    const [d,s]=await Promise.all([E.api('GET','/v90gx/entities'),E.scope()]);
+    ents=d.entities;
+    $('ents').innerHTML='<tr><th>Code</th><th>Name</th><th>Role</th><th>GSTIN</th><th>FSSAI</th><th>Prefix</th></tr>'+ents.map(x=>`<tr><td>${E.esc(x.entity_code)}</td><td>${E.esc(x.legal_name||x.entity_name)}</td><td>${E.esc(x.business_role||'— not set —')}</td><td>${E.esc(x.gstin||'')}</td><td>${E.esc(x.fssai_license_no||'')}</td><td>${E.esc(x.invoice_prefix||'')}</td></tr>`).join('');
+    E.fillSelect($('entity'),ents,'entity_id',x=>`${x.entity_code} — ${x.legal_name||x.entity_name}`);
+    const orgs=[...new Set(s.entities.map(x=>x.organization_id).filter(Boolean))];
+    E.fillSelect($('org'),orgs.map(o=>({o})),'o',x=>x.o,orgs.length?null:'(no organization mapped yet — run bootstrap)');
+    const ew=await E.api('GET','/v90gx/eway-rules');
+    $('eway').innerHTML=ew.rules.map(r=>`<div class="list-item"><strong>${r.seller_state_code==='*'?'Default':E.esc(r.seller_state_code+' '+(STATES[r.seller_state_code]||''))}</strong><small>Intra-state above ₹${E.esc(r.intra_state_threshold)} · Inter-state above ₹${E.esc(r.inter_state_threshold)}</small></div>`).join('');
+    await pick();
+  }catch(e){E.status($('msg'),e.message,false)}
+}
+async function pick(){
+  const id=$('entity').value; if(!id)return;
+  const f=$('f'); f.reset(); $('entity').value=id; $('state').value='27';
+  try{const p=(await E.api('GET',`/v90gx/entities/${id}/profile`)).profile;
+    Array.prototype.forEach.call(f.elements,el=>{if(!el.name||!(el.name in p))return; if(el.type==='checkbox')el.checked=!!Number(p[el.name]); else el.value=p[el.name]==null?'':String(p[el.name]).slice(0,el.type==='date'?10:500)});
+  }catch(e){ /* no profile yet */ }
+  try{const s=await E.api('GET',`/v90gx/document-series?entity_id=${id}`);$('series').innerHTML=s.series.map(x=>`<div class="list-item"><strong>${E.esc(x.doc_type)} · FY ${E.esc(x.fy_code)}</strong><small>Next: ${E.esc(x.prefix)}/${E.esc(x.fy_code.slice(2,4)+'-'+x.fy_code.slice(5,7))}/${String(x.next_no).padStart(x.pad_width,'0')}</small></div>`).join('')||'<div class="empty">Series are created automatically from the invoice prefix on the first invoice.</div>'}catch(e){}
+}
+$('entity').addEventListener('change',pick);
+$('f').addEventListener('submit',async ev=>{ev.preventDefault();try{const b=E.formData($('f'));b.einvoice_applicable=!!b.einvoice_applicable;const r=await E.api('PUT',`/v90gx/entities/${$('entity').value}/profile`,b);E.status($('msg'),`Saved. State: ${r.state_name}${r.pan?' · PAN '+r.pan:''}`,true);load()}catch(e){E.status($('msg'),e.message,false)}});
+load();
+</script></body></html>

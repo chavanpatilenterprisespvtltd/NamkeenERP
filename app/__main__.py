@@ -1,3 +1,21 @@
+# FILE PATH: app/__main__.py
+# ─── ERP Application Entry v1.1 (Session CS2 — startup safety gate, demo login dev-only, V90.gx routes) ─
+#
+# [Session CS2] FIX/FEATURE — STAGING/PRODUCTION COULD START WITH PUBLIC SECRETS, SQLITE AND DEMO LOGINS.
+# Confirmed this session by reading login() (demo admin/manager fallback always active) and the
+# startup sequence (no configuration validation before create_db_engine()).
+#
+# THE FIX:
+#   - runtime_security.validate_runtime_configuration() runs before create_db_engine(); in
+#     staging/production it raises when the token secret or DATABASE_URL(_FILE) is missing/unsafe.
+#   - login(): unchanged code path, but auth.default_demo_users() now returns {} outside dev/test.
+#   - uvicorn host/port read from APP_HOST / APP_PORT (defaults unchanged: 0.0.0.0:8000).
+#   - registers the V90.gx modules (company profile & GST invoicing, intercompany X→Y settlement,
+#     plant operations logs, notifications, lookups) — see the bottom of this file.
+# NOT touched: any existing route, middleware, schema bootstrap order, or V90.i–V90.gw registrations.
+#
+# ─── v1.0 HEADER (preserved) ─────────────────────────────────────────────
+# Cumulative V2–V90.gw application entry; no in-file changelog existed before Session CS2.
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.security import HTTPBearer
 from pydantic import BaseModel
@@ -198,6 +216,9 @@ from .v90gw_completion_audit import register_v90gw_routes
 from .v90ag_dispatch_execution import register_v90ag_routes
 
 release = load_release_info()
+# [Session CS2] FIX — see file header. Refuse to start staging/production with unsafe secrets/DB.
+from .runtime_security import validate_runtime_configuration
+runtime_config = validate_runtime_configuration()
 engine: Engine = create_db_engine()
 ensure_identity_schema(engine)
 ensure_org_schema(engine)
@@ -387,7 +408,7 @@ def login(payload: LoginRequest, request: Request):
         raise HTTPException(status_code=429, detail='too many failed login attempts; try again later')
     user = user_record(engine, payload.username, payload.password)
     if not user:
-        # Backward-compatible demo credentials remain available for the legacy test/bootstrap path.
+        # Backward-compatible demo credentials: development/test only ([Session CS2] — default_demo_users() is {} in staging/production).
         demo = default_demo_users().get(payload.username)
         if demo:
             demo_user, demo_password = demo
@@ -545,7 +566,8 @@ def version():
 
 if __name__ == '__main__':
     import uvicorn
-    uvicorn.run(app, host='0.0.0.0', port=8000)
+    import os
+    uvicorn.run(app, host=os.getenv('APP_HOST', '0.0.0.0'), port=int(os.getenv('APP_PORT', '8000')))  # [Session CS2]
 
 register_v90fn_routes(app, engine)
 register_v90fo_routes(app, engine)
@@ -582,3 +604,15 @@ register_v90gt_routes(app, engine)
 register_v90gu_routes(app, engine)
 register_v90gv_routes(app, engine)
 register_v90gw_routes(app, engine)
+
+# [Session CS2] FEATURE — V90.gx modules (see file header).
+from .v90gx_company_gst_invoicing import register_v90gx_company_routes
+register_v90gx_company_routes(app, engine)
+from .v90gx_intercompany_settlement import register_v90gx_intercompany_routes
+register_v90gx_intercompany_routes(app, engine)
+from .v90gx_plant_operations import register_v90gx_plant_routes
+register_v90gx_plant_routes(app, engine)
+from .v90gx_notifications import register_v90gx_notification_routes
+register_v90gx_notification_routes(app, engine)
+from .v90gx_ui_support import register_v90gx_ui_routes
+register_v90gx_ui_routes(app, engine)

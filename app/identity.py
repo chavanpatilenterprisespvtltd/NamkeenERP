@@ -1,3 +1,16 @@
+# FILE PATH: app/identity.py
+# ─── Identity & Roles v1.1 (Session CS2 — erpadmin is no longer seeded with "change-me" in production) ─
+#
+# [Session CS2] FIX — ERPADMIN (SUPER ADMIN) WAS SEEDED WITH PASSWORD "change-me" WHEN ERP_ADMIN_PASSWORD WAS UNSET.
+# Confirmed this session by reading _seed_persistent_admins(): os.getenv('ERP_ADMIN_PASSWORD','change-me').
+# THE FIX: _seed_persistent_admins() takes the password from runtime_security.bootstrap_admin_password()
+# (ERP_ADMIN_PASSWORD or ERP_ADMIN_PASSWORD_FILE). In staging/production a missing, default or short
+# (<10 chars) password means erpadmin is NOT seeded; the first admin is created by bootstrap/bootstrap.py.
+# Development/test behaviour (erpadmin / change-me) is unchanged so the existing tests keep working.
+# NOT touched: schema, default roles/permissions/grants, create_user(), user_record(), permissions_for_user().
+#
+# ─── v1.0 HEADER (preserved) ─────────────────────────────────────────────
+# Original V90.e persistent identity; no in-file changelog existed before Session CS2.
 from __future__ import annotations
 from sqlalchemy import text
 from sqlalchemy.engine import Engine
@@ -52,9 +65,13 @@ def _seed_persistent_admins(engine: Engine) -> None:
     existing = find_user(engine, 'erpadmin')
     if existing:
         return
-    import os
+    # [Session CS2] FIX — see file header. No "change-me" admin in staging/production.
+    from .runtime_security import bootstrap_admin_password
+    password = bootstrap_admin_password()
+    if password is None:
+        return
     try:
-        create_user(engine, 'erpadmin', 'erpadmin', os.getenv('ERP_ADMIN_PASSWORD', 'change-me'), 'ERP Administrator', 'super_admin')
+        create_user(engine, 'erpadmin', 'erpadmin', password, 'ERP Administrator', 'super_admin')
     except Exception:
         pass
 

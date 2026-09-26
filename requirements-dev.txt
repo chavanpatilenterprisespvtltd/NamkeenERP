@@ -9,5 +9,7 @@
 # which needs httpx as an extra dependency of fastapi's test client in recent fastapi/starlette
 # releases, so it is pinned here too. This file does not change requirements.txt or any
 # runtime app dependency.
+# [Session CS2] pyyaml added — tests/test_v90gx_runtime_security.py parses deploy/docker-compose.production.yml.
 pytest>=8.0,<9
 httpx>=0.27,<1
+pyyaml>=6,<7

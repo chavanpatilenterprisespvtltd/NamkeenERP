@@ -8,7 +8,7 @@ The ERP was developed cumulatively from early prototypes through V90. The canoni
 - Mobile/domain/operational growth: V17–V40
 - Accounting/GST/dispatch/compliance/production depth: V41–V60
 - Production/UAT/deployment/master-data hardening: V61–V90
-- Lettered V90 sequence: V90.a through the cumulative V90.gw baseline, with historical release notes and verification artifacts retained in this repository.
+- Lettered V90 sequence: V90.a through V90.gw (+ hotfix1–5), then V90.gx (Session CS2: security/deployment fixes, company X/Y, GST invoicing, X→Y settlement, plant registers, entry screens), with historical release notes and verification artifacts retained in this repository.
 
 The Library inventory also contains the individual historical ZIP releases. The supplied Library snapshot shows the latest V90.gw release at the top and the historical releases down through the earliest prototypes; the inventory spans the ERP genealogy rather than representing separate competing current systems.
 

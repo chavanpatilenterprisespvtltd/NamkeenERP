@@ -1,0 +1,89 @@
+<!-- FILE PATH: web/intercompany-xy.html -->
+<!-- Intercompany X→Y screen v1.0 (Session CS2 — new: transfer-price policy, transfer, price, dispatch, receive, settle) -->
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>X → Y Transfers | Namkeen ERP</title>
+<link rel="stylesheet" href="/web/assets/app.css">
+<style>form.wide{max-width:none}.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}label{display:grid;gap:4px;font-size:13px;color:#374151;min-width:0}select{width:100%;min-width:0;font:inherit;padding:10px;border-radius:8px;border:1px solid #d1d5db;background:#fff}.ok{color:#047857}.row{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}.row button{padding:6px 10px}</style></head>
+<body><main class="shell">
+<header><div><h1>Company X → Company Y</h1><span class="muted">X manufactures and sells finished goods to Y at the price both companies agreed; Y sells to the market.</span></div><a class="pill" href="/ui/daily-work">Daily work</a></header>
+<section class="card"><div class="two"><label>Organization<select id="org"></select></label><label>Company X (seller)<select id="x"></select></label><label>Company Y (buyer)<select id="y"></select></label><label>Period (YYYY-MM)<input id="period" pattern="\d{4}-\d{2}"></label></div><p id="top" class="muted"></p></section>
+<section class="grid" style="margin-top:16px">
+<article><h2>1 · Transfer-price policy</h2><p class="muted">No default price exists — X and Y decide and record the agreement here.</p>
+<form id="pol" class="wide"><div class="two">
+<label>Method<select name="method"><option value="COST_PLUS">Cost + markup %</option><option value="FIXED_PRICE">Fixed price per item</option><option value="SELLING_PRICE_MINUS">Y's selling price − %</option></select></label>
+<label>Item (only for fixed price / item-specific)<select name="item_master_id" id="polItem"></select></label>
+<label>Markup %<input name="markup_pct" type="number" step="0.01"></label>
+<label>Fixed price ₹/unit<input name="fixed_price" type="number" step="0.01"></label>
+<label>Discount % off Y's price<input name="discount_pct" type="number" step="0.01"></label>
+<label>GST rate %<input name="gst_rate" type="number" step="0.01" required></label>
+<label>Effective from<input name="effective_from" type="date" required></label>
+<label>Effective to<input name="effective_to" type="date"></label>
+<label>Agreement / board resolution ref.<input name="agreement_ref" required></label></div>
+<div><button>Save policy</button> <span id="polMsg"></span></div></form>
+<div id="pols" class="list" style="margin-top:10px"></div></article>
+<article><h2>2 · New transfer</h2>
+<form id="tx" class="wide"><div class="two">
+<label>Item<select name="item_master_id" id="txItem" required></select></label>
+<label>Lot / batch id<input name="lot_id"></label>
+<label>Quantity<input name="quantity" type="number" step="0.001" required></label>
+<label>UOM<input name="uom" value="kg" required></label>
+<label>Unit cost (for cost-plus) or Y's selling price<input name="basis" type="number" step="0.01"></label>
+<label>From location (X)<select name="from_location_id" id="xl" required></select></label>
+<label>From warehouse (X)<select name="from_warehouse_id" id="xw" required></select></label>
+<label>To location (Y)<select name="to_location_id" id="yl" required></select></label>
+<label>To warehouse (Y)<select name="to_warehouse_id" id="yw" required></select></label></div>
+<div><button>Create and price</button> <span id="txMsg"></span></div></form></article>
+</section>
+<section class="card" style="margin-top:16px"><h2>3 · Transfers this period</h2><div id="txs" class="list"></div></section>
+<section class="grid" style="margin-top:16px"><article><h2>4 · X invoices to Y</h2><div id="invs" class="list"></div></article><article><h2>Balance: X receivable = Y payable</h2><div id="bal" class="list"></div></article></section>
+</main>
+<script src="/web/assets/erp-forms.js"></script>
+<script>
+const $=id=>document.getElementById(id), E=ERP; let S=null, basisByTx={};
+$('period').value=new Date().toISOString().slice(0,7);
+const ent=id=>S.entities.find(x=>x.entity_id===id)||{};
+function scopeSelects(){
+  const o=$('org').value, es=S.entities.filter(x=>!o||x.organization_id===o);
+  const keepX=$('x').value, keepY=$('y').value;
+  E.fillSelect($('x'),es.filter(x=>x.business_role!=='SALES_MARKETING'),'entity_id',x=>x.label);
+  E.fillSelect($('y'),es.filter(x=>x.business_role!=='MANUFACTURER'),'entity_id',x=>x.label);
+  if(keepX)$('x').value=keepX; if(keepY)$('y').value=keepY;
+  if($('y').value===$('x').value){const other=[...$('y').options].find(o=>o.value!==$('x').value);if(other)$('y').value=other.value}
+  const locs=e=>S.locations.filter(l=>l.entity_id===e), whs=e=>S.warehouses.filter(w=>w.entity_id===e);
+  E.fillSelect($('xl'),locs($('x').value),'location_id',l=>l.location_code+' — '+l.location_name);
+  E.fillSelect($('yl'),locs($('y').value),'location_id',l=>l.location_code+' — '+l.location_name);
+  E.fillSelect($('xw'),whs($('x').value),'warehouse_id',w=>w.warehouse_code+' — '+w.warehouse_name);
+  E.fillSelect($('yw'),whs($('y').value),'warehouse_id',w=>w.warehouse_code+' — '+w.warehouse_name);
+  const fg=[...$('xw').options].find(o=>/^FG/.test(o.text)); if(fg)$('xw').value=fg.value;
+  const yfg=[...$('yw').options].find(o=>/^FG/.test(o.text)); if(yfg)$('yw').value=yfg.value;
+}
+async function items(){ if(!$('org').value)return; const it=(await E.api('GET',`/v90gx/lookups/items?organization_id=${$('org').value}`)).items;
+  E.fillSelect($('txItem'),it,'id',x=>`${x.type}: ${x.label}`); E.fillSelect($('polItem'),it,'id',x=>`${x.type}: ${x.label}`,'(all items)'); }
+async function refresh(){
+  const o=$('org').value,p=$('period').value; if(!o)return;
+  try{
+    const [pol,tx,inv,bal]=await Promise.all([E.api('GET',`/v90gx/intercompany/policies?organization_id=${o}`),E.api('GET',`/v90fm/intercompany/transactions?organization_id=${o}&period_key=${p}`),E.api('GET',`/v90gx/intercompany/invoices?organization_id=${o}`),E.api('GET',`/v90gx/intercompany/balances?organization_id=${o}`)]);
+    $('pols').innerHTML=pol.policies.map(x=>`<div class="list-item"><strong>${E.esc(x.method)} ${x.markup_pct!=null?'+'+x.markup_pct+'%':''}${x.fixed_price!=null?'₹'+x.fixed_price:''}${x.discount_pct!=null?'−'+x.discount_pct+'%':''} · GST ${E.esc(x.gst_rate)}%</strong><small>${E.esc(ent(x.from_entity_id).entity_code)} → ${E.esc(ent(x.to_entity_id).entity_code)} · from ${E.esc(x.effective_from)} · ${E.esc(x.agreement_ref)}</small><div class="row"><button data-close="${x.policy_id}">Close policy</button></div></div>`).join('')||'<div class="empty">No policy yet: transfers cannot be priced.</div>';
+    $('txs').innerHTML=tx.transactions.map(x=>`<div class="list-item"><strong>${E.esc(ent(x.from_entity_id).entity_code)} → ${E.esc(ent(x.to_entity_id).entity_code)} · ${E.esc(x.status)} · ₹${E.esc(x.total_value)}</strong><small>${E.esc(x.narration||'')}</small><div class="row">${x.status==='DRAFT'?`<button data-price="${x.transaction_id}">Price</button><button data-dispatch="${x.transaction_id}">X dispatches</button>`:''}${x.status==='IN_TRANSIT'?`<button data-receive="${x.transaction_id}">Y receives</button>`:''}</div></div>`).join('')||'<div class="empty">No transfers in this period.</div>';
+    $('invs').innerHTML=inv.invoices.map(x=>`<div class="list-item"><strong>${E.esc(x.invoice_no)} · ₹${E.esc(x.total_value)} · ${E.esc(x.status)}</strong><small>${E.esc(x.invoice_date)} · settled ₹${E.esc(x.settled_value)}</small><div class="row"><a class="chip" target="_blank" href="/v90gx/intercompany/invoices/${x.ic_invoice_id}/print" data-print="${x.ic_invoice_id}">Print</a>${x.status!=='SETTLED'?`<button data-settle="${x.ic_invoice_id}" data-out="${(x.total_value-x.settled_value).toFixed(2)}">Record Y payment</button>`:''}</div></div>`).join('')||'<div class="empty">No invoices yet.</div>';
+    $('bal').innerHTML=bal.balances.map(x=>`<div class="list-item"><strong>${E.esc(ent(x.seller_entity_id).entity_code)} receivable ₹${E.esc(x.seller_receivable)}</strong><small>${E.esc(x.invoices)} invoices · invoiced ₹${E.esc(x.invoiced)} · settled ₹${E.esc(x.settled)} · in transit ₹${E.esc(x.in_transit_value)}</small></div>`).join('')||'<div class="empty">Nothing outstanding.</div>';
+  }catch(e){E.status($('top'),e.message,false)}
+}
+async function openPrint(id){const r=await fetch(`/v90gx/intercompany/invoices/${id}/print`,{headers:{Authorization:'Bearer '+E.token()}});const w=window.open('','_blank');w.document.write(await r.text());w.document.close()}
+document.addEventListener('click',async ev=>{const b=ev.target;const d=b.dataset||{};try{
+  if(d.print){ev.preventDefault();return openPrint(d.print)}
+  if(d.close){await E.api('POST',`/v90gx/intercompany/policies/${d.close}/close`)}
+  if(d.price){const basis=basisByTx[d.price];const it=basis&&basis.item;const body=basis?{unit_costs:{[it]:basis.v},selling_prices:{[it]:basis.v}}:{};const r=await E.api('POST',`/v90gx/intercompany/transactions/${d.price}/price`,body);E.status($('top'),`Priced: taxable ₹${r.taxable_value} + GST ₹${(r.cgst+r.sgst+r.igst).toFixed(2)} = ₹${r.total_value} (${r.supply_type})`,true)}
+  if(d.dispatch){const ew=prompt('E-way bill no. (12 digits) — leave blank if value is under the threshold','')||undefined;const r=await E.api('POST',`/v90gx/intercompany/transactions/${d.dispatch}/dispatch`,{evidence_note:'Dispatched from X factory',eway_bill_no:ew});E.status($('top'),`Invoice ${r.invoice_no} issued; goods in transit`,true)}
+  if(d.receive){const t=await E.api('GET',`/v90gx/intercompany/transactions/${d.receive}`);const lines=[];let short=false;for(const l of t.lines){const q=prompt(`Received quantity for item ${l.item_master_id.slice(0,8)}… (dispatched ${l.quantity} ${l.uom})`,String(l.quantity));if(q===null)return;if(Number(q)<Number(l.quantity))short=true;lines.push({line_id:l.line_id,received_qty:Number(q)})}const body={evidence_note:'Received at Y depot',lines};if(short){body.shortage_reason=prompt('Reason for the shortage','Damaged in transit')||'Not given'}const r=await E.api('POST',`/v90gx/intercompany/transactions/${d.receive}/receive`,body);E.status($('top'),`Received. Shortage ${r.shortage_qty} (₹${r.shortage_value}). Elimination ${r.elimination_status}.`,true)}
+  if(d.settle){const amt=prompt(`Amount paid by Y (outstanding ₹${d.out})`,d.out);if(!amt)return;const ref=prompt('Bank UTR / cheque / UPI reference','');if(!ref)return;const r=await E.api('POST',`/v90gx/intercompany/invoices/${d.settle}/settlements`,{amount:Number(amt),mode:'BANK',reference_no:ref});E.status($('top'),`Payment recorded: ${r.status}, outstanding ₹${r.outstanding}`,true)}
+  if(d.close||d.price||d.dispatch||d.receive||d.settle)refresh();
+}catch(e){E.status($('top'),e.message,false)}});
+$('pol').addEventListener('submit',async ev=>{ev.preventDefault();try{const b=E.formData($('pol'));Object.assign(b,{organization_id:$('org').value,from_entity_id:$('x').value,to_entity_id:$('y').value});await E.api('POST','/v90gx/intercompany/policies',b);E.status($('polMsg'),'Policy saved',true);refresh()}catch(e){E.status($('polMsg'),e.message,false)}});
+$('tx').addEventListener('submit',async ev=>{ev.preventDefault();try{const f=E.formData($('tx'));const basis=f.basis;delete f.basis;f.unit_value=0;
+  const r=await E.api('POST','/v90fm/intercompany/transactions',{organization_id:$('org').value,period_key:$('period').value,from_entity_id:$('x').value,to_entity_id:$('y').value,transaction_type:'STOCK_TRANSFER',lines:[f]});
+  if(basis)basisByTx[r.transaction_id]={item:f.item_master_id,v:basis};
+  try{const p=await E.api('POST',`/v90gx/intercompany/transactions/${r.transaction_id}/price`,basis?{unit_costs:{[f.item_master_id]:basis},selling_prices:{[f.item_master_id]:basis}}:{});E.status($('txMsg'),`Created and priced: ₹${p.total_value}`,true)}catch(pe){E.status($('txMsg'),'Created, not priced yet: '+pe.message,false)}
+  refresh()}catch(e){E.status($('txMsg'),e.message,false)}});
+['org','x','y'].forEach(id=>$(id).addEventListener('change',()=>{scopeSelects();if(id==='org')items();refresh()}));$('period').addEventListener('change',refresh);
+(async()=>{try{S=await E.scope();const orgs=[...new Set(S.entities.map(x=>x.organization_id).filter(Boolean))];E.fillSelect($('org'),orgs.map(o=>({o})),'o',x=>x.o);scopeSelects();await items();refresh()}catch(e){E.status($('top'),e.message,false)}})();
+</script></body></html>

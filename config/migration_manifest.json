@@ -1064,11 +1064,55 @@
       "version": 273,
       "filename": "273_v90gw_erp_completion_audit.sql",
       "sha256": "f05914c27a3d045edf3d800714137db7effe13925d538a864458c559f9ac597a"
+    },
+    {
+      "version": 274,
+      "filename": "274_v90gx_company_gst_invoicing.sql",
+      "sha256": "d8fb69b2fe95fc6ad8abbf82867fbd0ea5216639a00e52223fd1bf506b3ee3ec"
+    },
+    {
+      "version": 275,
+      "filename": "275_v90gx_intercompany_settlement.sql",
+      "sha256": "a447b33f1af9d689bcef306d980ac324b113f0110b05db66fbae63bc4a59f1cc"
+    },
+    {
+      "version": 276,
+      "filename": "276_v90gx_business_date.sql",
+      "sha256": "63e6496d1ae0bb2a8d98e59617dd868b03c1f497f941e4e18611bcfba3532100"
+    },
+    {
+      "version": 277,
+      "filename": "277_v90gx_plant_operations.sql",
+      "sha256": "15ef8438f26568174a09d4ac60e439e33b95c3cfd4cf5c6053d04f476895f039"
+    },
+    {
+      "version": 278,
+      "filename": "278_v90gx_notifications.sql",
+      "sha256": "cffcbaad31bff5e2b2aef4afb0dc2b94a7f9a0c39dcfd9ec8a19f5fc07b42e5f"
+    },
+    {
+      "version": 279,
+      "filename": "279_v90gx_master_validation_fix_forward.sql",
+      "sha256": "d4caab43bc2da4cc7fa87ae08cfe5942b5c34dc32206be78d1a3a162bf1ab0df"
     }
   ],
-  "target_schema_version": 273,
-  "latest_schema": 273,
-  "schema_target": 273,
-  "erp_schema_target": 273,
-  "latest_migration": "273_v90gw_erp_completion_audit.sql"
+  "target_schema_version": 279,
+  "latest_schema": 279,
+  "schema_target": 279,
+  "erp_schema_target": 279,
+  "latest_migration": "279_v90gx_master_validation_fix_forward.sql",
+  "superseded": {
+    "73": {
+      "by": 279,
+      "reason": "Cannot apply on a fresh PostgreSQL database (072/073 master_validation_run shape conflict); end state applied by 279. File and checksum unchanged."
+    },
+    "74": {
+      "by": 279,
+      "reason": "Cannot apply on a fresh PostgreSQL database (072/073 master_validation_run shape conflict); end state applied by 279. File and checksum unchanged."
+    },
+    "75": {
+      "by": 279,
+      "reason": "Cannot apply on a fresh PostgreSQL database (072/073 master_validation_run shape conflict); end state applied by 279. File and checksum unchanged."
+    }
+  }
 }

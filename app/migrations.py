@@ -1,3 +1,19 @@
+# FILE PATH: app/migrations.py
+# ─── Migration Runner v1.1 (Session CS2 — superseded migrations recorded, not executed; fix-forward 279) ─
+#
+# [Session CS2] FIX — THE MIGRATION CHAIN STOPPED AT 073 ON A FRESH POSTGRESQL DATABASE.
+# Confirmed live this session on PostgreSQL 16: after the application runtime schema exists, 073, 074 and
+# 075 fail ("column request_id does not exist", "column validation_status does not exist"); every later
+# migration was therefore never applied. 072 creates master_validation_run with the V84 shape, so 073's
+# CREATE TABLE IF NOT EXISTS is skipped.
+# ROOT CAUSE: 072 and 073 define the same table with different columns.
+# THE FIX (no historical migration file or checksum changed): load_superseded() reads the manifest key
+# "superseded" {version: {by, reason}}; migrate() inserts those versions into schema_migrations with their
+# real checksum without executing them, and the superseding migration (279) applies the intended end state.
+# NOT touched: manifest validation, checksum checks, ordering rules, PostgreSQL-only execution.
+#
+# ─── v1.0 HEADER (preserved) ─────────────────────────────────────────────
+# Original V90.c migration runtime; no in-file changelog existed before Session CS2.
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -83,9 +99,25 @@ def applied_versions(engine: Engine) -> dict[int, str]:
     return {int(row["version"]): str(row["sha256"]) for row in rows}
 
 
+def load_superseded(root: Path | None = None) -> dict[int, int]:
+    """[Session CS2] {version: superseding_version} from config/migration_manifest.json "superseded"."""
+    base = root or Path(__file__).resolve().parents[1]
+    data = json.loads((base / "config" / "migration_manifest.json").read_text(encoding="utf-8"))
+    out = {int(k): int(v["by"]) for k, v in (data.get("superseded") or {}).items()}
+    for old, new in out.items():
+        if new <= old:
+            raise MigrationError(f"Superseding migration {new} must come after {old}")
+    return out
+
+
 def migrate(engine: Engine, root: Path | None = None, target: int | None = None) -> tuple[int, ...]:
     base = root or Path(__file__).resolve().parents[1]
     migrations = load_migrations(base)
+    superseded = load_superseded(base)  # [Session CS2] FIX — see file header
+    known = {m.version for m in migrations}
+    for old, new in superseded.items():
+        if new not in known:
+            raise MigrationError(f"Superseding migration {new} for {old} is not in the manifest")
     if target is not None:
         migrations = tuple(m for m in migrations if m.version <= target)
     ensure_history_table(engine)
@@ -97,6 +129,15 @@ def migrate(engine: Engine, root: Path | None = None, target: int | None = None)
         if migration.version in applied:
             if applied[migration.version] != migration.sha256:
                 raise MigrationError(f"Applied checksum mismatch: v{migration.version}")
+            continue
+        if migration.version in superseded and (target is None or superseded[migration.version] <= target):
+            # [Session CS2] recorded with its real checksum, not executed; the superseding migration applies the end state.
+            with engine.begin() as conn:
+                conn.execute(
+                    text("INSERT INTO schema_migrations(version, filename, sha256) VALUES (:v, :f, :s)"),
+                    {"v": migration.version, "f": migration.filename, "s": migration.sha256},
+                )
+            applied_now.append(migration.version)
             continue
         sql = (base / "migrations" / migration.filename).read_text(encoding="utf-8")
         if not sql.strip():

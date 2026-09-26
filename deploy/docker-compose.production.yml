@@ -1,3 +1,15 @@
+# FILE PATH: deploy/docker-compose.production.yml
+# ─── Production Compose v1.1 (Session CS2 — valid YAML; API applies migrations on start) ─
+#
+# [Session CS2] FIX — `docker compose up` FAILED: INVALID YAML IN THE API HEALTHCHECK.
+# Confirmed this session by parsing the file with PyYAML: "while scanning a quoted scalar ...
+# found unexpected end of stream" caused by a stray \" at the end of the api healthcheck string.
+# THE FIX: healthcheck rewritten in exec form (no shell quoting). API gets a RUN_MIGRATIONS switch so
+# docker/entrypoint.sh can apply checksum-verified migrations before start. APP_VERSION default v90.gx.
+# RUN_MIGRATIONS defaults to true: `python -m app.migrate_cli` creates the runtime schema, then applies
+# 061–279 (073–075 are superseded by fix-forward 279). Verified this session on an empty PostgreSQL 16
+# database: first run applied 061–279, second run applied nothing.
+# NOT touched: postgres service, secrets, volumes, worker dependencies, restart policies.
 services:
   postgres:
     image: postgres:16-alpine
@@ -27,7 +39,8 @@ services:
       - ../config/.env.production.example
     environment:
       APP_ENV: ${APP_ENV:-production}
-      APP_VERSION: ${APP_VERSION:-v90.gw}
+      APP_VERSION: ${APP_VERSION:-v90.gx}
+      RUN_MIGRATIONS: ${RUN_MIGRATIONS:-true}
     secrets:
       - database_url
       - jwt_secret
@@ -37,7 +50,8 @@ services:
     ports:
       - "8000:8000"
     healthcheck:
-      test: ["CMD-SHELL", "python -c \"import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=3)\"\"]
+      # [Session CS2] FIX — previous line had a stray \" and made the whole file invalid YAML.
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=3)"]
       interval: 15s
       timeout: 5s
       retries: 5
@@ -52,7 +66,7 @@ services:
       - ../config/.env.production.example
     environment:
       APP_ENV: ${APP_ENV:-production}
-      APP_VERSION: ${APP_VERSION:-v90.gw}
+      APP_VERSION: ${APP_VERSION:-v90.gx}
     secrets:
       - database_url
       - jwt_secret

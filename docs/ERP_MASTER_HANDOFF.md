@@ -2,7 +2,7 @@
 
 ## Current position
 
-The cumulative ERP source baseline is **V90.gw / schema 273**. The next program is no longer arbitrary V90 feature expansion. The project is in the **Production Candidate 1.0 validation track**.
+The cumulative ERP source baseline is **V90.gx / schema 279** (V90.gw-hotfix5 + Session CS2; see `docs/release-history/release-notes/RELEASE_NOTES_V90GX.md`). The next program is no longer arbitrary V90 feature expansion. The project is in the **Production Candidate 1.0 validation track**.
 
 ## Business scope already represented in the cumulative source
 
@@ -14,6 +14,7 @@ Manufacturing; procurement; GRN/QC; inventory; BOM/recipe; production planning/e
 - Entity Y = Marketing / Sales
 - They may use different legal/trading names.
 - Intercompany transactions/reconciliation must remain configuration-driven.
+- X→Y price: decided by X and Y and recorded as a transfer-price policy (no default). Y = Chavan Patil Enterprises Pvt. Ltd.; X name to be set.
 
 ## Immediate work sequence
 
@@ -28,7 +29,7 @@ Manufacturing; procurement; GRN/QC; inventory; BOM/recipe; production planning/e
 
 ### Phase 2 — Environment validation
 - PostgreSQL 16 staging instance
-- migration smoke 61–273
+- migration smoke 61–279 (passed locally on PostgreSQL 16 in Session CS2; repeat on staging)
 - checksum verification
 - backup/restore drill
 - security/RBAC boundary tests
@@ -60,7 +61,8 @@ After genuine ERP completion: Website → Brand/Logo → Packaging → Marketing
 
 1. Historical OEE test defect: `tests/test_v90db_machine_oee.py::test_machine_oee_calculation` has previously observed an expected 75.0% availability versus 0.0% in the available test environment. Do not silently suppress or rewrite this history.
 2. Historical V90.gp date/environment test issue: `test_v90gp_manufacturing_workforce_integration.py::test_dashboard_and_snapshot` previously expected a batch on a fixed date and observed none. Treat as historical until reproduced against staging data.
-3. PostgreSQL smoke testing was not run in the V90.gw release environment.
+3. PostgreSQL (Session CS2): migrations 061–279, app start, bootstrap and login verified on PostgreSQL 16; pytest on PostgreSQL 381 passed / 196 failed (mostly older SQLite-only test fixtures) — next work item.
+4. First admin in staging/production comes from `bootstrap/bootstrap.py`; demo logins are disabled outside development/test.
 
 ## Mandatory code-file documentation rule
 

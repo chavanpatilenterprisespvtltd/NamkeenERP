@@ -1,3 +1,18 @@
+# FILE PATH: app/v90fn_security_rbac_scope_hardening.py
+# ─── Security RBAC Scope Hardening v1.1 (Session CS2 — access flags compared/set as TRUE/FALSE so scope checks work on PostgreSQL) ─
+#
+# [Session CS2] FIX — ENTITY/LOCATION/ORGANIZATION SCOPE CHECKS FAILED ON POSTGRESQL.
+# Confirmed live this session by running the full pytest suite against a fresh PostgreSQL 16 database:
+# "operator does not exist: boolean = integer" (…AND active=1) and "column active is of type boolean
+# but expression is of type integer" (…DO UPDATE SET active=1) from this file.
+# ROOT CAUSE: on PostgreSQL the access tables are created with active BOOLEAN; the SQL used 1/0 literals,
+# which only SQLite accepts.
+# THE FIX: every active=1 / active=0 literal in this file (10 places) is now active=TRUE / active=FALSE.
+# SQLite (3.23+) treats TRUE/FALSE as 1/0, so the SQLite behaviour and tests are unchanged.
+# NOT touched: which tables/columns are queried, the scope rules themselves, DDL.
+#
+# ─── v1.0 HEADER (preserved) ─────────────────────────────────────────────
+# Original V90.fn security RBAC/scope hardening; no in-file changelog existed before Session CS2.
 from __future__ import annotations
 
 from typing import Any
@@ -53,7 +68,7 @@ def _warehouse_scope(e: Engine, warehouse_id: str):
 
 def _ensure_org_access(e: Engine, user_id: str, organization_id: str) -> bool:
     with e.connect() as c:
-        if c.execute(text('SELECT 1 FROM erp_organization_user_access WHERE user_id=:u AND organization_id=:o AND active=1'), {'u':user_id,'o':organization_id}).first():
+        if c.execute(text('SELECT 1 FROM erp_organization_user_access WHERE user_id=:u AND organization_id=:o AND active=TRUE'), {'u':user_id,'o':organization_id}).first():
             return True
         # Super-admins retain explicit global administrative access for bootstrap/operations.
         perms = {r[0] for r in c.execute(text('SELECT rp.permission_id FROM erp_user_roles ur JOIN erp_role_permissions rp ON rp.role_id=ur.role_id WHERE ur.user_id=:u'), {'u':user_id}).all()}
@@ -68,7 +83,7 @@ def assert_security_scope(e: Engine, user_id: str, organization_id: str | None =
         if not org: raise PermissionError('entity not found')
         if organization_id and org != organization_id: raise PermissionError('entity is outside organization scope')
         with e.connect() as c:
-            ok = c.execute(text('SELECT 1 FROM erp_entity_user_access WHERE user_id=:u AND entity_id=:e AND active=1'), {'u':user_id,'e':entity_id}).first()
+            ok = c.execute(text('SELECT 1 FROM erp_entity_user_access WHERE user_id=:u AND entity_id=:e AND active=TRUE'), {'u':user_id,'e':entity_id}).first()
         if not ok and not _ensure_org_access(e, user_id, org): raise PermissionError('entity access denied')
     if location_id:
         pair = _location_entity(e, location_id)
@@ -77,7 +92,7 @@ def assert_security_scope(e: Engine, user_id: str, organization_id: str | None =
         if organization_id and org != organization_id: raise PermissionError('location is outside organization scope')
         if entity_id and ent != entity_id: raise PermissionError('location is outside entity scope')
         with e.connect() as c:
-            ok = c.execute(text('SELECT 1 FROM erp_location_user_access WHERE user_id=:u AND location_id=:l AND active=1'), {'u':user_id,'l':location_id}).first()
+            ok = c.execute(text('SELECT 1 FROM erp_location_user_access WHERE user_id=:u AND location_id=:l AND active=TRUE'), {'u':user_id,'l':location_id}).first()
         if not ok and not _ensure_org_access(e,user_id,org):
             raise PermissionError('location access denied')
     if warehouse_id:
@@ -88,7 +103,7 @@ def assert_security_scope(e: Engine, user_id: str, organization_id: str | None =
         if entity_id and ent != entity_id: raise PermissionError('warehouse is outside entity scope')
         if location_id and loc != location_id: raise PermissionError('warehouse is outside location scope')
         with e.connect() as c:
-            ok = c.execute(text('SELECT 1 FROM erp_warehouse_user_access WHERE user_id=:u AND warehouse_id=:w AND active=1'), {'u':user_id,'w':warehouse_id}).first()
+            ok = c.execute(text('SELECT 1 FROM erp_warehouse_user_access WHERE user_id=:u AND warehouse_id=:w AND active=TRUE'), {'u':user_id,'w':warehouse_id}).first()
         if not ok and not _ensure_org_access(e,user_id,org):
             raise PermissionError('warehouse access denied')
 
@@ -159,7 +174,7 @@ def register_v90fn_routes(app: FastAPI, e: Engine):
         u = authenticate(request)
         scope = accessible_scope(e, u.user_id)
         with e.connect() as c:
-            orgs = [str(r[0]) for r in c.execute(text('SELECT organization_id FROM erp_organization_user_access WHERE user_id=:u AND active=1 ORDER BY organization_id'), {'u':u.user_id}).all()]
+            orgs = [str(r[0]) for r in c.execute(text('SELECT organization_id FROM erp_organization_user_access WHERE user_id=:u AND active=TRUE ORDER BY organization_id'), {'u':u.user_id}).all()]
         return {'user_id':u.user_id,'roles':roles_for_user(e,u.user_id),'permissions':sorted(permissions_for_user(e,u.user_id)),'organizations':orgs,**scope}
 
     @app.post('/v90fn/security/entity/{entity_id}/organization/{organization_id}')
@@ -199,7 +214,7 @@ def register_v90fn_routes(app: FastAPI, e: Engine):
         actor=_require(e,request,'security.scope.manage')
         with e.begin() as c:
             if not c.execute(text('SELECT 1 FROM erp_users WHERE user_id=:u'),{'u':user_id}).first(): raise HTTPException(404,'user not found')
-            c.execute(text('INSERT INTO erp_organization_user_access(user_id,organization_id,active,granted_by,granted_at,revoked_by,revoked_at) VALUES(:u,:o,1,:a,CURRENT_TIMESTAMP,NULL,NULL) ON CONFLICT(user_id,organization_id) DO UPDATE SET active=1,granted_by=:a,granted_at=CURRENT_TIMESTAMP,revoked_by=NULL,revoked_at=NULL'),{'u':user_id,'o':organization_id,'a':actor.user_id})
+            c.execute(text('INSERT INTO erp_organization_user_access(user_id,organization_id,active,granted_by,granted_at,revoked_by,revoked_at) VALUES(:u,:o,TRUE,:a,CURRENT_TIMESTAMP,NULL,NULL) ON CONFLICT(user_id,organization_id) DO UPDATE SET active=TRUE,granted_by=:a,granted_at=CURRENT_TIMESTAMP,revoked_by=NULL,revoked_at=NULL'),{'u':user_id,'o':organization_id,'a':actor.user_id})
         _audit_scope(e,actor.user_id,user_id,'organization',organization_id,'GRANT',reason)
         return {'status':'granted','scope':'organization','organization_id':organization_id}
 
@@ -207,7 +222,7 @@ def register_v90fn_routes(app: FastAPI, e: Engine):
     def revoke_org(user_id:str, organization_id:str, request:Request, reason:str|None=None):
         actor=_require(e,request,'security.scope.manage')
         with e.begin() as c:
-            r=c.execute(text('UPDATE erp_organization_user_access SET active=0,revoked_by=:a,revoked_at=CURRENT_TIMESTAMP WHERE user_id=:u AND organization_id=:o AND active=1'),{'u':user_id,'o':organization_id,'a':actor.user_id})
+            r=c.execute(text('UPDATE erp_organization_user_access SET active=FALSE,revoked_by=:a,revoked_at=CURRENT_TIMESTAMP WHERE user_id=:u AND organization_id=:o AND active=TRUE'),{'u':user_id,'o':organization_id,'a':actor.user_id})
             if r.rowcount!=1: raise HTTPException(404,'organization access not found')
         _audit_scope(e,actor.user_id,user_id,'organization',organization_id,'REVOKE',reason)
         return {'status':'revoked','scope':'organization','organization_id':organization_id}
@@ -236,7 +251,7 @@ def register_v90fn_routes(app: FastAPI, e: Engine):
         col={'entity':'entity_id','location':'location_id','warehouse':'warehouse_id'}.get(scope_type)
         if not table: raise HTTPException(400,'unsupported scope type')
         with e.begin() as c:
-            r=c.execute(text(f'UPDATE {table} SET active=0 WHERE user_id=:u AND {col}=:s AND active=1'),{'u':user_id,'s':scope_id})
+            r=c.execute(text(f'UPDATE {table} SET active=FALSE WHERE user_id=:u AND {col}=:s AND active=TRUE'),{'u':user_id,'s':scope_id})
             if r.rowcount!=1: raise HTTPException(404,'scope access not found')
         _audit_scope(e,actor.user_id,user_id,scope_type,scope_id,'REVOKE',reason)
         return {'status':'revoked','scope':scope_type,'scope_id':scope_id}

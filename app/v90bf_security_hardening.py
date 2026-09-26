@@ -1,3 +1,17 @@
+# FILE PATH: app/v90bf_security_hardening.py
+# ─── Security Hardening v1.1 (Session CS2 — login attempts recorded as a real boolean; login works on PostgreSQL) ─
+#
+# [Session CS2] FIX — EVERY LOGIN FAILED WITH HTTP 500 ON POSTGRESQL.
+# Confirmed live this session against a fresh PostgreSQL 16 database (APP_ENV=production, bootstrap
+# admin): POST /auth/login raised psycopg.errors.DatatypeMismatch "column success is of type boolean
+# but expression is of type smallint" in record_login_attempt(). The full test suite run against
+# PostgreSQL showed the same error in 127 failing tests.
+# ROOT CAUSE: the PostgreSQL DDL declares success BOOLEAN, but the insert passed 1/0 (SQLite accepts it).
+# THE FIX: pass bool(success); psycopg sends a boolean and SQLite stores 1/0 as before.
+# NOT touched: throttling window/limits, session creation, token validation, DDL.
+#
+# ─── v1.0 HEADER (preserved) ─────────────────────────────────────────────
+# Original V90.bf security hardening; no in-file changelog existed before Session CS2.
 from __future__ import annotations
 
 import hashlib
@@ -67,7 +81,7 @@ def _allowed(engine: Engine, user: UserRecord, permission: str) -> bool:
 
 def record_login_attempt(engine: Engine, username: str, ip_address: str, success: bool) -> None:
     with engine.begin() as c:
-        c.execute(text("INSERT INTO security_login_attempts(attempt_id,username,ip_address,attempted_at,success) VALUES(:id,:u,:ip,:t,:s)"), {'id': str(uuid4()), 'u': username.strip().lower(), 'ip': ip_address, 't': _now(), 's': 1 if success else 0})
+        c.execute(text("INSERT INTO security_login_attempts(attempt_id,username,ip_address,attempted_at,success) VALUES(:id,:u,:ip,:t,:s)"), {'id': str(uuid4()), 'u': username.strip().lower(), 'ip': ip_address, 't': _now(), 's': bool(success)})  # [Session CS2] FIX — see file header (PostgreSQL BOOLEAN column).
         # Keep the table bounded while retaining a useful rolling window.
         cutoff = datetime.now(timezone.utc).timestamp() - 86400
         c.execute(text("DELETE FROM security_login_attempts WHERE attempted_at < :cut"), {'cut': datetime.fromtimestamp(cutoff, timezone.utc).isoformat()})

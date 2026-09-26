@@ -1,5 +1,5 @@
 {
-  "release": "v90.gw",
+  "release": "v90.gx",
   "artifacts": [
     {
       "path": ".github/CODEOWNERS",
@@ -23,11 +23,11 @@
     },
     {
       "path": ".gitignore",
-      "sha256": "c9151b9a5d0eea78810ce5942f45548194a232379e4de669cede3f11fbe36572"
+      "sha256": "26b845d5c5c008d757b2d80a96a18528c4c22df1e4d518c9accf0644ffa4885b"
     },
     {
       "path": "README.md",
-      "sha256": "2b41c8c0f57f2ffd512f11bd87a2cc4967d42c5877629614a1686c8eabec929e"
+      "sha256": "d030670245e2537e1760f1a168b6af01a8d8b0c5af0b6d8180ccd98991007e7e"
     },
     {
       "path": "android/app/build.gradle.kts",
@@ -91,23 +91,27 @@
     },
     {
       "path": "app/__main__.py",
-      "sha256": "28a3c911649bd3b176ef96505a28cc0bd2baa8886eb368e95f6fe86f8ce6725d"
+      "sha256": "e7638ebf9fe51fac9cdec4ba6b57ad45f4843ef46b8719c3713eb3bddfa7ead1"
     },
     {
       "path": "app/access_scope.py",
-      "sha256": "221fedec17906b8dd188f7ffc3fb41c188d978d7003d2286895a1355af69cfaf"
+      "sha256": "b85fa78a8a8223ab0f3b8ff495acb27ff22c675d7ff3f032212ad37da379c26e"
     },
     {
       "path": "app/auth.py",
-      "sha256": "f9969a1465edf3b546ecab5fc0fe43d0d0fbba919c226f2624470362864a90ba"
+      "sha256": "24457eb08a6a51a889ec68b4a3772e9fa45233326c22e9cb94084dd0219fd2dd"
+    },
+    {
+      "path": "app/business_date.py",
+      "sha256": "370fe70093ed6abe1b31e0d8484b67e03f6df85c26ae8939f59881d0966bf878"
     },
     {
       "path": "app/db.py",
-      "sha256": "4c51ce8beb4cf4c4dad6cd1c6a30a496e826d356a803af2782ae50e957cbf636"
+      "sha256": "e7071c53db4577dc79ef9ef96bb0b77d85b6f94785c4b5c72fe48b09566a755e"
     },
     {
       "path": "app/identity.py",
-      "sha256": "b71032c6c404e9be468dbbdaefd946d0729e5f61d5a8bb733d431d822dd3e9da"
+      "sha256": "a1189ef4e785cfb441849310a9d131fb3428d5bd2a8c5e1704945b7ec594afbd"
     },
     {
       "path": "app/master/__init__.py",
@@ -119,11 +123,15 @@
     },
     {
       "path": "app/master_scope.py",
-      "sha256": "e85c1a2483dcc50569c729cab15ec84b1f79469a00c627cde905571175e6e51b"
+      "sha256": "d181c4ac639ce552aeddf98ae33b8bbb82ac23d62aa8728e47d4290cb01c6073"
+    },
+    {
+      "path": "app/migrate_cli.py",
+      "sha256": "0e2a506220e3ccde4b49248ade7f862cb1d026d8687cd7f32e53b949fb0a93f4"
     },
     {
       "path": "app/migrations.py",
-      "sha256": "8d34a11c4e8746a343ecce4bd329c441e61dbcc2c67db85543fdfa9608e64fa5"
+      "sha256": "863c51de3f5a312fbacdc3490ffee83ed3348348578dcba7f7220dab57df6a78"
     },
     {
       "path": "app/org_structure.py",
@@ -132,6 +140,14 @@
     {
       "path": "app/release.py",
       "sha256": "96e1cf83686e784c81e6ffc3464ec63728d25066a7bbf738b7e72e7ce1053433"
+    },
+    {
+      "path": "app/runtime_security.py",
+      "sha256": "9ece49c994457e9ea53c8014ee94ca48dc13f1fd89998054e4c525a6da5eb87c"
+    },
+    {
+      "path": "app/stock_balance.py",
+      "sha256": "7ce02bd4a958b92d027649edb35cb9b3e959b15969e96c72a9d66d6e70050b50"
     },
     {
       "path": "app/v76/__init__.py",
@@ -307,7 +323,7 @@
     },
     {
       "path": "app/v90ag_dispatch_execution.py",
-      "sha256": "50591d256a49597cdf7ef591b9baaa81eb38e234a5cbe039d29b19bc150dd494"
+      "sha256": "9bc82d16770e6de56b9ebf5e8fceb6317173a68e2df02089dc0eed6cbea0023c"
     },
     {
       "path": "app/v90ah_returns.py",
@@ -407,7 +423,7 @@
     },
     {
       "path": "app/v90bf_security_hardening.py",
-      "sha256": "a61770e46f802f9ad84a67c09a8924e610abcd5bed9ff28181a6cf6b386c51ea"
+      "sha256": "0729e8159e1313b409a23ce80d98f26e51f4c826b62aac7d070e0d21f54f88dc"
     },
     {
       "path": "app/v90bg_backup_restore.py",
@@ -571,7 +587,7 @@
     },
     {
       "path": "app/v90db_machine_oee.py",
-      "sha256": "eba5ab0f66542066ec7f8a5a36b5cc7117ac6a602d936b0a5bdc56866220a96a"
+      "sha256": "2fa123d6d6b1b3d67073016dadacd2f1516208d148f1b32fd2fed2a9f643db1d"
     },
     {
       "path": "app/v90dc_maintenance.py",
@@ -811,11 +827,11 @@
     },
     {
       "path": "app/v90fm_intercompany_execution.py",
-      "sha256": "f8121d0265154c8f37142a790a172995d73ce00a98d084121eaceab5f9f5c918"
+      "sha256": "2a74c62d19cbb0047217f207ec43d30a408eccdc22aee2003a29fcd993823402"
     },
     {
       "path": "app/v90fn_security_rbac_scope_hardening.py",
-      "sha256": "c904a27800fbfc633befa80314b08293887398c133e83a4f6f53b55f94c22cbb"
+      "sha256": "e8def61a0f3b38f2bb107080beb2727b82ca130dfb5c3294b0e23f9aaea78766"
     },
     {
       "path": "app/v90fo_audit_approval_evidence.py",
@@ -950,6 +966,26 @@
       "sha256": "de467e5e5520c83b752852b81a4ea0661ef87224dd6e7ab1b258b62eef1f0ec4"
     },
     {
+      "path": "app/v90gx_company_gst_invoicing.py",
+      "sha256": "493e23436a83724fab3b63f4c1431c81ed58a7e101ed781cba2908063f4f9359"
+    },
+    {
+      "path": "app/v90gx_intercompany_settlement.py",
+      "sha256": "3297ffa98d6e8bbdc264bc3791f6f0d5cf9e70892f70bf38d24f077c0be5f4a2"
+    },
+    {
+      "path": "app/v90gx_notifications.py",
+      "sha256": "826ceba8579ff53160033754f5fad1c9deb761f536a39a09ee0d3ac3efdf02cb"
+    },
+    {
+      "path": "app/v90gx_plant_operations.py",
+      "sha256": "7ab2a3f2571ed30291743b7ddde3ef93dc8fc086a195ea47f0efbe182380d2da"
+    },
+    {
+      "path": "app/v90gx_ui_support.py",
+      "sha256": "a85595114c13e803fb9e415bb931626dac8dd1172423a60425d1d8b579fa00fa"
+    },
+    {
       "path": "app/v90h.py",
       "sha256": "0685dd546a40b6eb520afdb4a4796688df35b7ca82cf688b0d0f3c1d7664e2db"
     },
@@ -991,7 +1027,7 @@
     },
     {
       "path": "app/v90r_production_execution.py",
-      "sha256": "4a45ce942422d2730c0f4a0a2313e0113628e3f88296342934a7667fc0f6f5ab"
+      "sha256": "411e67b086699d81a6a0b3a8a0ebfdb16b6b76535e81d617f9cc52669181bda8"
     },
     {
       "path": "app/v90s_process_logging.py",
@@ -1027,11 +1063,15 @@
     },
     {
       "path": "app/worker.py",
-      "sha256": "7928b7a590222ff90d312d5b2420e65baee0e0a9209bed8e5e7a668f89271ff7"
+      "sha256": "7f3f0e76576983ceb026c0864078840a3fbf5e123ffb898617ba62d9e179f36e"
+    },
+    {
+      "path": "bootstrap/bootstrap.py",
+      "sha256": "27a16e3c2915ddb094418824646ca9500bec8f7dde659f33c105f64268eb9bef"
     },
     {
       "path": "config/.env.example",
-      "sha256": "6a25e7c5f1f7ae76047dfd445e25e506cb3006cc90d6526d25494db251729a46"
+      "sha256": "d622841134a79c4e55801aef09ec0a8dc599496be763325e4e963954f7e429a2"
     },
     {
       "path": "config/.env.production.example",
@@ -1043,7 +1083,7 @@
     },
     {
       "path": "config/current_release_manifest.json",
-      "sha256": "f36c32a6cfc48fd68ab06a20c648df7ab28f44269e234d20d7f05344e8048a17"
+      "sha256": "b977c6614783db3799ed956308a60706384465ce9e1a66030be9d885fc8becd5"
     },
     {
       "path": "config/customer_bootstrap.example.json",
@@ -1087,15 +1127,15 @@
     },
     {
       "path": "config/migration_manifest.json",
-      "sha256": "c295b04df61da7d097ee4237a68ad42601a5e394f21a7888fcbd43b96cee2e72"
+      "sha256": "307c4db193288a490e64c08eaeefbe4b37ac778b54246ec198f448b44f632cee"
     },
     {
       "path": "config/production_candidate.json",
-      "sha256": "950949929196141087347dc56fdd57dfc2a858a629e78d284054559a8129f46a"
+      "sha256": "76ae16a2f096d46b415e2a72fa99721055a074139028cccedc21f250d99b069d"
     },
     {
       "path": "config/release_manifest.json",
-      "sha256": "cb50cd637b3b93dc89f35ebef6aa2d9c7ef17153b83d6a830975c9e4b921056c"
+      "sha256": "d82ae72fc35f297b58d570d450e11d2d0179c85d9e0abd72bfbac9ffc2cc01e2"
     },
     {
       "path": "config/v82_lookup_policy.example.json",
@@ -1143,19 +1183,19 @@
     },
     {
       "path": "deploy/docker-compose.production.yml",
-      "sha256": "7df62df9db0ba653cac27181131c2bae9f93c184d43e811f6a5f32d2f63b3be3"
+      "sha256": "4f5991a394d9d46860602eb5659650578177bad2b046bddc9b76d0afda17a7dc"
     },
     {
       "path": "docker/api.Dockerfile",
-      "sha256": "256f9834bb8e0d76a6e618f404ffc2b6a7d11ad915f75912fb6f8ffb7a39c629"
+      "sha256": "943bdf37c7925a2e0fda6fa2a25f05c38959ddc54d9a272b9645e18597379ddf"
     },
     {
       "path": "docker/entrypoint.sh",
-      "sha256": "c5214b065ff1175a940a295e6c3cff87a7cc06b97e754de6dc5dce711f97d118"
+      "sha256": "f3146d2b364dba8b0ac2e443e644e72d98873b7626f28d165e90cdc1d583fa99"
     },
     {
       "path": "docker/worker.Dockerfile",
-      "sha256": "0cb6d341610cbeafd1720d5eb4267b0c64309dfcb3672056326e9b94c0d81622"
+      "sha256": "3421b387f9180ec3f165a853d7e2508bc5db4a7357e896765770961b73194253"
     },
     {
       "path": "docs/ACCEPTANCE_SIGNOFF.md",
@@ -1187,7 +1227,7 @@
     },
     {
       "path": "docs/ERP_MASTER_HANDOFF.md",
-      "sha256": "f75a88e0d5afecc691462c5ceea27eaa2e031b935a02d2be728e423820689c3c"
+      "sha256": "c8e01e4c66a4304d331ddc20afb4dda9f17140df65d0f4ef5641ab75a16c39c1"
     },
     {
       "path": "docs/ERP_MASTER_HANDOFF_SOURCE.md",
@@ -1247,7 +1287,7 @@
     },
     {
       "path": "docs/RELEASE_GENEALOGY.md",
-      "sha256": "f7a3920c09ac4424ada718034a3c9a373aa5ae0e0b1ee61cdb64749c592d2945"
+      "sha256": "e90cec63b7aa513e20e437bdd4ce086b7f807cb3ae49f8041e76a17be33fa3b0"
     },
     {
       "path": "docs/UAT_MATRIX.md",
@@ -2638,6 +2678,10 @@
       "sha256": "0cea0d9a8debdce53be585c92889cb29b541e816ae041be6db16390782caa0b8"
     },
     {
+      "path": "docs/release-history/release-notes/RELEASE_NOTES_V90GX.md",
+      "sha256": "5357a6e553a9181af56a8b7bd162c1f2d9e44cbdab029bef351271ee4b518322"
+    },
+    {
       "path": "docs/release-history/release-notes/RELEASE_NOTES_V90I.md",
       "sha256": "8a05f6ddda408b7580d752a8f2d1b0dc670702a7f269ef6414a124e4ac481366"
     },
@@ -3554,8 +3598,32 @@
       "sha256": "f05914c27a3d045edf3d800714137db7effe13925d538a864458c559f9ac597a"
     },
     {
+      "path": "migrations/274_v90gx_company_gst_invoicing.sql",
+      "sha256": "d8fb69b2fe95fc6ad8abbf82867fbd0ea5216639a00e52223fd1bf506b3ee3ec"
+    },
+    {
+      "path": "migrations/275_v90gx_intercompany_settlement.sql",
+      "sha256": "a447b33f1af9d689bcef306d980ac324b113f0110b05db66fbae63bc4a59f1cc"
+    },
+    {
+      "path": "migrations/276_v90gx_business_date.sql",
+      "sha256": "63e6496d1ae0bb2a8d98e59617dd868b03c1f497f941e4e18611bcfba3532100"
+    },
+    {
+      "path": "migrations/277_v90gx_plant_operations.sql",
+      "sha256": "15ef8438f26568174a09d4ac60e439e33b95c3cfd4cf5c6053d04f476895f039"
+    },
+    {
+      "path": "migrations/278_v90gx_notifications.sql",
+      "sha256": "cffcbaad31bff5e2b2aef4afb0dc2b94a7f9a0c39dcfd9ec8a19f5fc07b42e5f"
+    },
+    {
+      "path": "migrations/279_v90gx_master_validation_fix_forward.sql",
+      "sha256": "d4caab43bc2da4cc7fa87ae08cfe5942b5c34dc32206be78d1a3a162bf1ab0df"
+    },
+    {
       "path": "requirements-dev.txt",
-      "sha256": "f8fa0d05b784affe534c8bf7a87e46e6505a69e21a3c71b5734288dbe57e1237"
+      "sha256": "a22e73ee681ad30300d98fad4b8c5cb488aebd4512d3ba2e93da3c55d282e133"
     },
     {
       "path": "requirements.txt",
@@ -3571,7 +3639,7 @@
     },
     {
       "path": "scripts/deploy.sh",
-      "sha256": "206c20a86b81a3fb69200cbc86af97c6be2a4e11518b42dbad4a6b73c1ce743d"
+      "sha256": "0017da14dcc71f6c892e9b7db8a83ed7472c3899320024e25e2d9622193e8d57"
     },
     {
       "path": "scripts/generate_checksums.py",
@@ -3579,11 +3647,11 @@
     },
     {
       "path": "scripts/migration_smoke.py",
-      "sha256": "120ee83864c8ac3c1fc75fb5c4f45211e4c1de7385b11de557c8258389d98779"
+      "sha256": "2022ab2cd05e2538a099736caf55cf72f3d32fcc9951513bd65d0c7f0c4eb161"
     },
     {
       "path": "scripts/post_deploy_smoke.py",
-      "sha256": "6eebf1f53847715c34666fc56a295b127de4931f8ef91e93de184baf3b719bf8"
+      "sha256": "bbbeef52c6fa7c6b0e562f17c232594e2991790fb72323aca02a484b90ab37ac"
     },
     {
       "path": "scripts/preflight.py",
@@ -3591,7 +3659,7 @@
     },
     {
       "path": "scripts/preflight_deploy.sh",
-      "sha256": "a0e5482b7943a474b8426fd388cccb5ccb03ff052a14edcbeda1a038a6275b97"
+      "sha256": "7f1f85a8ad1a54f7f29b1f4d432984d3c668852832003c91d234a3d0dda17dc3"
     },
     {
       "path": "scripts/restore.py",
@@ -3603,7 +3671,7 @@
     },
     {
       "path": "scripts/run_first_customer_bootstrap.sh",
-      "sha256": "5dd7063d00a228e0f65da342634d938c5e63c2b253d112dd7c6ef4447027698e"
+      "sha256": "b4fb396be11c06267d1547e57bb0154001b95266bfc3b431c5808e3b31af960b"
     },
     {
       "path": "scripts/validate_deployment_config.py",
@@ -4390,6 +4458,26 @@
       "sha256": "8507c9ab0bf80beed481851babbd1860ec154998a5d49574f77277166e565fc8"
     },
     {
+      "path": "tests/test_v90gx_company_gst_invoicing.py",
+      "sha256": "0ffa80ba5c88b1e6ea6acd2b19fd4c55d6bd7cd896361bd952c1c3d1a1e079e1"
+    },
+    {
+      "path": "tests/test_v90gx_intercompany_settlement.py",
+      "sha256": "848610435552b41928fae84e17a02702cd61dcb3c1d26afc23d70108d4ca22d4"
+    },
+    {
+      "path": "tests/test_v90gx_plant_operations.py",
+      "sha256": "28eccf0828a3028c2c62135b07e7f2cc1f6bb04250a9b2ca0e2253f8560cbd15"
+    },
+    {
+      "path": "tests/test_v90gx_runtime_security.py",
+      "sha256": "56c4341951a9c207a6abc4ea55a9f349980b35c594538cf4ca466162837006f1"
+    },
+    {
+      "path": "tests/test_v90gx_ui_support.py",
+      "sha256": "0b7a28234e52f2e736bae847a2652cfdb30aa44d36223a4b264745b5c8f52947"
+    },
+    {
       "path": "tests/test_v90h_master_scope.py",
       "sha256": "7cbd5b3f7145171f23333d7e84c459a2e2ed642c3ef005b591272c30b201c8bd"
     },
@@ -4510,8 +4598,20 @@
       "sha256": "1f9c9f6c822f6a03ea32aa4c014e001504bb8310730037b71d7781a72fd01584"
     },
     {
+      "path": "web/assets/erp-forms.js",
+      "sha256": "e81b07986baa4b1b0018d19b4996a16bed3974e95267c5793b0fade21e5f1f1a"
+    },
+    {
+      "path": "web/assets/scope-picker.js",
+      "sha256": "66614ae38029ebe989ab4b1e482cd838915271a482ed8cc5af3b1f576f477381"
+    },
+    {
       "path": "web/backup_dr.html",
       "sha256": "b372b7ddbc49ccababd38d1a32fe11e63660cdd7a416491d3f47dd36e087f8e6"
+    },
+    {
+      "path": "web/company-profile.html",
+      "sha256": "f662d205c293ac41e328ad2223ae8b6e90c1f8bc15d3afa303fbe15151813bfc"
     },
     {
       "path": "web/completion-audit.html",
@@ -4524,6 +4624,10 @@
     {
       "path": "web/customer-distribution-execution.html",
       "sha256": "60a8c55a143768bb2eab2030c75c0917187968f1b9ebcc7e5bf1a6a853dde2af"
+    },
+    {
+      "path": "web/daily-work.html",
+      "sha256": "1f6255063a0796e61888aa2d431d2ef3e637e0d99cfb8c01ee27470426410b60"
     },
     {
       "path": "web/deployment_cutover.html",
@@ -4635,7 +4739,11 @@
     },
     {
       "path": "web/index.html",
-      "sha256": "a7996032e93cdadd5c70b10f335937d4574244e7175d661962e150798670457b"
+      "sha256": "3d3ace605d4a8216b697198f1c211d52b1e2a43480a2ea72c6ae41815e5d05b2"
+    },
+    {
+      "path": "web/intercompany-xy.html",
+      "sha256": "1edd91642411f4b15d81eb085ec2f9b575f13333a100365cd89ab511019a2c25"
     },
     {
       "path": "web/intercompany.html",
@@ -4880,6 +4988,10 @@
     {
       "path": "web/performance_scalability.html",
       "sha256": "09c0af802acf482b066c8c101dbfa4ba402edcce0570982267726f6b83177f1f"
+    },
+    {
+      "path": "web/plant-registers.html",
+      "sha256": "ef07a2b8112eed6c901678832a9a2d3e02e2d5ca60669cd4d502a4309e6c8eef"
     },
     {
       "path": "web/post_go_live_stabilization.html",

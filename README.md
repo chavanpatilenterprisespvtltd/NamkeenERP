@@ -6,8 +6,8 @@ This is the **canonical consolidated ERP source tree** for the Namkeen/Farsan Ma
 
 - Product: **Namkeen ERP**
 - Production Candidate: **1.0**
-- Cumulative code baseline: **V90.gw**
-- Database schema target: **273**
+- Cumulative code baseline: **V90.gx** (V90.gw-hotfix5 + Session CS2 fixes — see `docs/release-history/release-notes/RELEASE_NOTES_V90GX.md`)
+- Database schema target: **279**
 - Architecture: Python/FastAPI + PostgreSQL + Web UI + Android foundation
 - Business model: multi-company/entity, including Manufacturing Entity X and Marketing/Sales Entity Y with intercompany support
 
@@ -21,12 +21,15 @@ This package consolidates the cumulative source that was present in the latest v
 
 The functional ERP feature build has reached the V90.gw completion-audit gate. This package is now moving into **consolidation → environment validation → role-based UAT → end-to-end UAT → production readiness → deployment**.
 
+**V90.gx (Session CS2)** closed the security/deployment blockers and added company X/Y profiles, GST invoice numbering/printing, the X→Y transfer-price/invoice/receipt/settlement flow, plant registers, notifications and dropdown-based screens. PostgreSQL 16 was exercised for the first time: migrations 061–279 apply on an empty database (073–075 superseded by fix-forward 279), bootstrap and login work in production mode — see the V90.gx release notes for the remaining PostgreSQL test failures.
+
 It is **not yet certified as production-complete**. The latest release verification recorded focused tests, compilation, checksum verification and CI-gate success, while PostgreSQL migration smoke testing and production deployment were not run in that release environment.
 
 ## Repository layout
 
 - `app/` — cumulative Python backend/API and ERP modules
-- `migrations/` — ordered PostgreSQL migrations (61–273 in the current cumulative tree)
+- `migrations/` — ordered PostgreSQL migrations (61–279 in the current cumulative tree; 073–075 superseded by 279)
+- `bootstrap/` — first-customer bootstrap (entities X/Y, sites, warehouses, first admin)
 - `web/` — cumulative web UI
 - `android/` — Android/mobile foundation and build configuration
 - `tests/` — cumulative automated test suite

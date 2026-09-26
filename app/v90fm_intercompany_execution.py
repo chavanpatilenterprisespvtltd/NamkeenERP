@@ -1,3 +1,18 @@
+# FILE PATH: app/v90fm_intercompany_execution.py
+# ─── Intercompany Execution v1.1 (Session CS2 — one-step post refused for policy-priced transactions) ─
+#
+# [Session CS2] FEATURE — THE ONE-STEP POST SKIPPED X's INVOICE, IN-TRANSIT STOCK AND Y's RECEIPT.
+# Confirmed this session by reading post(): INTERCOMPANY_OUT and INTERCOMPANY_IN are written in the same
+# transaction with hand-typed values. The full X→Y flow now lives in app/v90gx_intercompany_settlement.py.
+# THE FIX: post() returns HTTP 409 for a transaction that has been priced under a V90.gx transfer-price
+# policy (row in intercompany_pricing), so it cannot bypass the invoice/receipt steps. Unpriced legacy
+# transactions behave exactly as before (tests/test_v90fm_intercompany_execution.py unchanged).
+# The runtime creation of intercompany_pricing happens in V90.gx, registered after this module; the
+# query runs only at request time, when the table exists.
+# NOT touched: create/list/eliminations/resolve/close routes, schema, permissions.
+#
+# ─── v1.0 HEADER (preserved) ─────────────────────────────────────────────
+# Original V90.fm intercompany execution (migration 239); no in-file changelog existed before Session CS2.
 from __future__ import annotations
 from decimal import Decimal, ROUND_HALF_UP
 from pathlib import Path
@@ -92,6 +107,8 @@ def register_v90fm_routes(app:FastAPI,e):
         with e.begin() as c:
             tx=c.execute(text("SELECT * FROM intercompany_transaction WHERE transaction_id=:id AND status='DRAFT'"),{'id':transaction_id}).mappings().first()
             if not tx: raise HTTPException(404,'draft intercompany transaction not found')
+            # [Session CS2] — transactions priced under a V90.gx transfer-price policy must use dispatch/receive (in-transit + invoice).
+            if c.execute(text("SELECT 1 FROM intercompany_pricing WHERE transaction_id=:id"),{'id':transaction_id}).first(): raise HTTPException(409,'this transaction is priced under a transfer-price policy: use /v90gx/intercompany/transactions/{id}/dispatch and /receive')
             lines=c.execute(text('SELECT * FROM intercompany_transaction_line WHERE transaction_id=:t ORDER BY line_id'),{'t':transaction_id}).mappings().all()
             if not lines: raise HTTPException(409,'transaction has no lines')
             for l in lines:

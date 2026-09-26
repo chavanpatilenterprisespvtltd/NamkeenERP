@@ -1,3 +1,16 @@
+# FILE PATH: app/v90r_production_execution.py
+# ─── Production Execution v1.1 (Session CS2 — batch business date and shift) ─
+#
+# [Session CS2] FEATURE — BATCH HAD NO PRODUCTION DATE; ONLY THE INSERT TIME WAS KEPT.
+# Confirmed this session by reading ensure schema/create_batch(): no business date column or field.
+# THE FIX: production_batch gets nullable business_date (DATE) and shift_code columns (added at startup
+# by business_date.ensure_column; PostgreSQL migration 276). BatchCreate accepts business_date
+# (validated: not future, not older than BUSINESS_DATE_MAX_BACKDATE_DAYS, default 7) and shift_code;
+# default business_date = today (UTC). The response includes both.
+# NOT touched: material issue, start/complete rules, batch number uniqueness, permissions.
+#
+# ─── v1.0 HEADER (preserved) ─────────────────────────────────────────────
+# Original V90.r production execution; no in-file changelog existed before Session CS2.
 
 from __future__ import annotations
 from datetime import datetime, timezone
@@ -51,6 +64,10 @@ def ensure_v90r_schema(engine) -> None:
     with engine.begin() as conn:
         for stmt in stmts:
             conn.execute(text(stmt))
+    # [Session CS2] FEATURE — business date / shift on batches (see file header).
+    from .business_date import ensure_column
+    ensure_column(engine, 'production_batch', 'business_date', 'DATE NULL')
+    ensure_column(engine, 'production_batch', 'shift_code', 'TEXT NULL')
 
 
 class IssueLine(BaseModel):
@@ -79,6 +96,8 @@ class BatchCreate(BaseModel):
     operator_user_id: str | None = None
     machine_id: str | None = None
     notes: str | None = None
+    business_date: str | None = None  # [Session CS2] production date (may be up to BUSINESS_DATE_MAX_BACKDATE_DAYS back)
+    shift_code: str | None = Field(default=None, max_length=20)
 
 class BatchDecision(BaseModel):
     reason: str = ''
@@ -165,11 +184,13 @@ def register_v90r_routes(app: FastAPI, engine) -> None:
             exists = conn.execute(text('SELECT batch_id FROM production_batch WHERE organization_id=:org AND entity_id=:e AND batch_no=:b'), {'org':str(body.organization_id),'e':str(body.entity_id),'b':body.batch_no}).first()
             if exists: raise HTTPException(409, 'batch number already exists')
         bid=uuid4()
+        from .business_date import parse_business_date
+        bdate = parse_business_date(body.business_date) or datetime.now(timezone.utc).date().isoformat()  # [Session CS2]
         with engine.begin() as conn:
-            conn.execute(text("""INSERT INTO production_batch(batch_id,production_order_id,organization_id,entity_id,location_id,batch_no,product_master_id,planned_qty,uom,status,operator_user_id,machine_id,created_by,notes)
-                VALUES(:id,:o,:org,:e,:l,:b,:p,:q,:u,'OPEN',:op,:m,:by,:n)"""),
-                {'id':str(bid),'o':str(order_id),'org':str(body.organization_id),'e':str(body.entity_id),'l':str(body.location_id),'b':body.batch_no,'p':str(order['product_master_id']),'q':order['planned_qty'],'u':order['uom'],'op':body.operator_user_id,'m':body.machine_id,'by':str(user.user_id),'n':body.notes})
-        return {'batch_id':str(bid),'batch_no':body.batch_no,'status':'OPEN'}
+            conn.execute(text("""INSERT INTO production_batch(batch_id,production_order_id,organization_id,entity_id,location_id,batch_no,product_master_id,planned_qty,uom,status,operator_user_id,machine_id,created_by,notes,business_date,shift_code)
+                VALUES(:id,:o,:org,:e,:l,:b,:p,:q,:u,'OPEN',:op,:m,:by,:n,:bd,:sh)"""),
+                {'id':str(bid),'o':str(order_id),'org':str(body.organization_id),'e':str(body.entity_id),'l':str(body.location_id),'b':body.batch_no,'p':str(order['product_master_id']),'q':order['planned_qty'],'u':order['uom'],'op':body.operator_user_id,'m':body.machine_id,'by':str(user.user_id),'n':body.notes,'bd':bdate,'sh':body.shift_code})
+        return {'batch_id':str(bid),'batch_no':body.batch_no,'status':'OPEN','business_date':bdate,'shift_code':body.shift_code}
 
     @app.post('/v90r/batches/{batch_id}/start')
     def start_batch(batch_id: UUID, body: BatchDecision, request: Request):

@@ -1,3 +1,15 @@
+# FILE PATH: app/v90db_machine_oee.py
+# ─── Machine OEE v1.1 (Session CS2 — machine runs carry a business date; OEE periods use it) ─
+#
+# [Session CS2] FEATURE — OEE PERIODS WERE BASED ON INSERT TIME (DATE(created_at)).
+# Confirmed this session by reading the OEE calculation query and the run insert.
+# THE FIX: manufacturing_machine_run gets nullable business_date (added at startup; PostgreSQL
+# migration 276). Run insert stores business_date (validated by business_date.parse_business_date,
+# default today). The OEE query filters on COALESCE(business_date, DATE(created_at)) so older rows
+# keep their previous behaviour. NOT touched: OEE formulae, thresholds, other routes.
+#
+# ─── v1.0 HEADER (preserved) ─────────────────────────────────────────────
+# Original V90.db machine OEE; no in-file changelog existed before Session CS2.
 from __future__ import annotations
 from decimal import Decimal, ROUND_HALF_UP
 from pathlib import Path
@@ -5,6 +17,7 @@ from uuid import uuid4
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import FileResponse
 from sqlalchemy import text
+from .business_date import ensure_column, parse_business_date
 from .auth import authenticate
 from .identity import permissions_for_user
 
@@ -46,6 +59,7 @@ def _ensure(e):
 
 def register_v90db_routes(app:FastAPI,e):
     _ensure(e)
+    ensure_column(e, 'manufacturing_machine_run', 'business_date', 'DATE NULL')  # [Session CS2]
     @app.post('/v90db/machines/reasons')
     def reason(body:dict,request:Request):
         u=_perm(e,request,'machine_oee.manage')
@@ -68,7 +82,7 @@ def register_v90db_routes(app:FastAPI,e):
         for k in ('organization_id','entity_id','work_center_id'):
             if not str(body.get(k) or '').strip(): raise HTTPException(400,f'{k} is required')
         rid=str(uuid4())
-        with e.begin() as c: c.execute(text('''INSERT INTO manufacturing_machine_run(run_id,organization_id,entity_id,work_center_id,production_order_id,product_id,shift_code,planned_qty,good_qty,reject_qty,ideal_cycle_minutes,planned_minutes,actual_run_minutes,downtime_minutes,created_by) VALUES(:i,:o,:e,:w,:po,:p,:s,:pq,:g,:r,:ic,:pm,:rm,:dm,:u)'''),{'i':rid,'o':body['organization_id'],'e':body['entity_id'],'w':body['work_center_id'],'po':body.get('production_order_id'),'p':body.get('product_id'),'s':body.get('shift_code'),'pq':float(_d(body.get('planned_qty'))),'g':float(_d(body.get('good_qty'))),'r':float(_d(body.get('reject_qty'))),'ic':float(_d(body.get('ideal_cycle_minutes'))),'pm':float(_d(body.get('planned_minutes'))),'rm':float(_d(body.get('actual_run_minutes'))),'dm':float(_d(body.get('downtime_minutes'))),'u':str(u.user_id)})
+        with e.begin() as c: c.execute(text('''INSERT INTO manufacturing_machine_run(run_id,organization_id,entity_id,work_center_id,production_order_id,product_id,shift_code,planned_qty,good_qty,reject_qty,ideal_cycle_minutes,planned_minutes,actual_run_minutes,downtime_minutes,created_by,business_date) VALUES(:i,:o,:e,:w,:po,:p,:s,:pq,:g,:r,:ic,:pm,:rm,:dm,:u,:bd)'''),{'bd':_bdate(body.get('business_date')),'i':rid,'o':body['organization_id'],'e':body['entity_id'],'w':body['work_center_id'],'po':body.get('production_order_id'),'p':body.get('product_id'),'s':body.get('shift_code'),'pq':float(_d(body.get('planned_qty'))),'g':float(_d(body.get('good_qty'))),'r':float(_d(body.get('reject_qty'))),'ic':float(_d(body.get('ideal_cycle_minutes'))),'pm':float(_d(body.get('planned_minutes'))),'rm':float(_d(body.get('actual_run_minutes'))),'dm':float(_d(body.get('downtime_minutes'))),'u':str(u.user_id)})
         return {'run_id':rid,'status':'RECORDED'}
     @app.post('/v90db/machines/oee/calculate')
     def calculate(body:dict,request:Request):
@@ -76,7 +90,7 @@ def register_v90db_routes(app:FastAPI,e):
         for k in ('organization_id','entity_id','work_center_id','period_start','period_end'):
             if not str(body.get(k) or '').strip(): raise HTTPException(400,f'{k} is required')
         with e.begin() as c:
-            rows=c.execute(text('''SELECT COALESCE(SUM(planned_minutes),0) planned,COALESCE(SUM(actual_run_minutes),0) run,COALESCE(SUM(downtime_minutes),0) down,COALESCE(SUM(good_qty),0) good,COALESCE(SUM(good_qty+reject_qty),0) total,COALESCE(SUM(good_qty*ideal_cycle_minutes),0) ideal FROM manufacturing_machine_run WHERE organization_id=:o AND entity_id=:e AND work_center_id=:w AND DATE(created_at) BETWEEN :s AND :d'''),{'o':body['organization_id'],'e':body['entity_id'],'w':body['work_center_id'],'s':body['period_start'],'d':body['period_end']}).mappings().one()
+            rows=c.execute(text('''SELECT COALESCE(SUM(planned_minutes),0) planned,COALESCE(SUM(actual_run_minutes),0) run,COALESCE(SUM(downtime_minutes),0) down,COALESCE(SUM(good_qty),0) good,COALESCE(SUM(good_qty+reject_qty),0) total,COALESCE(SUM(good_qty*ideal_cycle_minutes),0) ideal FROM manufacturing_machine_run WHERE organization_id=:o AND entity_id=:e AND work_center_id=:w AND COALESCE(business_date,DATE(created_at)) BETWEEN :s AND :d'''),{'o':body['organization_id'],'e':body['entity_id'],'w':body['work_center_id'],'s':body['period_start'],'d':body['period_end']}).mappings().one()
             planned=_d(rows['planned']); run=_d(rows['run']); down=_d(rows['down']); ideal=_d(rows['ideal']); good=_d(rows['good']); total=_d(rows['total'])
             availability=(run/planned*100) if planned else Decimal(0)
             performance=(ideal/run*100) if run else Decimal(0)
@@ -101,3 +115,9 @@ def register_v90db_routes(app:FastAPI,e):
         return {'machines':[dict(x) for x in rows],'downtime_reasons':[dict(x) for x in reasons]}
     @app.get('/ui/manufacturing-machine-oee')
     def page(): return FileResponse(Path(__file__).resolve().parents[1]/'web'/'manufacturing-machine-oee.html')
+
+
+def _bdate(v):
+    # [Session CS2] run date for OEE: given business_date (validated) or today.
+    from datetime import datetime, timezone
+    return parse_business_date(v) or datetime.now(timezone.utc).date().isoformat()

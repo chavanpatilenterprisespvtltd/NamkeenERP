@@ -1,3 +1,22 @@
+# FILE PATH: app/db.py
+# ─── Database Configuration v1.1 (Session CS2 — DATABASE_URL_FILE support; no SQLite fallback in production) ─
+#
+# [Session CS2] FIX — DOCKER PRODUCTION WOULD RUN ON AN IN-MEMORY SQLITE DATABASE AND LOSE ALL DATA ON RESTART.
+# Confirmed this session by reading the code: load_database_config() used
+# source.get("DATABASE_URL", "sqlite+pysqlite:///:memory:"); the production compose/env templates
+# provide only DATABASE_URL_FILE=/run/secrets/database_url, which was never read.
+#
+# ROOT CAUSE: secret-file convention added in V90.bh deployment templates, not in the V90.b db layer.
+#
+# THE FIX: load_database_config() now resolves the URL through runtime_security.database_url(),
+# which reads DATABASE_URL or the file named by DATABASE_URL_FILE and raises RuntimeConfigError in
+# staging/production when the URL is missing or points to SQLite. When an explicit `env` mapping is
+# passed (as the existing tests do) that mapping is used instead of os.environ.
+# NOT touched: postgres:// → postgresql+psycopg:// rewrite, pool settings, create_db_engine(), database_ping().
+# Verified by tests/test_v90gx_runtime_security.py and the existing db tests.
+#
+# ─── v1.0 HEADER (preserved) ─────────────────────────────────────────────
+# Original V90.b core runtime database layer; no in-file changelog existed before Session CS2.
 from __future__ import annotations
 
 import os
@@ -7,6 +26,8 @@ from typing import Optional
 from sqlalchemy import create_engine, text
 from sqlalchemy.pool import StaticPool
 from sqlalchemy.engine import Engine
+
+from .runtime_security import database_url
 
 
 @dataclass(frozen=True)
@@ -19,7 +40,7 @@ class DatabaseConfig:
 
 def load_database_config(env: Optional[dict[str, str]] = None) -> DatabaseConfig:
     source = env or os.environ
-    url = source.get("DATABASE_URL", "sqlite+pysqlite:///:memory:")
+    url = database_url(source)  # [Session CS2] FIX — see file header (DATABASE_URL_FILE; no SQLite in production).
     if url.startswith("postgres://"):
         url = "postgresql+psycopg://" + url[len("postgres://") :]
     if url.startswith("postgresql://"):
