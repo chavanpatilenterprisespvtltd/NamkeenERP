@@ -1,4 +1,14 @@
 # FILE PATH: .github/workflows/ci.yml
+# [Session CS3] FIX — "validate-and-test" RUNS THE WHOLE TEST SUITE AGAINST POSTGRESQL AND ALWAYS FAILED.
+# Confirmed this session: run #6 (V90.gx push) showed validate-and-test failed while migration-smoke passed.
+# This job sets DATABASE_URL to the postgres:16 service, so pytest runs on PostgreSQL, not SQLite. Reproduced
+# locally on PostgreSQL 16 with the same env (ERP_ENV=ci): 196 of 577 tests failed before Session CS3 (SQLite-only
+# SQL and fixtures, master tables without the V77 columns, a request executed twice by the governance middleware).
+# After the Session CS3 fixes the same local run gave 584 passed, 0 failed — only after the database schema had
+# been migrated, because master_record/master_change_request exist on PostgreSQL only through migrations.
+# THE FIX: new step "Apply database migrations" (python -m app.migrate_cli) before pytest. Nothing else changed.
+# NOT RUN: the GitHub Actions run itself — confirm on the next push.
+#
 # [Session CS1] FIX — VALIDATE-AND-TEST JOB HAS NO PYTEST INSTALLED, SO "PYTEST -Q" CANNOT RUN.
 # Confirmed live this session via a local reproduction: `python -m venv` + `pip install -r
 # requirements.txt` (no other install step) + `python -m pytest --version` raised
@@ -64,6 +74,9 @@ jobs:
       - run: pip install -r requirements-dev.txt
       - name: Repository and migration gate
         run: python scripts/ci_gate.py
+      # [Session CS3] FIX — see file header. Same order as a real start-up: runtime schema + migrations 061–282.
+      - name: Apply database migrations
+        run: python -m app.migrate_cli
       - name: Run cumulative tests
         run: pytest -q --disable-warnings
       - name: Compile Python
